@@ -1,0 +1,49 @@
+#masthead, #footer {
+	background-color: #049CD9;
+	background-repeat: no-repeat;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#004D9F), to(#049CD9));
+	background-image: -webkit-linear-gradient(#004D9F, #049CD9);
+	background-image: -moz-linear-gradient(#004D9F, #049CD9);
+	background-image: -o-linear-gradient(top, #004D9F, #049CD9);
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#004D9F), to(#049CD9));
+	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#004D9F', EndColorStr='#049CD9', GradientType=0);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#004D9F', EndColorStr='#049CD9', GradientType=0))";
+}
+
+#masthead div.inner, #footer div.inner {
+	background: transparent url(../img/grid-18px.png) top center;
+	padding: 45px 0;
+	-webkit-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+	box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#footer {
+	margin-top: 80px;
+}
+
+#masthead h1, #footer h1, #masthead p, #footer p {
+	color: white;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+
+#footer p {
+	margin-bottom: 0;
+	color: rgba(255, 255, 255, .8);
+}
+#footer p.right {
+	float: right;
+}
+
+#masthead p a, #footer p a {
+	color: white;
+	font-weight: bold;
+}
+
+.spacer
+{
+	height:1px;
+	width:100%;
+	border-top:solid 3px #DDD;
+	border-bottom:solid 1px #DDD;
+}
