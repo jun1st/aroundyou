@@ -43,6 +43,7 @@ $route['404_override'] = '';
 
 $route['login/(:any)'] = "login/index/$1";
 $route['users'] = "user/index";
+$route['user/setting']="user/setting";
 $route['user/(:any)'] = 'user/get/$1';
 
 

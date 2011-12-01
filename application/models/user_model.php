@@ -3,14 +3,19 @@
 	
 	class User_model extends CI_Model{
 		
-		var $id = 0;
-		var $name = '';
-		var $email = '';
-		var $password = '';
-		var $weibo = '';
-		var $register_time = '';
-		var $last_login_time = '';
-		var $last_activity_time = '';
+		var $id;
+		var $name;
+		var $email;
+		var $password;
+		var $weibo;
+		var $register_time;
+		var $last_login_time;
+		var $last_activity_time;
+		var $profile_image_path;
+		var $description;
+		var $website;
+		var $location;
+		var $birthday;
 		
 		function __construct()
 		{

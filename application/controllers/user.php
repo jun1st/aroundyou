@@ -27,6 +27,15 @@
 			
 		}
 		
+		public function setting()
+		{
+			$this->load->model('User_model');
+			
+			$data['user'] = $this->User_model->get_user($this->session->userdata['user']->name);
+			
+			$this->load->view('User/setting', $data);
+		}
+		
 		public function register()
 		{
 			echo $this->session->userdata('is_login');
