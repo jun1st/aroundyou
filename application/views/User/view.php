@@ -17,7 +17,6 @@
 		</div>
 	</div>
 	<div class="container">
-		<?php echo $user->name; ?>
 	</div>
 </body>
 </html>
