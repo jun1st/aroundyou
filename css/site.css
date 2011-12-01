@@ -1,3 +1,8 @@
+input[type="submit"]:hover
+{
+	cursor:pointer;
+}
+
 #masthead, #footer {
 	background-color: #049CD9;
 	background-repeat: no-repeat;
@@ -47,3 +52,22 @@
 	border-top:solid 3px #DDD;
 	border-bottom:solid 1px #DDD;
 }
+
+#comments
+{
+	margin-top:5px;
+	padding-top:5px;
+}
+
+#comments ul
+{
+	margin-left:0px;
+	list-style:none;
+}
+
+#comments ul li .author
+{
+	margin-top:4px;
+	margin-bottom:8px;
+}
+

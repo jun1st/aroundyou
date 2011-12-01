@@ -18,20 +18,22 @@
 	</div>
 	<div class="container">
 		<div class="entry">
-			<h3><?php echo $message->topic; ?></h3>
-			<p><?php echo $message->user_name . " posted at " .$message->posted_time; ?>
+			<h2><?php echo $message->topic; ?></h2>
 			<div>
 				<?php echo $message->content; ?>
 			</div>
+			<p>
+			<?php echo "<a href=/user/$message->user_name title='查看$message->user_name 的信息' >$message->user_name</a>"; ?>
+			<?php echo  "发布于: " .relativeTime($message->posted_time); ?>
 		</div>
 		<div class="spacer"></div>
-		<div id="comments" style="margin-top:20px; padding-top:20px;">
-			<ul style="list-style:none;">
+		<div id="comments">
+			<ul>
 				<?php foreach ($comments as $comment): ?>
 					<li style="margin-bottom:10px; border-bottom:1px solid #cccccc;">
 						<div>
 						<p><?php echo $comment->content; ?></p>
-						<div>
+						<div class='author'>
 							<?php echo $comment->user_name . ' posted at ' . $comment->posted_time; ?>
 						</div>
 						</div>

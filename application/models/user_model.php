@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	require_once BASEPATH.'core/Model.php';
 	
-	class Usermodel extends CI_Model{
+	class User_model extends CI_Model{
 		
 		var $id = 0;
 		var $name = '';
@@ -15,6 +15,13 @@
 		function __construct()
 		{
 			parent::__construct();
+		}
+		
+		function get_user($name)
+		{
+			$query = $this->db->get_where('users', array('name'=>$name));
+			
+			return $query->row();
 		}
 		
 		function get_users()

@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	include_once $_SERVER['DOCUMENT_ROOT'] . '/application/models/message_model.php';
 	include_once $_SERVER['DOCUMENT_ROOT'] . '/application/models/comment_model.php';
+	//include_once $_SERVER['DOCUMENT_ROOT'] . '/application/helpers/relatime_time.php';
 
 	class message extends CI_Controller
 	{
@@ -19,6 +20,7 @@
 		
 		public function view($id)
 		{	
+			$this->load->helper('date');
 			$this->db->select("messages.id as message_id, topic, content, posted_time, users.name as user_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');

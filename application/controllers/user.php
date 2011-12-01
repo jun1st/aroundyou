@@ -1,15 +1,30 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	include_once $_SERVER['DOCUMENT_ROOT'] . '/application/models/usermodel.php';
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/application/models/user_model.php';
 	
 	class User extends CI_Controller{
 		
 		public function index()
 		{
-			$this->load->model('Usermodel');
+			$this->load->model('User_model');
 			
-			$data['users'] = $this->Usermodel->get_users();
+			$data['users'] = $this->User_model->get_users();
 			
 			$this->load->view('User/index', $data);
+		}
+		
+		public function get($name)
+		{
+			if(!isset($name) || $name=='')
+			{
+				$this->index();
+			}
+			
+			$this->load->model('User_model');
+			
+			$data['user'] = $this->User_model->get_user($name);
+			
+			$this->load->view('User/view', $data);
+			
 		}
 		
 		public function register()

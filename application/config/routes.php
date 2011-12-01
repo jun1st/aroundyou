@@ -42,6 +42,8 @@ $route['default_controller'] = "message";
 $route['404_override'] = '';
 
 $route['login/(:any)'] = "login/index/$1";
+$route['users'] = "user/index";
+$route['user/(:any)'] = 'user/get/$1';
 
 
 /* End of file routes.php */
