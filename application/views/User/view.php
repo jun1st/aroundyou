@@ -17,6 +17,16 @@
 		</div>
 	</div>
 	<div class="container">
+		<div id="userprofile">
+			<img title="profile image" />
+			<?php echo $user->name; ?>
+		</div>
+		<div id="useractivities">
+			<ul class="tabs">
+				<li class='active'><a href='#'>发表的话题</a></li>
+				<li><a href='#'>发出的评论</a></li>
+			</ul>
+		</div>
 	</div>
 </body>
 </html>
