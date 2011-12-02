@@ -17,6 +17,14 @@
 		</div>
 	</div>
 	<div class="container">
+		<div class="profileimageupload">
+			<?php echo form_open_multipart('user/upload_profile_image/');?>
+			<input type="file" name="userfile" size="200" />
+			<br /><br />
+			<input type="submit" value="upload" />
+			</form>
+		</div>
+		<div>
 		<?php echo form_open('user/setting'); ?>
 			<fieldset id="profile_setting" class="">
 				<legend>profile setting</legend>
@@ -56,6 +64,7 @@
 				</div>
 			</fieldset>
 		<?php echo form_close(); ?>
+		</div>
 	</div>
 </body>
 </html>

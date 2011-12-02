@@ -44,7 +44,8 @@ $route['404_override'] = '';
 $route['login/(:any)'] = "login/index/$1";
 $route['users'] = "user/index";
 $route['user/setting']="user/setting";
-$route['user/(:any)'] = 'user/get/$1';
+$route['user/upload_profile_image/']="user/upload_profile_image";
+#$route['user/(:any)'] = 'user/get/$1';
 
 
 /* End of file routes.php */
