@@ -6,6 +6,9 @@
 <head>
 	<title>setting</title>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?>
+	<link rel="stylesheet" href="/css/jquery.Jcrop.css" type="text/css" charset="utf-8" >
+	<script type="text/javascript" charset="utf-8" src="/scripts/jquery.min.js" ></script>
+	<script type="text/javascript" charset="utf-8" src="/scripts/jquery.Jcrop.min.js" ></script>
 </head>
 
 <body>
@@ -18,11 +21,8 @@
 	</div>
 	<div class="container">
 		<div class="profileimageupload">
-			<?php echo form_open_multipart('user/upload_profile_image/');?>
-			<input type="file" name="userfile" size="200" />
-			<br /><br />
-			<input type="submit" value="upload" />
-			</form>
+			<img src="<?php echo $user->profile_image_path; ?>" title="profile image" />
+			<a href="/user/upload_image">更换</a>
 		</div>
 		<div class="profilesetting">
 		<?php echo form_open('user/setting'); ?>

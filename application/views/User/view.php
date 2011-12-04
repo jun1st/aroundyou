@@ -18,7 +18,7 @@
 	</div>
 	<div class="container">
 		<div id="userprofile">
-			<img title="profile image" />
+			<img title="profile image" src="<?php echo $user->profile_image_path; ?>" />
 			<?php echo $user->name; ?>
 		</div>
 		<div id="useractivities">

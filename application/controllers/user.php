@@ -39,39 +39,47 @@
 			$this->load->view('User/setting', $data);
 		}
 		
-		public function upload_profile_image()
+		public function upload_image()
 		{
 			if ($this->session->userdata['is_login'] != 'true') {
 				redirect('login');
 			}
 			
-			$filePath = "./uploads/profile_images/" . $this->session->userdata['user']->id ."/";
-			
-			if(!file_exists($filePath))
+			if(!isset($_POST['submit']))
 			{
-				mkdir($filePath, 0777);
-			}
-			
-			$config['upload_path'] = $filePath;
-			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size']	= '100';
-			$config['max_width']  = '1024';
-			$config['max_height']  = '768';
-
-			$this->load->library('upload', $config);
-
-			if ( ! $this->upload->do_upload())
-			{
-				echo 'failed';
-				$error = array('error' => $this->upload->display_errors());
-
-				$this->load->view('user/upload_form', $error);
+				$data['user'] = $this->User_model->get_user($this->session->userdata['user']->name);
+				$this->load->view('user/upload_image', $data);
 			}
 			else
 			{
-				$data = array('upload_data' => $this->upload->data());
+				$filePath = "./uploads/profile_images/" . $this->session->userdata['user']->id ."/";
+			
+				if(!file_exists($filePath))
+				{
+					mkdir($filePath, 0777);
+				}
+			
+				$config['upload_path'] = $filePath;
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size']	= '100';
+				$config['max_width']  = '1024';
+				$config['max_height']  = '768';
 
-				$this->load->view('upload_success', $data);
+				$this->load->library('upload', $config);
+
+				if ( ! $this->upload->do_upload())
+				{
+					echo 'failed';
+					$error = array('error' => $this->upload->display_errors());
+
+					$this->load->view('user/upload_form', $error);
+				}
+				else
+				{
+					$data = array('upload_data' => $this->upload->data());
+
+					$this->load->view('upload_success', $data);
+				}
 			}
 			
 		}
