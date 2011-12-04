@@ -24,7 +24,7 @@
 			<input type="submit" value="upload" />
 			</form>
 		</div>
-		<div>
+		<div class="profilesetting">
 		<?php echo form_open('user/setting'); ?>
 			<fieldset id="profile_setting" class="">
 				<legend>profile setting</legend>

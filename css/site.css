@@ -71,3 +71,14 @@ input[type="submit"]:hover
 	margin-bottom:8px;
 }
 
+.profileimageupload
+{
+	width:200px;
+	float:left;
+}
+
+.profilesetting
+{
+	margin-left:200px;
+}
+

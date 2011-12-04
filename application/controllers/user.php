@@ -44,7 +44,15 @@
 			if ($this->session->userdata['is_login'] != 'true') {
 				redirect('login');
 			}
-			$config['upload_path'] = './uploads/profile_images/';
+			
+			$filePath = "./uploads/profile_images/" . $this->session->userdata['user']->id ."/";
+			
+			if(!file_exists($filePath))
+			{
+				mkdir($filePath, 0777);
+			}
+			
+			$config['upload_path'] = $filePath;
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size']	= '100';
 			$config['max_width']  = '1024';
