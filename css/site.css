@@ -77,8 +77,14 @@ input[type="submit"]:hover
 	float:left;
 }
 
-.profilesetting
+.profiledetail
 {
 	margin-left:200px;
 }
+
+.profiledetail table.zebra-striped
+{
+	width:400px;
+}
+
 

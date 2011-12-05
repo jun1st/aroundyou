@@ -34,7 +34,22 @@
 			}
 			$this->load->model('User_model');
 			
+			if(isset($_POST['submit']))
+			{
+				$data = array(
+					'name' => $this->input->post('name'),
+					'email' => $this->input->post('email'),
+					'birthday' => $this->input->post('birthday'),
+					'location' => $this->input->post('location'),
+					'website' => $this->input->post('website')
+				);
+				
+				$this->db->where('id', $this->session->userdata['user']->id);
+				$this->db->update('users', $data);
+			}
+			
 			$data['user'] = $this->User_model->get_user($this->session->userdata['user']->name);
+			
 			
 			$this->load->view('User/setting', $data);
 		}
@@ -86,9 +101,8 @@
 				$uploadFile = uri_assoc(‘fileToUpload’,2);
 				$config['upload_path'] = $filePath;
 				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size']	= '1000';
-				$config['max_width']  = '1024';
-				$config['max_height']  = '768';
+				$config['max_size']	= '4096';
+
 
 				$this->load->library('upload', $config);
 

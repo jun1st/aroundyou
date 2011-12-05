@@ -18,9 +18,37 @@
 	</div>
 	<div class="container">
 		<div id="userprofile">
-			<img title="profile image" src="<?php echo $user->profile_image_path; ?>" style="width:128px;height:128px;"/>
-			<?php echo $user->name; ?>
+					<div class="profileimageupload">
+			<img title="profile image" src="<?php echo $user->profile_image_path; ?>" 		style="width:128px;height:128px;"/>
+			</div>
+			<div class="profiledetail">
+				<table class="zebra-striped">
+					<tbody>
+						<tr>
+							<td>名字：</td>
+							<td><strong><?php echo $user->name; ?></strong></td>
+						</tr>
+						<tr>
+							<td>Email：</td>
+							<td><a href="mailto:<?php echo $user->email; ?>"><?php echo $user->email; ?></a></td>
+						</tr>
+						<tr>
+							<td>生日：</td>
+							<td><?php echo $user->birthday; ?></td>
+						</tr>
+						<tr>
+							<td>个人网站：</td>
+							<td><a href="<?php echo $user->website; ?>" target="about"><?php echo $user->website; ?></a></td>
+						</tr>
+						<tr>
+							<td>所在城市：</td>
+							<td><?php echo $user->website; ?></td>
+						</tr>
+					<tbody>
+				</table>	
+			</div>
 		</div>
+		<div style="clear:both;">
 		<div id="useractivities">
 			<ul class="tabs">
 				<li class='active'><a href='#'>发表的话题</a></li>

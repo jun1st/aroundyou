@@ -21,10 +21,10 @@
 	</div>
 	<div class="container">
 		<div class="profileimageupload">
-			<img src="<?php echo $user->profile_image_path; ?>" title="profile image" />
+			<img src="<?php echo $user->profile_image_path; ?>" title="profile image" style="width:128px; height:128px;"/>
 			<a href="/user/upload_image">更换</a>
 		</div>
-		<div class="profilesetting">
+		<div class="profiledetail">
 		<?php echo form_open('user/setting'); ?>
 			<fieldset id="profile_setting" class="">
 				<legend>profile setting</legend>
@@ -59,7 +59,7 @@
 					</div>
 				</div>
 				<div class="actions">
-					<button type="submit" class="btn primary" value="修改" >修改</button>
+					<button name="submit" type="submit" class="btn primary" value="修改" >修改</button>
 					<button type="reset" class="btn" value="取消" >取消</button>
 				</div>
 			</fieldset>
