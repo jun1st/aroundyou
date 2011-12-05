@@ -7,6 +7,7 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?>
 	<link rel="stylesheet" href="/css/jquery.Jcrop.css" type="text/css" charset="utf-8" >
 	<script type="text/javascript" charset="utf-8" src="/scripts/jquery.min.js" ></script>
+	<script type="text/javascript" charset="utf-8" src="/scripts/ajaxfileupload.js" ></script>
 	<script type="text/javascript" charset="utf-8" src="/scripts/jquery.Jcrop.min.js" ></script>
 </head>
 <body>
@@ -18,18 +19,9 @@
 	</div>
 	<div class="container">
 
-		<?php echo form_open_multipart('user/upload_image/');?>
-		<img id="profileImage" src="<?php echo $user->profile_image_path; ?>" title="profile image" />
-		<input type="file" name="userfile" size="200" />
-		<br /><br />
-		<input name="submit" type="submit" value="upload" />
-		<input type="hidden" name="x" value="" id="x">
-		<input type="hidden" name="y" value="" id="y">
-		<input type="hidden" name="x2" value="" id="x2">
-		<input type="hidden" name="y2" value="" id="y2">
-		<input type="hidden" name="w" value="" id="w">
-		<input type="hidden" name="h" value="" id="h">
-		</form>
+
+		<input type="file" name="fileToUpload"  id="fileToUpload" />
+		<input type="button" name="upload" id="upload"  value="Upload" />
 	</div>
 	<script language="Javascript">
 		function setCoords(c)
@@ -49,6 +41,49 @@
 				}
 			);
 	    });
+		
+		function ajaxFileUpload()
+		{ 
+	        $.ajaxFileUpload
+	        (
+	            {
+	                url:'/user/upload', 
+	                secureuri:false,
+	                fileElementId:'fileToUpload',
+	                dataType: 'json',
+	                success: function (data, status)
+	                {
+	                    if(typeof(data.error) != 'undefined')
+	                    {
+	                        if(data.error != '')
+	                        {
+	                            alert(data.error);
+	                        }else
+	                        {
+	                            alert(data.msg);
+	                        }
+	                    }
+	                },
+	                error: function (data, status, e)
+	                {
+	                    alert(e);
+	                }
+	            }
+	        )
+
+	        return false;
+
+	    } 
+
+		$(document).ready(function()
+		{
+			$('#upload').click(
+				function()
+				{
+					ajaxFileUpload();
+				}
+			);
+		});
 	</script>
 </body>
 </html>

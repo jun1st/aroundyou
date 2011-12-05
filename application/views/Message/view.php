@@ -23,7 +23,7 @@
 				<?php echo $message->content; ?>
 			</div>
 			<p>
-			<?php echo "<a href=/user/$message->user_name title='查看$message->user_name 的信息' >$message->user_name</a>"; ?>
+			<?php echo "<a href=/users/$message->user_name title='查看$message->user_name 的信息' >$message->user_name</a>"; ?>
 			<?php echo  "发布于: " .relativeTime($message->posted_time); ?>
 		</div>
 		<div class="spacer"></div>

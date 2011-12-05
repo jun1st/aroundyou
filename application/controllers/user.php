@@ -52,6 +52,30 @@
 			}
 			else
 			{
+				
+				
+				// $x = $this->input->post('x');
+				// $y = $this->input->post('y');
+				// $w = $this->input->post('w');
+				// $h = $this->input->post('h');
+				// 
+				// $this->load->library('image_lib');
+				// $config['image_library'] = 'gd2';
+				// $config['source_image']	= './uploads/profile_images/7/bird.jpg';
+				// //$config['create_thumb'] = TRUE;
+				// $config['maintain_ratio'] = FALSE;
+				// $config['new_image'] = './uploads/profile_images/7/bird_crop.jpg';
+				// $config['x_axis'] = $x;
+				// $config['y_axis'] = $y;
+				// $config['width'] = $w;
+				// $config['height'] = $h;
+				// 
+				// $this->image_lib->initialize($config);
+				// if(!$this->image_lib->crop())
+				// {
+				// 	echo $this->image_lib->display_errors();
+				// }
+				
 				$filePath = "./uploads/profile_images/" . $this->session->userdata['user']->id ."/";
 			
 				if(!file_exists($filePath))
@@ -59,15 +83,16 @@
 					mkdir($filePath, 0777);
 				}
 			
+				$uploadFile = uri_assoc(‘fileToUpload’,2);
 				$config['upload_path'] = $filePath;
 				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size']	= '100';
+				$config['max_size']	= '1000';
 				$config['max_width']  = '1024';
 				$config['max_height']  = '768';
 
 				$this->load->library('upload', $config);
 
-				if ( ! $this->upload->do_upload())
+				if ( ! $this->upload->do_upload($uploadFile))
 				{
 					echo 'failed';
 					$error = array('error' => $this->upload->display_errors());
@@ -77,11 +102,44 @@
 				else
 				{
 					$data = array('upload_data' => $this->upload->data());
+					
 
-					$this->load->view('upload_success', $data);
 				}
+				
+				
 			}
 			
+		}
+		
+		public function upload()
+		{
+			$filePath = "./uploads/profile_images/" . $this->session->userdata['user']->id ."/";
+		
+			if(!file_exists($filePath))
+			{
+				mkdir($filePath, 0777);
+			}
+		
+			$config['upload_path'] = $filePath;
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size']	= '1000';
+			$config['max_width']  = '1024';
+			$config['max_height']  = '768';
+
+			$this->load->library('upload', $config);
+
+			if ( ! $this->upload->do_upload('fileToUpload'))
+			{
+				$error = array('error' => $this->upload->display_errors());
+				//echo $error;
+				$this->load->view('user/upload_form', $error);
+			}
+			else
+			{
+				$data = array('upload_data' => $this->upload->data());
+				
+
+			}
 		}
 		
 		public function register()
