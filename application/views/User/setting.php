@@ -8,6 +8,7 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?>
 	<link rel="stylesheet" href="/css/jquery.Jcrop.css" type="text/css" charset="utf-8" >
 	<script type="text/javascript" charset="utf-8" src="/scripts/jquery.min.js" ></script>
+	<script type="text/javascript" charset="utf-8" src="/scripts/ajaxfileupload.js" ></script>
 	<script type="text/javascript" charset="utf-8" src="/scripts/jquery.Jcrop.min.js" ></script>
 </head>
 
@@ -22,7 +23,9 @@
 	<div class="container">
 		<div class="profileimageupload">
 			<img src="<?php echo $user->profile_image_path; ?>" title="profile image" style="width:128px; height:128px;"/>
-			<a href="/user/upload_image">更换</a>
+			<br/>
+			<input type="file" name="fileToUpload"  id="fileToUpload" />
+			<input type="button" name="upload" id="upload"  value="Upload" />
 		</div>
 		<div class="profiledetail">
 		<?php echo form_open('user/setting'); ?>
@@ -66,5 +69,50 @@
 		<?php echo form_close(); ?>
 		</div>
 	</div>
+	<script type="text/javascript" charset="utf-8">
+		function ajaxFileUpload()
+		{ 
+	        $.ajaxFileUpload
+	        (
+	            {
+	                url:'/user/upload', 
+	                secureuri:false,
+	                fileElementId:'fileToUpload',
+	                dataType: 'json',
+	                success: function (data, status)
+	                {
+	                    if(typeof(data.error) != 'undefined')
+	                    {
+	                        if(data.error != '')
+	                        {
+	                            alert(data.error);
+	                        }else
+	                        {
+	                            alert(data.msg);
+	                        }
+	                    }
+	                },
+	                error: function (data, status, e)
+	                {
+	                    alert(e);
+	                }
+	            }
+	        )
+
+	        return false;
+
+	    } 
+
+		$(document).ready(function()
+		{
+			$('#upload').click(
+				function()
+				{
+					ajaxFileUpload();
+				}
+			);
+		});
+	</script>
+	</script>
 </body>
 </html>
