@@ -22,7 +22,7 @@
 	</div>
 	<div class="container">
 		<div class="profileimageupload">
-			<img src="<?php echo $user->profile_image_path; ?>" title="profile image" style="width:128px; height:128px;"/>
+			<img id="profileImage" src="<?php echo $user->profile_image_path; ?>" title="profile image" style="width:128px; height:128px;"/>
 			<br/>
 			<input type="file" name="fileToUpload"  id="fileToUpload" />
 			<input type="button" name="upload" id="upload"  value="Upload" />
@@ -81,6 +81,8 @@
 	                dataType: 'json',
 	                success: function (data, status)
 	                {
+						alert(data.image_address);
+						$('#profileImage').attr('src', data.image_address);
 	                    if(typeof(data.error) != 'undefined')
 	                    {
 	                        if(data.error != '')

@@ -185,15 +185,21 @@ jQuery.extend({
     uploadHttpData: function( r, type ) {
         var data = !type;
         data = type == "xml" || data ? r.responseXML : r.responseText;
+		
+		var dataParsed = data.split("{");
+		dataParsed = dataParsed[1].split("}");
+		
+		dataParsed = "{" + dataParsed[0] + "}";
+		
         // If the type is "script", eval it in global context
         if ( type == "script" )
-            jQuery.globalEval( data );
+            jQuery.globalEval( dataParsed );
         // Get the JavaScript object, if JSON is used.
         if ( type == "json" )
-            eval( "data = " + data );
+            eval( "data = " + dataParsed );
         // evaluate scripts within html
         if ( type == "html" )
-            jQuery("<div>").html(data).evalScripts();
+            jQuery("<div>").html(dataParsed).evalScripts();
 
         return data;
     }

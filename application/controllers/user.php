@@ -117,6 +117,9 @@
 				{
 					$data = array('upload_data' => $this->upload->data());
 					
+					header('Content-type: application/json');
+					
+					echo '';
 
 				}
 				
@@ -150,9 +153,11 @@
 			}
 			else
 			{
-				$data = array('upload_data' => $this->upload->data());
+				$data = $this->upload->data();
+				$info = array('image_address'=>substr($filePath, 1) . $data['client_name']);
+				$this->output->set_content_type('application/json');
+				$this->output->set_output(json_encode($info));
 				
-
 			}
 		}
 		
