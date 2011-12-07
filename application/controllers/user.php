@@ -139,22 +139,43 @@
 		
 			$config['upload_path'] = $filePath;
 			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size']	= '1000';
-			$config['max_width']  = '1024';
-			$config['max_height']  = '768';
+			$config['max_size']	= '4096';
+			
 
 			$this->load->library('upload', $config);
 
 			if ( ! $this->upload->do_upload('fileToUpload'))
 			{
-				$error = array('error' => $this->upload->display_errors());
-				//echo $error;
-				$this->load->view('user/upload_form', $error);
+				
+				$info = array('error_message'=>$this->upload->display_errors());
+				$this->output->set_content_type('application/json');
+				$this->output->set_output(json_encode($info));
 			}
 			else
 			{
+				
 				$data = $this->upload->data();
-				$info = array('image_address'=>substr($filePath, 1) . $data['client_name']);
+				$source_file = $filePath . $data['client_name'];
+				
+				$this->load->library('image_lib');
+				$config['image_library'] = 'gd2';
+				$config['source_image']	= $source_file;
+				//$config['create_thumb'] = TRUE;
+				$config['maintain_ratio'] = TRUE;
+				$new_file = $filePath . 'profile_image_128' . $data['file_ext'];
+				$config['new_image'] = $filePath . 'profile_image_128' . $data['file_ext'];
+				$config['width']	 = 128;
+				$config['height']	= 128;
+				
+				$this->image_lib->initialize($config);
+				
+				$this->image_lib->resize();
+				
+				$this->load->model('User_model');
+				
+				$this->User_model->update_profile_image(substr($new_file, 1), $this->session->userdata['user']->id);
+				
+				$info = array('image_address'=>substr($new_file, 1));
 				$this->output->set_content_type('application/json');
 				$this->output->set_output(json_encode($info));
 				

@@ -22,7 +22,7 @@
 	</div>
 	<div class="container">
 		<div class="profileimageupload">
-			<img id="profileImage" src="<?php echo $user->profile_image_path; ?>" title="profile image" style="width:128px; height:128px;"/>
+			<img id="profileImage" src="<?php echo $user->profile_image_path; ?>" title="profile image" />
 			<br/>
 			<input type="file" name="fileToUpload"  id="fileToUpload" />
 			<input type="button" name="upload" id="upload"  value="Upload" />

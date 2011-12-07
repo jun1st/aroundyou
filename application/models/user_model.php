@@ -35,5 +35,17 @@
 			
 			return $query->result();
 		}
+		
+		function update_profile_image($new_profile_image_path, $user_id)
+		{
+			
+			$data = array(
+				'profile_image_path' => $new_profile_image_path
+			);
+			
+			$this->db->where('id', $user_id);
+			$this->db->update('users', $data);
+		
+		}
 	}
 ?>
