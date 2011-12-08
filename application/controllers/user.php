@@ -54,80 +54,6 @@
 			$this->load->view('User/setting', $data);
 		}
 		
-		public function upload_image()
-		{
-			if ($this->session->userdata['is_login'] != 'true') {
-				redirect('login');
-			}
-			
-			if(!isset($_POST['submit']))
-			{
-				$data['user'] = $this->User_model->get_user($this->session->userdata['user']->name);
-				$this->load->view('user/upload_image', $data);
-			}
-			else
-			{
-				
-				
-				// $x = $this->input->post('x');
-				// $y = $this->input->post('y');
-				// $w = $this->input->post('w');
-				// $h = $this->input->post('h');
-				// 
-				// $this->load->library('image_lib');
-				// $config['image_library'] = 'gd2';
-				// $config['source_image']	= './uploads/profile_images/7/bird.jpg';
-				// //$config['create_thumb'] = TRUE;
-				// $config['maintain_ratio'] = FALSE;
-				// $config['new_image'] = './uploads/profile_images/7/bird_crop.jpg';
-				// $config['x_axis'] = $x;
-				// $config['y_axis'] = $y;
-				// $config['width'] = $w;
-				// $config['height'] = $h;
-				// 
-				// $this->image_lib->initialize($config);
-				// if(!$this->image_lib->crop())
-				// {
-				// 	echo $this->image_lib->display_errors();
-				// }
-				
-				$filePath = "./uploads/profile_images/" . $this->session->userdata['user']->id ."/";
-			
-				if(!file_exists($filePath))
-				{
-					mkdir($filePath, 0777);
-				}
-			
-				$uploadFile = uri_assoc(‘fileToUpload’,2);
-				$config['upload_path'] = $filePath;
-				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size']	= '4096';
-
-
-				$this->load->library('upload', $config);
-
-				if ( ! $this->upload->do_upload($uploadFile))
-				{
-					echo 'failed';
-					$error = array('error' => $this->upload->display_errors());
-
-					$this->load->view('user/upload_form', $error);
-				}
-				else
-				{
-					$data = array('upload_data' => $this->upload->data());
-					
-					header('Content-type: application/json');
-					
-					echo '';
-
-				}
-				
-				
-			}
-			
-		}
-		
 		public function upload()
 		{
 			$filePath = "./uploads/profile_images/" . $this->session->userdata['user']->id ."/";
@@ -160,22 +86,29 @@
 				$this->load->library('image_lib');
 				$config['image_library'] = 'gd2';
 				$config['source_image']	= $source_file;
-				//$config['create_thumb'] = TRUE;
+				$config['overwrite'] = TRUE;
 				$config['maintain_ratio'] = TRUE;
-				$new_file = $filePath . 'profile_image_128' . $data['file_ext'];
-				$config['new_image'] = $filePath . 'profile_image_128' . $data['file_ext'];
-				$config['width']	 = 128;
-				$config['height']	= 128;
 				
-				$this->image_lib->initialize($config);
-				
-				$this->image_lib->resize();
+				for ($width=128; $width >= 32 ; $width = $width/2 ) { 
+					$new_profile_image = $filePath . 'profile_image_' . $width . $data['file_ext'];
+					$config['new_image'] = $new_profile_image;
+					$config['width'] = $width;
+					$config['height'] = $width;
+					
+					$this->image_lib->initialize($config);
+					$this->image_lib->resize();
+				}
 				
 				$this->load->model('User_model');
 				
-				$this->User_model->update_profile_image(substr($new_file, 1), $this->session->userdata['user']->id);
+				$normal = $filePath . 'profile_image_128' . $data['file_ext'];
+				$small = $filePath . 'profile_image_64'. $data['file_ext'];
+				$tiny = $filePath . 'profile_image_32' . $data['file_ext'];
 				
-				$info = array('image_address'=>substr($new_file, 1));
+				$this->User_model->update_profile_image(substr($normal, 1),
+				substr($small, 1), substr($tiny, 1), $this->session->userdata['user']->id);
+				
+				$info = array('image_address'=>substr($normal, 1));
 				$this->output->set_content_type('application/json');
 				$this->output->set_output(json_encode($info));
 				

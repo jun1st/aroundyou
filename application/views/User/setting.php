@@ -81,7 +81,6 @@
 	                dataType: 'json',
 	                success: function (data, status)
 	                {
-						alert(data.image_address);
 						$('#profileImage').attr('src', data.image_address);
 	                    if(typeof(data.error) != 'undefined')
 	                    {
