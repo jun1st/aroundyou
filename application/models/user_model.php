@@ -12,6 +12,8 @@
 		var $last_login_time;
 		var $last_activity_time;
 		var $profile_image_path;
+		var $profile_small_image_path;
+		var $profile_tiny_image_path;
 		var $description;
 		var $website;
 		var $location;
@@ -36,11 +38,14 @@
 			return $query->result();
 		}
 		
-		function update_profile_image($new_profile_image_path, $user_id)
+		function update_profile_image($new_profile_image_path, $new_profile_small_image_path, 
+			$new_profile_tiny_image_path, $user_id)
 		{
 			
 			$data = array(
-				'profile_image_path' => $new_profile_image_path
+				'profile_image_path' => $new_profile_image_path,
+				'profile_small_image_path' => $new_profile_small_image_path,
+				'profile_tiny_image_path' => $new_profile_tiny_image_path
 			);
 			
 			$this->db->where('id', $user_id);

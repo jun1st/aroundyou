@@ -3,6 +3,16 @@ input[type="submit"]:hover
 	cursor:pointer;
 }
 
+.leftblock
+{
+	float:left;
+}
+
+.rightblock
+{
+	float:right !important;
+}
+
 #masthead, #footer {
 	background-color: #049CD9;
 	background-repeat: no-repeat;
@@ -51,6 +61,51 @@ input[type="submit"]:hover
 	width:100%;
 	border-top:solid 3px #DDD;
 	border-bottom:solid 1px #DDD;
+}
+
+.container
+{
+	
+}
+
+#actionbar
+{
+	margin-top:60px;
+	height:60px;
+	vertical-align:middle;
+	line-height:60px;
+}
+.content
+{
+	float:left;
+	width:485px;
+	min-height:600px;
+}
+
+.rightsidebar
+{
+	float:right;
+	width:265px;
+}
+
+#messages
+{
+	margin-left:0px;
+	padding-left:0px;
+}
+
+#messages li
+{
+	border-bottom:1px solid #cccccc;
+	list-style:none;
+}
+
+#messages .user
+{
+	float:right;
+	height:32px;
+	width:32px;
+	margin:8px 4px 0;
 }
 
 #comments

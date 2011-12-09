@@ -9,7 +9,7 @@
 		{
 			$this->load->Model('Message_model');
 			
-			$this->db->select("messages.id as message_id, topic, content, posted_time, users.name as user_name");
+			$this->db->select("messages.id as message_id, topic, content, posted_time, users.name as user_name, users.profile_tiny_image_path as profile_image");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
 			

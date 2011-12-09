@@ -12,7 +12,7 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
 	<div style="margin-top:40px; height:60px;">
 		<div class="container">
-			head lines;
+			<input type="button" name="add_message" value="发布消息" class="btn large" id="add_message">
 		</div>
 	</div>
 		<div class="container">

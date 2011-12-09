@@ -10,19 +10,19 @@
 
 <body>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
-	<div style="margin-top:40px; height:60px;">
+	<div id="actionbar">
 		<div class="container">
-			head lines;
+			<input type="button" name="add_message" value="发布消息" class="btn" id="add_message">
 		</div>
 	</div>
 	<div class="container">
 	    <div class="content">
-			<ul>
+			<ul id="messages">
 	      		<?php foreach ($messages as $item): ?>
-					<li style="border-bottom:1px solid #cccccc;list-style:none;">
+					<li>
 					<div>
 						<div class="user">
-							<?php echo $item->user_name; ?>
+							<img src="<?php echo $item->profile_image; ?>" alt="profile" title="<?php echo $item->user_name; ?>" />
 						</div>
 						<div class="message">
 							<h4>
@@ -38,6 +38,9 @@
 					</li>
 				<?php endforeach; ?>
 	    	</ul>
+		</div>
+		<div class="rightsidebar" style="border:1px solid #cccccc">
+			cool;
 		</div>
 	  </div>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/footer.php';  ?>
