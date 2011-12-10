@@ -12,18 +12,36 @@
 				$password = $this->input->post('password');
 				$password = SHA1($password);
 				
-				$query = $this->db->query("select * from users where email = '$email' and password = 	'$password'");
-				$user = $query->row();
+				$this->load->model('User_model');
+				
+				$user = $this->User_model->authenticate_user($email, $password);
+				// $query = $this->db->query("select * from users where email = '$email' and password = 	'$password'");
+				// 				$user = $query->row();
 				if( $user != null )
 				{
 					$this->session->set_userdata('is_login', 'true');
 					$this->session->set_userdata('user', $user);
 					
+					if($this->input->post('remember_me') == 'remember_me')
+					{
+						$remember_me_token = uniqid();
+						$this->User_model->set_auth_token($remember_me_token, $user->id);
+						
+						$cookie = array(
+						    'name'   => 'remember_me_token',
+						    'value'  => $remember_me_token,
+						    'expire' => '1209600',  // Two weeks
+						);
+						$this->load->helper('cookie');
+						$this->input->set_cookie($cookie);
+						
+					}
+					
 					redirect('message/');
 				}
 				else
 				{
-					echo "Login failed!";
+					
 				}
 			}
 			

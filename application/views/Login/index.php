@@ -30,6 +30,13 @@
 				<?php echo form_password(array('name'=>'password', 'size'=>'50', 'class'=>'xlarge', 'value'=>set_value('password'))); ?>
 			</div>
 		</div>
+		<div class="clearfix">
+			<label for="rememberme"></label>
+			<div class="input">
+				<input type="checkbox" name="remember_me" value="remember_me" id="remember_me" />
+				<span>2周内不用登陆</span>
+			</div>
+		</div>
 		<div class="actions">
 			<input type='submit' name='submit' class="btn primary" value='Submit' />
 		</div>

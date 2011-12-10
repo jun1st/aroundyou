@@ -18,11 +18,21 @@
 		var $website;
 		var $location;
 		var $birthday;
+		var $remember_me_token;
+		var $last_visit_time;
 		
 		function __construct()
 		{
 			parent::__construct();
 		}
+		
+		function authenticate_user($email, $password)
+		{
+			$query = $this->db->get_where('users', array('email'=>$email, 'password'=>$password));
+			
+			return $query->row();
+		}
+		
 		
 		function get_user($name)
 		{
@@ -51,6 +61,24 @@
 			$this->db->where('id', $user_id);
 			$this->db->update('users', $data);
 		
+		}
+		
+		function set_auth_token($remember_me_token, $user_id)
+		{
+			$data = array(
+				'remember_me_token' =>$remember_me_token,
+				'last_visit_time' => date('Y-m-d H:i:s')
+			);
+			
+			$this->db->where('id', $user_id);
+			$this->db->update('users', $data);
+		}
+		
+		function cookie_authenticate($token)
+		{
+			$query = $this->db->get_where('users', array('remember_me_token'=>$token));
+			
+			return $query->row();
 		}
 	}
 ?>

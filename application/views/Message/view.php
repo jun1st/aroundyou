@@ -48,7 +48,7 @@
 		<input type="hidden" name="message_id" value="<?php echo $message->message_id; ?>" />
 		<h3>add your comment</h3>
 		<p>
-			<textarea name="comment_content" size="140" class="xxlarge" value='<?php set_value('comment_content'); ?>'></textarea>
+			<textarea name="comment_content" size="140" rows="4" class="xxlarge" value='<?php set_value('comment_content'); ?>'></textarea>
 		</p>
 		<?php 
 			$data = array(

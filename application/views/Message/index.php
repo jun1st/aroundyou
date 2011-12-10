@@ -4,7 +4,7 @@
 
 <html>
 <head>
-	<title>index</title>
+	<title>发生在你身边的事情</title>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?>
 </head>
 
@@ -12,7 +12,7 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
 	<div id="actionbar">
 		<div class="container">
-			<input type="button" name="add_message" value="发布消息" class="btn" id="add_message">
+			<a href="/message/add" title="发布消息" class="btn">发布消息</a>
 		</div>
 	</div>
 	<div class="container">
@@ -31,7 +31,7 @@
 							</h4>
 							<p><?php echo $item->content; ?></p>
 							<div>
-								<?php echo $item->posted_time; ?>
+								<span><?php echo  "发布于: " .relativeTime($item->posted_time); ?></span>
 							</div>
 						</div>
 					</div>

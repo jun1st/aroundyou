@@ -19,7 +19,7 @@
 	<div class="container">
 		<div id="userprofile">
 					<div class="profileimageupload">
-			<img title="profile image" src="<?php echo $user->profile_image_path; ?>" 		style="width:128px;height:128px;"/>
+			<img title="profile image" src="<?php echo $user->profile_image_path; ?>"/>
 			</div>
 			<div class="profiledetail">
 				<table class="zebra-striped">
