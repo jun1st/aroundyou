@@ -1,3 +1,7 @@
+html, body
+{
+	
+}
 input[type="submit"]:hover
 {
 	cursor:pointer;
@@ -82,6 +86,12 @@ input[type="submit"]:hover
 	min-height:600px;
 }
 
+.container .entry .message
+{
+	color:#202020;
+	font: 14px Georgia, "Times New Roman", Times, san-serif;
+	margin:6px 0 6px 0;
+}
 .rightsidebar
 {
 	float:right;
@@ -94,24 +104,74 @@ input[type="submit"]:hover
 	padding-left:0px;
 }
 
+h2, h3, h4
+{
+	line-height:24px;
+}
+
+h2 a, h3 a,  h4 a
+{
+	font-weight:bold;
+}
+
+#messages h3 a.topic
+{
+	color:#404040;
+}
+
 #messages li
 {
 	border-bottom:1px solid #cccccc;
 	list-style:none;
 }
 
-#messages .user
+#messages .user, #comments .user
+{
+	margin-top:0px;
+	padding-top:0px;
+}
+
+#messages .user a img, div.entry .user a img, #comments .user a img
 {
 	float:right;
-	height:32px;
-	width:32px;
-	margin:8px 4px 0;
+	display:block;
+}
+
+div.entry
+{
+	margin-top:6px;
+	padding-bottom:4px;
+}
+
+.user h3
+{
+	font-size:13px;
+}
+
+.user h3 .description
+{
+	color:#BBBBBB;
+	margin-left:10px;
+}
+
+div.entry p
+{
+	margin:4px 0 6px 0;
+}
+
+div.entry .action
+{
+	margin-top:6px;
+}
+
+div.entry .actions a
+{
+	color:#999;
 }
 
 #comments
 {
-	margin-top:5px;
-	padding-top:5px;
+	padding-top:4px;
 }
 
 #comments ul

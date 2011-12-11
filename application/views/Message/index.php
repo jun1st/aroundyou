@@ -20,21 +20,24 @@
 			<ul id="messages">
 	      		<?php foreach ($messages as $item): ?>
 					<li>
-					<div>
-						<div class="user">
-							<img src="<?php echo $item->profile_image; ?>" alt="profile" title="<?php echo $item->user_name; ?>" />
-						</div>
-						<div class="message">
-							<h4>
-								<a href="/message/view/<?php echo $item->message_id; ?>">
+						<div class="entry">
+							<h3>
+								<a href="/message/view/<?php echo $item->message_id; ?>" class="topic">
 								<?php echo $item->topic; ?></a>
-							</h4>
-							<p><?php echo $item->content; ?></p>
+							</h3>
+							<div class="user">
+								<a href="/users/<?php echo $item->user_id; ?>" title="查看<?php echo $item->user_name; ?>的信息" >
+								<img src="<?php echo $item->profile_image; ?>" alt="profile" title="<?php echo $item->user_name; ?>" />
+								</a>
+								<h3>
+								<?php echo "<a href=/users/$item->user_id title='查看$item->user_name 的信息' >$item->user_name</a>"; ?><strong><span class="description"><?php echo $item->user_description; ?></span></strong>
+								</h3>
+							</div>
+							<p class="message"><?php echo $item->content; ?></p>
 							<div>
 								<span><?php echo  "发布于: " .relativeTime($item->posted_time); ?></span>
 							</div>
 						</div>
-					</div>
 					</li>
 				<?php endforeach; ?>
 	    	</ul>

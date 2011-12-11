@@ -41,14 +41,15 @@
 					'email' => $this->input->post('email'),
 					'birthday' => $this->input->post('birthday'),
 					'location' => $this->input->post('location'),
-					'website' => $this->input->post('website')
+					'website' => $this->input->post('website'),
+					'description' => $this->input->post('description')
 				);
 				
 				$this->db->where('id', $this->session->userdata['user']->id);
 				$this->db->update('users', $data);
 			}
 			
-			$data['user'] = $this->User_model->get_user($this->session->userdata['user']->name);
+			$data['user'] = $this->User_model->get_user($this->session->userdata['user']->id);
 			
 			
 			$this->load->view('User/setting', $data);

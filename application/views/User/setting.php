@@ -34,31 +34,37 @@
 				<div class='clearfix'>
 					<label for>名字：</label>
 					<div class='input'>
-						<input class="large" value="<?php echo $user->name; ?>" id="name" name="name" size="255" type="text">
+						<input class="large" value="<?php echo $user->name; ?>" id="name" name="name" size="255" type="text" />
 					</div>
 				</div>
 				<div class='clearfix'>
 					<label for>Email地址：</label>
 					<div class='input'>
-						<input class="large" value="<?php echo $user->email; ?>" id="email" name="email" size="255" type="text">
+						<input class="large" value="<?php echo $user->email; ?>" id="email" name="email" size="255" type="text" />
 					</div>
 				</div>
 				<div class='clearfix'>
 					<label for>生日：</label>
 					<div class='input'>
-						<input class="large" value="<?php echo $user->birthday; ?>" id="birthday" name="birthday" size="255" type="text">
+						<input class="large" value="<?php echo $user->birthday; ?>" id="birthday" name="birthday" size="255" type="text" />
 					</div>
 				</div>
 				<div class='clearfix'>
 					<label for>个人网站：</label>
 					<div class='input'>
-						<input class="large" value="<?php echo $user->website; ?>" id="website" name="website" size="255" type="text">
+						<input class="large" value="<?php echo $user->website; ?>" id="website" name="website" size="255" type="text" />
 					</div>
 				</div>
 				<div class='clearfix'>
 					<label for>所在城市：</label>
 					<div class='input'>
-						<input class="large" value="<?php echo $user->location; ?>" id="location" name="location" size="255" type="text">
+						<input class="large" value="<?php echo $user->location; ?>" id="location" name="location" size="255" type="text" />
+					</div>
+				</div>
+				<div class='clearfix'>
+					<label for>简介：</label>
+					<div class='input'>
+						<textarea class="xlarge" value="<?php echo $user->description; ?>" rows="4" id="description" name="description" size="255" ><?php echo $user->description; ?></textarea>
 					</div>
 				</div>
 				<div class="actions">

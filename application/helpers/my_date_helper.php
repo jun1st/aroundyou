@@ -11,36 +11,36 @@ function relativeTime($time)
 
     if ($delta < 1 * MINUTE)
     {
-        return $delta == 1 ? "one second ago" : $delta . " seconds ago";
+        return $delta == 1 ? "刚" : $delta . "秒前";
     }
     if ($delta < 2 * MINUTE)
     {
-      return "a minute ago";
+      return "一分钟前";
     }
     if ($delta < 45 * MINUTE)
     {
-        return floor($delta / MINUTE) . " minutes ago";
+        return floor($delta / MINUTE) . "分钟前";
     }
     if ($delta < 90 * MINUTE)
     {
-      return "an hour ago";
+      return "一小时前";
     }
     if ($delta < 24 * HOUR)
     {
-      return floor($delta / HOUR) . " hours ago";
+      return floor($delta / HOUR) . "小时前";
     }
     if ($delta < 48 * HOUR)
     {
-      return "yesterday";
+      return "昨天";
     }
     if ($delta < 30 * DAY)
     {
-        return floor($delta / DAY) . " days ago";
+        return floor($delta / DAY) . "天前";
     }
     if ($delta < 12 * MONTH)
     {
       $months = floor($delta / DAY / 30);
-      return $months <= 1 ? "one month ago" : $months . " months ago";
+      return $months <= 1 ? "一个月前" : $months . "月前";
     }
     else
     {

@@ -34,9 +34,9 @@
 		}
 		
 		
-		function get_user($name)
+		function get_user($id)
 		{
-			$query = $this->db->get_where('users', array('name'=>$name));
+			$query = $this->db->get_where('users', array('id'=>$id));
 			
 			return $query->row();
 		}
