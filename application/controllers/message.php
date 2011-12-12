@@ -27,9 +27,11 @@
 		public function view($id)
 		{	
 			$this->load->helper('date');
-			$this->db->select("messages.id as message_id, topic, content, posted_time, users.name as user_name,users.description as user_description, users.profile_tiny_image_path as user_profile_image");
+			$this->db->select("messages.id as message_id, topic, content, posted_time, users.name as user_name,users.description as user_description, users.profile_tiny_image_path as user_profile_image, regions.name as region_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
+			$this->db->join('message_region', 'messages.id = message_region.message_id', 'left');
+			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
 			$this->db->where('messages.id', $id);
 			$data['message'] = $this->db->get()->row();
 			

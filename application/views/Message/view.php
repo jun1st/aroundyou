@@ -28,7 +28,8 @@
 				</h3>
 			</div>
 			<p class="message">
-				<?php echo $message->content; ?>
+				<?php echo $message->content; ?>				
+				<a href="#" class="region_tag"><?php echo $message->region_name; ?></a>
 			</p>
 			<div>
 				<span><?php echo  "发布于: " .relativeTime($message->posted_time); ?></span>

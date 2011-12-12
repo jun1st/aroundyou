@@ -17,6 +17,19 @@ input[type="submit"]:hover
 	float:right !important;
 }
 
+.region_tag
+{
+	background: #E1F0F7;
+	padding: 0 10px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-o-border-radius: 30px;
+	border-radius: 30px;
+	text-decoration: none;
+	margin: 0 5px 5px 0;
+	display: inline-block;
+}
+
 #masthead, #footer {
 	background-color: #049CD9;
 	background-repeat: no-repeat;
@@ -92,6 +105,7 @@ input[type="submit"]:hover
 	font: 14px Georgia, "Times New Roman", Times, san-serif;
 	margin:6px 0 6px 0;
 }
+
 .rightsidebar
 {
 	float:right;
