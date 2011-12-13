@@ -18,8 +18,8 @@
 	</div>
 	<div class="container">
 		<div id="userprofile">
-					<div class="profileimageupload">
-			<img title="profile image" src="<?php echo $user->profile_image_path; ?>"/>
+			<div class="profileimageupload">
+				<img title="profile image" src="<?php echo $user->profile_image_path; ?>"/>
 			</div>
 			<div class="profiledetail">
 				<table class="zebra-striped">
@@ -45,7 +45,8 @@
 							<td><?php echo $user->website; ?></td>
 						</tr>
 					<tbody>
-				</table>	
+				</table>
+				<a href="/user/setting" class="btn">修改</a>	
 			</div>
 		</div>
 		<div style="clear:both;">

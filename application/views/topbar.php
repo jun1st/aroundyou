@@ -7,7 +7,7 @@
 	<?php if($this->session->userdata('is_login') == 'true') { ?>
 		<ul class="nav rightblock">
 			<li>
-				<a href="/users/<?php echo $this->session->userdata('user')->name; ?>"><?php echo $this->session->userdata('user')->name; ?></a></li>
+				<a href="/users/<?php echo $this->session->userdata('user')->id; ?>"><?php echo $this->session->userdata('user')->name; ?></a></li>
 		</ul>
 		</div>
 	<?php } else { ?>

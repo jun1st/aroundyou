@@ -129,7 +129,7 @@
 				
 				if($this->form_validation->run() == true)
 				{
-					$model = new Usermodel;
+					$model = new User_model;
 					$model->name = $this->input->post('name');
 					$model->email = $this->input->post('email');
 					$model->password = SHA1($this->input->post('password'));

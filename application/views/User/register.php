@@ -4,30 +4,52 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-	<title>register</title>
-	
+	<title>注册新用户</title>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?>
 </head>
 
 <body>
-
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
+	<div style="margin-top:40px; height:60px;">
+		<div class="container">
+			head lines;
+		</div>
+	</div>
+	<div class="container">
 	<?php echo validation_errors(); ?>
-	<?php echo form_open('user/register') ?>
-
-	<h5>Username</h5>
-	<?php echo form_input(array('name'=>'name', 'size'=>'50', 'value'=>set_value('name'))) ?>
-
-	<h5>Password</h5>
-	<?php echo form_password(array('name'=>'password', 'size'=>'50', 'value'=>set_value('password'))) ?>
-
-	<h5>Password Confirm</h5>
-	<?php echo form_password(array('name'=>'passconf', 'size'=>'50', 'value'=>set_value('passconf'))) ?>
-
-	<h5>Email Address</h5>
-	<?php echo form_input(array('name'=>'email', 'size'=>'50')) ?>
-
-
-	<div><input name="submit" type="submit" value="Submit" /></div>
-
+		<?php echo form_open('user/register') ?>
+		<fieldset id="profile_setting" class="">
+			<legend>注册新用户</legend>
+			<div class='clearfix'>
+				<label for="name">用户名：</label>
+				<div class='input'>
+					<?php echo form_input(array('name'=>'name', 'size'=>'50', 'value'=>set_value('name'))) ?>
+				</div>
+			</div>
+			<div class='clearfix'>
+				<label for="email">Email地址：</label>
+				<div class='input'>
+					<?php echo form_input(array('name'=>'email', 'size'=>'50', 'value'=>set_value('email'))) ?>
+				</div>
+			</div>
+			<div class='clearfix'>
+				<label for="password">密码：</label>
+				<div class='input'>
+					<?php echo form_password(array('name'=>'password', 'size'=>'50', 'value'=>set_value('password'))) ?>
+				</div>
+			</div>
+			<div class='clearfix'>
+				<label for>确认密码：</label>
+				<div class='input'>
+					<?php echo form_password(array('name'=>'passconf', 'size'=>'50', 'value'=>set_value('passconf'))) ?>
+				</div>
+			</div>
+			
+			<div class="actions">
+				<button name="submit" type="submit" class="btn primary">确认注册</button>
+				<button type="reset" class="btn" value="取消" >取消</button>
+			</div>
+		</fieldset>
 	</form>
 	
 </body>
