@@ -28,7 +28,9 @@
 				</h3>
 			</div>
 			<p class="message">
-				<?php echo $message->content; ?>				
+				<?php echo $message->content; ?>
+				<br/>
+				<br/>				
 				<a href="#" class="region_tag"><?php echo $message->region_name; ?></a>
 			</p>
 			<div>

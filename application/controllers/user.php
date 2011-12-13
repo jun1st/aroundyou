@@ -118,9 +118,6 @@
 		
 		public function register()
 		{
-			echo $this->session->userdata('is_login');
-			if($this->session->userdata('is_login') != 'true')
-				redirect('login/index');
 			$this->load->library('form_validation');
 			
 			if (isset($_POST['submit'])) {
