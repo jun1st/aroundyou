@@ -138,6 +138,11 @@
 
 					$this->db->insert('users', $model);
 					$this->register_succeed();
+				}
+				else
+				{
+					$this->load->view('User/register');
+					return;
 				}	
 			}
 			

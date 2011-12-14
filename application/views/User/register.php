@@ -16,7 +16,6 @@
 		</div>
 	</div>
 	<div class="container">
-	<?php echo validation_errors(); ?>
 		<?php echo form_open('user/register') ?>
 		<fieldset id="profile_setting" class="">
 			<legend>注册新用户</legend>
@@ -24,24 +23,28 @@
 				<label for="name">用户名：</label>
 				<div class='input'>
 					<?php echo form_input(array('name'=>'name', 'size'=>'50', 'value'=>set_value('name'))) ?>
+					<?php echo form_error('name'); ?>
 				</div>
 			</div>
 			<div class='clearfix'>
 				<label for="email">Email地址：</label>
 				<div class='input'>
 					<?php echo form_input(array('name'=>'email', 'size'=>'50', 'value'=>set_value('email'))) ?>
+					<?php echo form_error('email'); ?>
 				</div>
 			</div>
 			<div class='clearfix'>
 				<label for="password">密码：</label>
 				<div class='input'>
 					<?php echo form_password(array('name'=>'password', 'size'=>'50', 'value'=>set_value('password'))) ?>
+					<?php echo form_error('password'); ?>
 				</div>
 			</div>
 			<div class='clearfix'>
 				<label for>确认密码：</label>
 				<div class='input'>
 					<?php echo form_password(array('name'=>'passconf', 'size'=>'50', 'value'=>set_value('passconf'))) ?>
+					<?php echo form_error('passconf'); ?>
 				</div>
 			</div>
 			
