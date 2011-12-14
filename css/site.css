@@ -7,6 +7,11 @@ input[type="submit"]:hover
 	cursor:pointer;
 }
 
+div.form_error
+{
+	color:#C3412F;
+	margin:8px 0;
+}
 .leftblock
 {
 	float:left;

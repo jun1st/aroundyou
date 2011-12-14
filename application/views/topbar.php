@@ -6,9 +6,18 @@
 	</form>
 	<?php if($this->session->userdata('is_login') == 'true') { ?>
 		<ul class="nav rightblock">
-			<li>
-				<a href="/users/<?php echo $this->session->userdata('user')->id; ?>"><?php echo $this->session->userdata('user')->name; ?></a></li>
+			<li class="menu">
+				<a href="#" class="menu">Dropdown</a>
+					<ul class="menu-dropdown">
+						<li>
+					<a href="/users/<?php echo $this->session->userdata('user')->id; ?>">
+					<img src="<?php echo $this->session->userdata('user')->profile_tiny_image_path; ?>" title="profile image" class="rightblock"/>
+					<span><?php echo $this->session->userdata('user')->name; ?></span></a>
+						</li>
+					</ul>
+			</li>
 		</ul>
+		
 		</div>
 	<?php } else { ?>
 	<ul class="nav rightblock">

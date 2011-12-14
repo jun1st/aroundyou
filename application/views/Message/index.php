@@ -6,6 +6,9 @@
 <head>
 	<title>发生在你身边的事情</title>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?>
+	<script type="text/javascript" charset="utf-8" src="/scripts/jquery.min.js" ></script>
+	<script type="text/javascript" charset="utf-8" src="/scripts/application.js" ></script>
+
 </head>
 
 <body>
