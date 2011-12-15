@@ -5,6 +5,7 @@
 <html>
 <head>
 	<title>发生在你身边的事情</title>
+	
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?>
 
 </head>
