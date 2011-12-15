@@ -42,6 +42,7 @@ $route['default_controller'] = "message";
 $route['404_override'] = '';
 
 $route['login/(:any)'] = "login/index/$1";
+$route['logout'] = "login/logout";
 $route['users'] = "user/index";
 $route['user/setting']="user/setting";
 $route['user/upload_profile_image/']="user/upload_profile_image";

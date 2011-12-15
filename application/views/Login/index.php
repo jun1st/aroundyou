@@ -38,7 +38,8 @@
 			</div>
 		</div>
 		<div class="actions">
-			<input type='submit' name='submit' class="btn primary" value='Submit' />
+			<input type='submit' name='submit' class="btn primary" value='登陆' />
+			<a href="/user/register" class="btn" title="注册称为新拥护">注册新用户</a>
 		</div>
 	</fieldset>
 	

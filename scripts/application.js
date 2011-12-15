@@ -3,16 +3,16 @@ $(document).ready(function(){
   // scroll spy logic
   // ================
 
-  var activeTarget,
-      $window = $(window),
-      position = {},
-      nav = $('body > .topbar li a'),
-      targets = nav.map(function () {
+  var activeTarget;
+  var   $window = $(window);
+  var    position = {};
+  var    nav = $('body > .topbar li a');
+  var    targets = nav.map(function () {
         return $(this).attr('href');
-      }),
-      offsets = $.map(targets, function (id) {
-        return $(id).offset().top;
       });
+  var    offsets = $.map(targets, function (id) {
+                    return $(id).offset().top;
+                  });
 
 
   function setButton(id) {

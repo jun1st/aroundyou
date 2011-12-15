@@ -47,5 +47,15 @@
 			
 			$this->load->view('Login/index.php');
 		}
+		
+		public function logout()
+		{
+			$this->load->helper('cookie');
+			$this->session->unset_userdata('user');
+			delete_cookie('ci_session');
+			delete_cookie('remember_me_token');
+			
+			redirect('/message');
+		}
 	}
 ?>

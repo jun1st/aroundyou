@@ -1,4 +1,5 @@
-<div class="topbar">
+<div class="topbar" data-dropdown="dropdown">
+	<div class="topbar-inner">
 	<div class="container fixed">
 	<h3><a class="logo" href="<?php echo site_url();?>">AroundYou</a></h3>
 	<form action="/blog?page=1" accept-charset="UTF-8" method="post" id="search-theme-form" class="">
@@ -6,13 +7,18 @@
 	</form>
 	<?php if($this->session->userdata('is_login') == 'true') { ?>
 		<ul class="nav rightblock">
-			<li class="menu">
-				<a href="#" class="menu">Dropdown</a>
-					<ul class="menu-dropdown">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle"><?php echo $this->session->userdata('user')->name; ?></a>
+					<ul class="dropdown-menu">
 						<li>
 					<a href="/users/<?php echo $this->session->userdata('user')->id; ?>">
-					<img src="<?php echo $this->session->userdata('user')->profile_tiny_image_path; ?>" title="profile image" class="rightblock"/>
-					<span><?php echo $this->session->userdata('user')->name; ?></span></a>
+					我的主页</a>
+						</li>
+						<li>
+							<a href="/user/setting">设置</a>
+						</li>
+						<li>
+							<a href="/logout">退出</a>
 						</li>
 					</ul>
 			</li>
@@ -26,4 +32,5 @@
 	</ul>
 	</div>
 	<?php } ?>
+	</div>
 </div>
