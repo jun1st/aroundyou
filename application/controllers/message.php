@@ -14,8 +14,24 @@
 		{
 			$this->load->helper('date');
 			$this->load->Model('Message_model');
+			$this->load->Model('Region_model');
 
 			$data['messages'] = $this->Message_model->get_messages();
+			$data['regions'] = $this->Region_model->get_regions();
+			
+			$this->load->view('Message/index', $data);
+		}
+		
+		public function get_by_region($region_name)
+		{
+			$this->load->helper('date');
+			$this->load->Model('Message_model');
+			$this->load->Model('Region_model');
+			
+			$region = $this->Region_model->get_region_by_name($region_name);
+			
+			$data['messages'] = $this->Message_model->get_messages_by_region($region->id);
+			$data['regions'] = $this->Region_model->get_regions();
 			
 			$this->load->view('Message/index', $data);
 		}

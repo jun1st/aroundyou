@@ -52,6 +52,20 @@
 			return $this->db->get()->result();
 		}
 		
+		function get_messages_by_region($region_id)
+		{
+			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
+			$this->db->from("messages");
+			$this->db->join("users", 'messages.user_id = users.id');
+			$this->db->join('message_region', 'messages.id = message_region.message_id');
+			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
+			$this->db->where('message_region.region_id', $region_id);
+			$this->db->order_by("posted_time", "desc");
+			
+			return $this->db->get()->result();
+			
+		}
+		
 		function get_message($id)
 		{
 			$query = $this->db->get_where('messages', array('id'=>$id));

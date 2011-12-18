@@ -41,12 +41,16 @@
 $route['default_controller'] = "message";
 $route['404_override'] = '';
 
+$route['messages'] = "message/index";
 $route['login/(:any)'] = "login/index/$1";
 $route['logout'] = "login/logout";
 $route['users'] = "user/index";
 $route['user/setting']="user/setting";
 $route['user/upload_profile_image/']="user/upload_profile_image";
 $route['users/(:any)'] = 'user/get/$1';
+
+$route['byregion/(:any)'] = "message/get_by_region/$1";
+$route['messages/byregion/(:any)'] = "message/get_by_region/$1";
 
 
 /* End of file routes.php */

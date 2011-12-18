@@ -33,5 +33,12 @@
 			
 			return $query->row();
 		}
+		
+		function get_regions()
+		{
+			$query = $this->db->get('regions');
+			
+			return $query->result();
+		}
 	}
 ?>
