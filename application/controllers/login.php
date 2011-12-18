@@ -51,7 +51,8 @@
 		public function logout()
 		{
 			$this->load->helper('cookie');
-			$this->session->unset_userdata('user');
+			$this->session->sess_destroy();
+		
 			delete_cookie('ci_session');
 			delete_cookie('remember_me_token');
 			

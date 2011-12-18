@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	include_once $_SERVER['DOCUMENT_ROOT'] . '/application/models/message_model.php';
 	include_once $_SERVER['DOCUMENT_ROOT'] . '/application/models/comment_model.php';
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/application/models/region_model.php';
 	//include_once $_SERVER['DOCUMENT_ROOT'] . '/application/helpers/relatime_time.php';
 
 	class Message extends My_Controller
@@ -13,13 +14,8 @@
 		{
 			$this->load->helper('date');
 			$this->load->Model('Message_model');
-			
-			$this->db->select("messages.id as message_id, topic, content, posted_time, users.id as user_id, users.name as user_name, users.description as user_description, users.profile_tiny_image_path as profile_image");
-			$this->db->from("messages");
-			$this->db->join("users", 'messages.user_id = users.id');
-			$this->db->order_by("posted_time", "desc");
 
-			$data['messages'] = $this->db->get()->result();
+			$data['messages'] = $this->Message_model->get_messages();
 			
 			$this->load->view('Message/index', $data);
 		}
@@ -27,7 +23,7 @@
 		public function view($id)
 		{	
 			$this->load->helper('date');
-			$this->db->select("messages.id as message_id, topic, content, posted_time, users.name as user_name,users.description as user_description, users.profile_tiny_image_path as user_profile_image, regions.name as region_name");
+			$this->db->select("messages.id as message_id, topic, content, posted_time, users.id as user_id, users.name as user_name,users.description as user_description, users.profile_tiny_image_path as user_profile_image, regions.name as region_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
 			$this->db->join('message_region', 'messages.id = message_region.message_id', 'left');
@@ -61,20 +57,28 @@
 			{
 				$this->load->library('form_validation');
 				
-				$this->form_validation->set_rules('topic', '标题', 'required|max_length[40]');
 				$this->form_validation->set_rules('content', '内容', 'required|max_length[140]');
+				$this->form_validation->set_rules('regions', '地标', 'required');
+				if ($this->form_validation->run() == TRUE) 
+				{
 				
-				if ($this->form_validation->run() == TRUE) {
+					$region_name = $this->input->post('regions');
+					$this->load->Model('Region_model');
+					$region = $this->Region_model->get_region_by_name($region_name);
+					if ($region == null) {
+						$region_id = $this->Region_model->add_region($region_name);
+					}else {
+						$region_id = $region->id;
+					}
+					
+					$topic = $this->input->post('topic');
+					$content = $this->input->post('content');
+					$user_id = $this->session->userdata('user')->id;
 				
-					$message = new Message_model;
-					$message->topic = $this->input->post('topic');
-					$message->content = $this->input->post('content');
-					$message->posted_time = date('Y-m-d H:i:s');
-					$message->user_id = $this->session->userdata('user')->id;
-					$message->latitude = 1;
-					$message->longitude = 1;
-				
-					$this->db->insert('messages', $message);
+					$this->load->Model('Message_model');
+					$message_id = $this->Message_model->add_message($topic, $content, $user_id, $region_id);
+					
+					redirect('/message');
 				}
 			}
 			

@@ -5,27 +5,31 @@
 		function __construct()
 		{
 			parent::__construct();
-			$this->test();
+			$this->check_identity();
 		}
 		
-		function test()
+		function check_identity()
 		{
-			//$this->load->library('cookie');
+			if ($this->session->userdata('is_login') != 'true') {
 						
-			$this->input->set_cookie('hook', true);
-			//$this->output->set_output('shanghai international school');
-			if ($this->input->cookie('remember_me_token')) {
-				
-				$this->load->model('User_model');
-				$user = $this->User_model->cookie_authenticate($this->input->cookie('remember_me_token'));
-				//echo 'user: ' . $user;
-				if($user != null)
-				{
-					$this->load->library('session');
+				if ($this->input->cookie('remember_me_token')) {
+					$this->load->model('User_model');
+					$user = $this->User_model->cookie_authenticate($this->input->cookie('remember_me_token'));
+					//echo 'user: ' . $user;
+					if($user != null)
+					{
+						$this->load->library('session');
 					
-					$this->session->set_userdata('is_login', 'true');
-					$this->session->set_userdata('user', $user);
+						$this->session->set_userdata('is_login', 'true');
+						$this->session->set_userdata('user', $user);
+					}
+					else
+					{
+						redirect('/login');
+					}
 				}
+				
+				redirect('/login');
 			}
 		}
 	}

@@ -19,11 +19,11 @@
 		<div class="entry">
 			<h2><?php echo $message->topic; ?></h2>
 			<div class="user">
-				<a href="/users/<?php echo $message->user_name; ?>" title="查看<?php echo $message->user_name; ?>的信息" >
+				<a href="/users/<?php echo $message->user_id; ?>" title="查看<?php echo $message->user_name; ?>的信息" >
 				<img src="<?php echo $message->user_profile_image; ?>" alt="profile" title="<?php echo $message->user_name; ?>" />	
 				</a>
 				<h3>
-				<?php echo "<a href=/users/$message->user_name title='查看$message->user_name 的信息' >$message->user_name</a>"; ?>
+				<?php echo "<a href=/users/$message->user_id title='查看$message->user_name 的信息' >$message->user_name</a>"; ?>
 				<strong><span class="description"><?php echo $message->user_description; ?></span></strong>
 				</h3>
 			</div>

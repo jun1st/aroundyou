@@ -16,11 +16,40 @@
 			parent::__construct();
 		}
 		
-		function get_messages()
+		function add_message($topic, $content, $user_id, $region_id)
 		{
-			$query = $this->db->get('messages');
+			$message = new Message_model;
+			$message->topic = $topic;
+			$message->content = $content;
+			$message->posted_time = date('Y-m-d H:i:s');
+			$message->user_id = $user_id;
+
+			$this->db->insert('messages', $message);
 			
-			return $query->result();
+			$message_id = $this->db->insert_id();
+			
+			$message_region = array(
+					'message_id' => $message_id,
+					'region_id' => $region_id,
+					'added_time' => date('Y-m-d H:i:s')
+			);
+			
+			$this->db->insert('message_region', $message_region);
+		}
+		
+		/*
+		//get messages with auth, region
+		*/
+		function get_messages()
+		{	
+			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
+			$this->db->from("messages");
+			$this->db->join("users", 'messages.user_id = users.id');
+			$this->db->join('message_region', 'messages.id = message_region.message_id', 'left');
+			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
+			$this->db->order_by("posted_time", "desc");
+			
+			return $this->db->get()->result();
 		}
 		
 		function get_message($id)
