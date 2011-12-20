@@ -18,6 +18,9 @@
 	<?php echo form_open('login/index') ?>
 	<fieldset id="login">
 		<legend>Login</legend>
+		<?php if (isset($login_error)) {
+			echo "<div class='clearfix'><p class='error'>$login_error</p></div>";
+		} ?>
 		<div class="clearfix">
 			<label for> 邮 箱:</label>
 			<div class="input">

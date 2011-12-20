@@ -196,6 +196,18 @@ i {
 	margin:6px 0 6px 0;
 }
 
+.container .entry .message a.view_link, .container .entry .message a.edit_link
+{
+	font-size:13px;
+	color:#686868;
+}
+
+.container .entry .message a.view_link:hover
+{
+	text-decoration:none;
+}
+
+
 .rightsidebar
 {
 	float:right;

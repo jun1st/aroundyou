@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	
-	class Login extends My_Controller
+	class Login extends CI_Controller
 	{
 		function __construct()
 		{
@@ -45,11 +45,11 @@
 				}
 				else
 				{
-					
+					$data['login_error'] = "对不起，您的用户名和密码有误！";
 				}
 			}
 			
-			$this->load->view('Login/index.php');
+			$this->load->view('Login/index.php', $data);
 		}
 		
 		public function logout()

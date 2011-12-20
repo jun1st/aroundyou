@@ -5,9 +5,7 @@
 <html>
 <head>
 	<title>发生在你身边的事情</title>
-	
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?>
-
 </head>
 
 <body>
@@ -28,6 +26,7 @@
 								<?php echo $item->topic; ?></a>
 							</h3> -->
 							<p class="message"><?php echo $item->content; ?>
+								<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link">查看</a>
 							</p>
 							<div class="tags">
 								<a href="/byregion?name=<?php echo $item->region_name; ?>" class="region_tag"><?php echo $item->region_name; ?></a>

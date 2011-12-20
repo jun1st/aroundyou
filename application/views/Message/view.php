@@ -17,24 +17,30 @@
 	</div>
 	<div class="container">
 		<div class="entry">
-			<h2><?php echo $message->topic; ?></h2>
-			<div class="user">
-				<a href="/users/<?php echo $message->user_id; ?>" title="查看<?php echo $message->user_name; ?>的信息" >
-				<img src="<?php echo $message->user_profile_image; ?>" alt="profile" title="<?php echo $message->user_name; ?>" />	
-				</a>
-				<h3>
-				<?php echo "<a href=/users/$message->user_id title='查看$message->user_name 的信息' >$message->user_name</a>"; ?>
-				<strong><span class="description"><?php echo $message->user_description; ?></span></strong>
-				</h3>
-			</div>
+			<!-- <h2><?php echo $message->topic; ?></h2>
+						<div class="user">
+							<a href="/users/<?php echo $message->user_id; ?>" title="查看<?php echo $message->user_name; ?>的信息" >
+							<img src="<?php echo $message->user_profile_image; ?>" alt="profile" title="<?php echo $message->user_name; ?>" />	
+							</a>
+							<h3>
+							<?php echo "<a href=/users/$message->user_id title='查看$message->user_name 的信息' >$message->user_name</a>"; ?>
+							<strong><span class="description"><?php echo $message->user_description; ?></span></strong>
+							</h3>
+						</div> -->
 			<p class="message">
-				<?php echo $message->content; ?>
-				<br/>
-				<br/>				
-				<a href="/byregion?name=<?php echo $item->region_name; ?>" class="region_tag"><?php echo $message->region_name; ?></a>
+				<?php echo $message->content; ?>	
+				<?php if ($message->user_id == $this->session->userdata['user']->id) {
+					echo "<a href='/messages/edit/$message->message_id' title='编辑' class='edit_link'>编辑</a>";
+				} ?>			
 			</p>
-			<div>
-				<span><?php echo  "发布于: " .relativeTime($message->posted_time); ?></span>
+			<div class="tags">
+				<a href="/byregion?name=<?php echo $message->region_name; ?>" class="region_tag"><?php echo $message->region_name; ?></a>
+			</div>
+			<div class="user">
+				<h3>
+				<?php echo "<a href=/users/$message->user_id title='查看$message->user_name 的信息' >$message->user_name</a>"; ?><strong><span class="description"><?php echo $message->user_description; ?></span></strong>
+				</h3>
+				<span class="time"><?php echo  "发布于: " .relativeTime($message->posted_time); ?></span>
 			</div>
 			<div class="action">
 				<a href="#comments" name="addcomment">发表评论</a>

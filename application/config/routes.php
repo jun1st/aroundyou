@@ -51,6 +51,7 @@ $route['users/(:any)'] = 'user/get/$1';
 
 $route['byregion'] = "message/get_by_region";
 $route['messages/byregion/'] = "message/get_by_region";
+$route['messages/edit/(:any)'] = "message/edit/$1";
 
 
 /* End of file routes.php */
