@@ -22,18 +22,16 @@ class Message extends My_Controller
     $this->load->view('Message/index', $data);
   }
 		
-  public function get_by_region($region_name)
+  public function get_by_region()
   {
-    $this->load->helper('date');
-    $this->load->Model('Message_model');
-    $this->load->Model('Region_model');
+	    $this->load->helper('date');
+	    $this->load->Model('Message_model');
+	    $this->load->Model('Region_model');
+	    $region = $this->Region_model->get_region_by_name($_GET['name']);
+	    $data['messages'] = $this->Message_model->get_messages_by_region($region->id);
+	    $data['regions'] = $this->Region_model->get_regions();
 			
-    $region = $this->Region_model->get_region_by_name($region_name);
-			
-    $data['messages'] = $this->Message_model->get_messages_by_region($region->id);
-    $data['regions'] = $this->Region_model->get_regions();
-			
-    $this->load->view('Message/index', $data);
+	    $this->load->view('Message/index', $data);
   }
 		
   public function view($id)

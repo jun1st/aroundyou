@@ -30,7 +30,7 @@
 							<p class="message"><?php echo $item->content; ?>
 							</p>
 							<div class="tags">
-								<a href="#" class="region_tag"><?php echo $item->region_name; ?></a>
+								<a href="/byregion?name=<?php echo $item->region_name; ?>" class="region_tag"><?php echo $item->region_name; ?></a>
 							</div>
 							<div class="user">
 								<a href="/users/<?php echo $item->user_id; ?>" title="查看<?php echo $item->user_name; ?>的信息" >
