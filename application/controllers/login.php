@@ -46,10 +46,11 @@
 				else
 				{
 					$data['login_error'] = "对不起，您的用户名和密码有误！";
+                    $this->load->view('Login/index.php', $data);
+                    return;
 				}
 			}
-			
-			$this->load->view('Login/index.php', $data);
+			$this->load->view('Login/index.php');
 		}
 		
 		public function logout()

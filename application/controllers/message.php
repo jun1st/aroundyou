@@ -63,7 +63,16 @@ class Message extends My_Controller
 	
 	public function edit($id)
 	{
-		$this->load->view('message/edit');
+        $this->load->Model('Message_model');
+        $this->load->Model('Region_model');
+		if (!isset($id)) {
+            redirect('/messages');
+		}
+        
+        $data['message'] = $this->Message_model->get_message($id);
+        $data['regions'] = $this->Region_model->get_regions_by_message($id);
+        $this->load->view('message/edit', $data);
+
 	}
 		
 	public function add()

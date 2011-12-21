@@ -40,5 +40,15 @@
 			
 			return $query->result();
 		}
+        
+        function get_regions_by_message($message_id)
+        {
+            $this->db->select('regions.name as region_name, regions.id as region_id');
+            $this->db->from('regions');
+            $this->db->join('message_region', 'regions.id = message_region.message_id');
+            $this->db->where('message_region.message_id', $message_id);
+            
+            return $this->db->get()->result();
+        }
 	}
 ?>
