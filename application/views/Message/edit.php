@@ -22,7 +22,7 @@
                 echo form_open('messages/edit', '', $hidden)
             ?>
             <fieldset>
-                <legend>发布新消息</legend>
+                <legend>修改消息</legend>
                 <div class="clearfix">
                     <label for="message">消息：</label>
                     <div class="input">
@@ -33,12 +33,16 @@
                 <div class="clearfix">
                     <label for="xlInput">地标：</label>
                     <div class="input">
-                        <input class="xlarge" id="regions" name="regions" size="30" type="text">
-                        <?php if (isset($regions)) {
-                            foreach ($regions as $region) {
-                                echo $region . ',';
-                            }
-                        } ?>
+                        
+						
+                        <input class="xlarge" id="regions" name="regions" size="30" type="text" 
+						value="<?php 
+							if (isset($regions)) {
+                            	foreach ($regions as $region) {
+                                	echo $region->region_name . ', ';
+                            	}
+                        	} 
+						?>"
                         </input>
                     </div>
                 </div>
