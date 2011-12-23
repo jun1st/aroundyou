@@ -51,8 +51,8 @@ class Message extends My_Controller
 		}
 		else
 		{
-			$this->load->Model('Coment_model');
-			$data['comments'] = $this->db->get_comments_details_by_message();
+			$this->load->Model('Comment_model');
+			$data['comments'] = $this->Comment_model->get_comments_details_by_message($id);
 				
 			$this->load->view('Message/view', $data);
 		}
@@ -144,7 +144,7 @@ class Message extends My_Controller
 			$comment = new Comment_model;
 			$comment->message_id = $this->input->post('message_id');
 			$comment->user_id = $this->session->userdata('user')->id;
-			$comment->content = $this->input->post('comment_content');
+			$comment->content = $this->input->post('comment_content', true);
 			$comment->posted_time = date('Y-m-d H:i:s');
 				
 			$this->db->insert('comments', $comment);

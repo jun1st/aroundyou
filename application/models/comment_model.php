@@ -25,7 +25,7 @@
 			$this->db->select("content, posted_time, users.name as user_name,users.description as user_description, users.profile_tiny_image_path as profile_image");
 			$this->db->from('comments');
 			$this->db->join('users', 'user_id = users.id');
-			$this->db->where('message_id', $id);
+			$this->db->where('message_id', $message_id);
             
             return $this->db->get()->result();
         }
