@@ -31,7 +31,7 @@
 		{
 			$query = $this->db->get_where('regions', array('name'=>$name));
 			
-			return $query->row();
+            return $query->row();
 		}
 		
 		function get_regions()

@@ -37,6 +37,14 @@
 			$this->db->insert('message_region', $message_region);
 		}
 		
+        function update_message($message_id, $content, $new_region_id)
+        {
+            $data = array('content' => $content);
+            $this->db->where('id', $message_id);
+            $this->db->update('messages', $data);
+            
+            $this->update_regions($message_id, $new_region_id);
+        }
 		/*
 		//get messages with auth, region
 		*/
@@ -84,6 +92,15 @@
             
             return $this->db->get()->row();
             
+        }
+        
+        function update_regions($message_id, $new_region_ids)
+        {
+            $this->db->delete('message_region', array('message_id'=>$message_id));
+            
+            $data = array('message_id'=>$message_id, 'region_id'=>$new_region_ids);
+            
+            $this->db->insert('message_region', $data);
         }
 	}
 ?>

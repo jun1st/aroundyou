@@ -19,10 +19,10 @@
             <?php echo validation_errors(); ?>
             <?php 
                 $hidden = array('id'=>$message->id);
-                echo form_open('messages/edit', '', $hidden)
+                echo form_open("messages/edit/$message->id", '', $hidden)
             ?>
             <fieldset>
-                <legend>修改消息</legend>
+                <legend>发布新消息</legend>
                 <div class="clearfix">
                     <label for="message">消息：</label>
                     <div class="input">
@@ -33,6 +33,10 @@
                 <div class="clearfix">
                     <label for="xlInput">地标：</label>
                     <div class="input">
+<<<<<<< HEAD
+                        <input class="xlarge" id="regions" name="regions" size="30" type="text"
+                        value="<?php if (isset($regions)) {foreach ($regions as $region) { echo $region->region_name;}} ?>">
+=======
                         
 						
                         <input class="xlarge" id="regions" name="regions" size="30" type="text" 
@@ -43,6 +47,7 @@
                             	}
                         	} 
 						?>"
+>>>>>>> 480eb8911573873766d934e02236df4a94276211
                         </input>
                     </div>
                 </div>
