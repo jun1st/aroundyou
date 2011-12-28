@@ -4,7 +4,7 @@
 
 <html>
 <head>
-	<title><?php echo $message->topic; ?></title>
+	<title><?php echo $message->content; ?></title>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?>
 </head>
 
@@ -63,7 +63,7 @@
 								<strong><span class="description"><?php echo $message->user_description; ?></span></strong>
 								</h3>
 							</div>
-						<p><?php echo $comment->content; ?></p>
+						<p><?php echo decode($comment->content); ?></p>
 						<div class='author'>
 							<?php echo $comment->user_name . ' posted at ' . $comment->posted_time; ?>
 						</div>

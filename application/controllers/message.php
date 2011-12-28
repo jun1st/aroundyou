@@ -41,7 +41,7 @@ class Message extends My_Controller
 	public function view($id)
 	{	
 		$this->load->helper('date');
-    
+		$this->load->helper('html');
 		$this->load->Model('Message_model');
     
 		$data['message'] = $this->Message_model->get_message_detail($id);
@@ -144,7 +144,7 @@ class Message extends My_Controller
 			$comment = new Comment_model;
 			$comment->message_id = $this->input->post('message_id');
 			$comment->user_id = $this->session->userdata('user')->id;
-			$comment->content = $this->input->post('comment_content', true);
+			$comment->content = htmlspecialchars($this->input->post('comment_content', true));
 			$comment->posted_time = date('Y-m-d H:i:s');
 				
 			$this->db->insert('comments', $comment);

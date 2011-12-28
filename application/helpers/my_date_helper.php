@@ -35,7 +35,7 @@ function relativeTime($time)
     }
     if ($delta < 30 * DAY)
     {
-        return floor($delta / DAY) . "天前";
+        return floor($delta / DAY ) . "天前";
     }
     if ($delta < 12 * MONTH)
     {
