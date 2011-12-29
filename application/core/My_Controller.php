@@ -22,6 +22,7 @@
 					
 						$this->session->set_userdata('is_login', 'true');
 						$this->session->set_userdata('user', $user);
+						redirect('/messages');
 					}
 					else
 					{
@@ -31,6 +32,10 @@
 				
 				redirect('/login');
 			}
+			// else
+			// 			{
+			// 				redirect('/messages');
+			// 			}
 		}
 	}
 

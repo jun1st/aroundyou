@@ -40,7 +40,7 @@
 				<h3>
 				<?php echo "<a href=/users/$message->user_id title='查看$message->user_name 的信息' >$message->user_name</a>"; ?><strong><span class="description"><?php echo $message->user_description; ?></span></strong>
 				</h3>
-				<span class="time"><?php echo  "发布于: " .relativeTime($message->posted_time); ?></span>
+				<span class="time"><?php echo  "发布于: " .relative_time($message->posted_time); ?></span>
 			</div>
 			<div class="action">
 				<a href="#comments" name="addcomment">发表评论</a>
@@ -65,7 +65,7 @@
 							</div>
 						<p><?php echo decode($comment->content); ?></p>
 						<div class='author'>
-							<?php echo $comment->user_name . ' posted at ' . $comment->posted_time; ?>
+							<?php echo $comment->user_name . ' posted at ' . relative_time($comment->posted_time); ?>
 						</div>
 						</div>
 					</li>
