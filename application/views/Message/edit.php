@@ -33,21 +33,20 @@
                 <div class="clearfix">
                     <label for="xlInput">地标：</label>
                     <div class="input">
-<<<<<<< HEAD
+
                         <input class="xlarge" id="regions" name="regions" size="30" type="text"
                         value="<?php if (isset($regions)) {foreach ($regions as $region) { echo $region->region_name;}} ?>">
-=======
+
                         
 						
-                        <input class="xlarge" id="regions" name="regions" size="30" type="text" 
-						value="<?php 
-							if (isset($regions)) {
-                            	foreach ($regions as $region) {
-                                	echo $region->region_name . ', ';
-                            	}
-                        	} 
-						?>"
->>>>>>> 480eb8911573873766d934e02236df4a94276211
+                        <!-- <input class="xlarge" id="regions" name="regions" size="30" type="text" 
+                                                value="<?php 
+                                                    if (isset($regions)) {
+                                                        foreach ($regions as $region) {
+                                                            echo $region->region_name . ', ';
+                                                        }
+                                                    } 
+                                                ?>" -->
                         </input>
                     </div>
                 </div>
