@@ -2,7 +2,7 @@ html, body
 {
 
 }
-input[type                                              = "submit"]:hover
+input[type= "submit"]:hover
 {
 	cursor:pointer;
 }
@@ -175,12 +175,9 @@ i {
 
 }
 
-#actionbar
+.main
 {
-	margin-top:60px;
-	height:60px;
-	vertical-align:middle;
-	line-height:60px;
+	margin-top:80px;
 }
 .content
 {
@@ -215,10 +212,20 @@ i {
 	text-align:left;
 }
 
+#feeds_title
+{
+background: transparent url("../img/latestfeed.png") scroll no-repeat 0 50%;
+margin:0 0 10px;
+font-size: 14px;
+text-indent: 25px;
+color: #666;
+font-weight: bold;
+}
 #messages
 {
 	margin-left:0px;
 	padding-left:0px;
+    border-top: 1px solid #CCC;
 }
 
 h2, h3, h4

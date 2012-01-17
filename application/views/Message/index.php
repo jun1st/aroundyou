@@ -10,13 +10,12 @@
 
 <body>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
-	<div id="actionbar">
-		<div class="container">
-			<a href="/message/add" title="发布消息" class="btn">发布消息</a>
-		</div>
-	</div>
-	<div class="container">
+
+	<div class="container main">
 	    <div class="content">
+            <div id="feeds_title">
+                最新动态
+            </div>
 			<ul id="messages">
 	      		<?php foreach ($messages as $item): ?>
 					<li>

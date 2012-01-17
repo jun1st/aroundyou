@@ -5,7 +5,7 @@
 		function __construct()
 		{
 			parent::__construct();
-			$this->check_identity();
+			//$this->check_identity();
 		}
 		
 		function check_identity()
