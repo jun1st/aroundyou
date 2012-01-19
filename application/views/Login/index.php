@@ -17,7 +17,7 @@
 	<div class="container">
 	<?php echo form_open('login/index') ?>
 	<fieldset id="login">
-		<legend>Login</legend>
+		<legend>登陆</legend>
 		<?php if (isset($login_error)) {
 			echo "<div class='clearfix'><p class='error'>$login_error</p></div>";
 		} ?>

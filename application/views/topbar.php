@@ -8,7 +8,7 @@
 			<div class="global-nav">
 				<div class="rightblock">
 					<div class="well topbar-tweet-btn">
-						<a class="btn-tweet" title="新消息" data-controls-modal="top-new-twitter" data-backdrop="true">
+						<a class="btn-tweet" title="新消息" data-controls-modal="top-new-message" data-backdrop="true">
 							<i class="nav-tweet"></i>
 						</a>
 					</div>

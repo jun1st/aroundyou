@@ -17,6 +17,7 @@ Modernizr.load([
 		    	// done loading.
 		      	yepnope('/scripts/bootstrap-dropdown.js');
 				yepnope('/scripts/bootstrap-modal.js');
+				yepnope('/scripts/aroundyou.js');
 			}
 		}
 	}
