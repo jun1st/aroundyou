@@ -43,10 +43,15 @@ class Message extends My_Controller
 		$this->load->helper('date');
 		$this->load->helper('html');
 		$this->load->Model('Message_model');
-    
+        $this->load->Model('Region_model');
+        
 		$data['message'] = $this->Message_model->get_message_detail($id);
-			
-		if ($data['message'] == null) {
+        if(isset($data['message']->region_name))
+        {
+		    $region = $this->Region_model->get_region_by_name($data['message']->region_name);
+            $data['region_messages'] = $this->Message_model->get_messages_by_region($region->id);
+        }
+        if ($data['message'] == null) {
 			echo 'not found';
 		}
 		else

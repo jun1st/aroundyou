@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -9,12 +8,8 @@
 </head>
 <body>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
-    <div id="actionbar">
-        <div class="container">
-            <input type="button" name="add_message" value="发布消息" class="btn" id="add_message" />
-        </div>
-    </div>
-    <div class="container">
+    
+    <div class="container main">
         <div class="content">
             <?php echo validation_errors(); ?>
             <?php 
