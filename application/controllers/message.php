@@ -96,8 +96,10 @@ class Message extends My_Controller
             }
         }
         
-        $data['message'] = $this->Message_model->get_message($id);
-        $data['regions'] = $this->Region_model->get_regions_by_message($id);
+        $data['message'] = $this->Message_model->get_message_detail($id);
+        //$data['regions'] = $this->Region_model->get_regions_by_message($id);
+		$region = $this->Region_model->get_region_by_name($data['message']->region_name);
+		$data['region_messages'] = $this->Message_model->get_messages_by_region($region->id);
         $this->load->view('message/edit', $data);
 
 	}

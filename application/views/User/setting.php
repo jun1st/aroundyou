@@ -5,7 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<title>setting</title>
-	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?>
+	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="/css/site.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	
+	<!-- <?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?> -->
 	<link rel="stylesheet" href="/css/jquery.Jcrop.css" type="text/css" charset="utf-8" >
 	<script type="text/javascript" charset="utf-8" src="/scripts/jquery.min.js" ></script>
 	<script type="text/javascript" charset="utf-8" src="/scripts/ajaxfileupload.js" ></script>
@@ -87,38 +90,39 @@ function ajaxFileUpload()
 			dataType: 'json',
 			success: function (data, status)
 			{
+				alert(data.error_message);
 				$('#profileImage').attr('src', data.image_address);
 				if(typeof(data.error) != 'undefined')
 				{
 					if(data.error != '')
 					{
 						alert(data.error);
-						}else
-						{
-							alert(data.msg);
-						}
 					}
-				},
-				error: function (data, status, e)
-				{
-					alert(e);
+					else
+					{
+						alert(data.msg);
+					}
 				}
+			},
+			error: function (data, status, e)
+			{
+				alert(e);
 			}
-		)
-
-		return false;
-
-	} 
+			
+		}
+	);
+	return false;
+}
 
 	$(document).ready(function()
-	{
-		$('#upload').click(
-			function()
-			{
-				ajaxFileUpload();
-			}
-		);
-	});
+		{
+			$('#upload').click(
+				function()
+				{
+					ajaxFileUpload();
+				}
+			);
+		});
 	</script>
 </script>
 </body>

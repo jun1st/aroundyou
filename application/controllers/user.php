@@ -12,17 +12,17 @@
 			$this->load->view('User/index', $data);
 		}
 		
-		public function get($name)
+		public function get($id)
 		{
-			if(!isset($name) || $name=='')
+			if(!isset($id) || $id=='')
 			{
 				$this->index();
 			}
-			
+			$this->load->helper('date');
 			$this->load->model('User_model');
-			
-			$data['user'] = $this->User_model->get_user($name);
-			
+			$this->load->model('Message_model');
+			$data['user'] = $this->User_model->get_user($id);
+			$data['messages'] = $this->Message_model->get_messages_by_user($data['user']->id);
 			$this->load->view('User/view', $data);
 			
 		}

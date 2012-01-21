@@ -27,6 +27,7 @@
 			$this->db->from('comments');
 			$this->db->join('users', 'user_id = users.id');
 			$this->db->where('message_id', $message_id);
+			$this->db->order_by('posted_time', 'desc');
             
             return $this->db->get()->result();
         }

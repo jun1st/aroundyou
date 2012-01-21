@@ -288,6 +288,7 @@ div.entry
 .user span.time
 {
 	font-size:12px;
+	float:right;
 }
 
 .user h3 .description
@@ -326,6 +327,13 @@ div.entry .actions a
 {
 	margin-top:4px;
 	margin-bottom:8px;
+}
+
+/*new comment */
+
+h3.new-comment
+{
+	margin-bottom:6px;
 }
 
 .profileimageupload

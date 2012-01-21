@@ -11,12 +11,7 @@
 <body>
 
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
-	<div style="margin-top:40px; height:60px;">
-		<div class="container">
-			head lines;
-		</div>
-	</div>
-	<div class="container">
+	<div class="container main">
 		<div id="userprofile">
 			<div class="profileimageupload">
 				<img title="profile image" src="<?php echo $user->profile_image_path; ?>"/>
@@ -42,7 +37,7 @@
 						</tr>
 						<tr>
 							<td>所在城市：</td>
-							<td><?php echo $user->website; ?></td>
+							<td><?php echo $user->location; ?></td>
 						</tr>
 					<tbody>
 				</table>
@@ -52,9 +47,31 @@
 		<div style="clear:both;">
 		<div id="useractivities">
 			<ul class="tabs">
-				<li class='active'><a href='#'>发表的话题</a></li>
-				<li><a href='#'>发出的评论</a></li>
+				<li class='active'><a href='#mytopics'>发表的话题</a></li>
+				<li><a href='#mycomments'>发出的评论</a></li>
 			</ul>
+			<div id="mytopics">
+				<ul>
+					<?php foreach ($messages as $item) : ?>
+						<li>
+							<div class="entry">
+								<p class="message"><?php echo $item->content; ?>
+									<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link">查看</a>
+								</p>
+								<div class="tags">
+									<a href="/byregion?name=<?php echo $item->region_name; ?>" class="region_tag"><?php echo $item->region_name; ?></a>
+								</div>
+								<div class="user">
+									<span class="time"><?php echo  "发布于: " .relative_time($item->posted_time); ?></span>
+								</div>
+							
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+			<div id="mycomments">
+				comments
+			</div>
 		</div>
 	</div>
 </body>

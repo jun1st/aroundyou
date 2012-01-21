@@ -5,4 +5,5 @@ $(document).ready(function()
 			alert($(this).parent().prev().children('textarea:first').val());
 		}
 	);
+	
 });

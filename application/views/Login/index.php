@@ -9,12 +9,8 @@
 
 <body>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
-	<div style="margin-top:40px; height:60px;">
-		<div class="container">
-			head lines;
-		</div>
-	</div>
-	<div class="container">
+	
+	<div class="container main">
 	<?php echo form_open('login/index') ?>
 	<fieldset id="login">
 		<legend>登陆</legend>
