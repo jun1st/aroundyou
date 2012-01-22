@@ -31,5 +31,12 @@
             
             return $this->db->get()->result();
         }
+		
+		function get_comments_by_user($user_id)
+		{
+			$query = $this->db->get_where("comments", array('user_id'=>$user_id));
+			
+			return $query->result();
+		}
 	}
 ?>

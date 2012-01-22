@@ -18,11 +18,14 @@
 			{
 				$this->index();
 			}
+			$this->load->helper('html');
 			$this->load->helper('date');
 			$this->load->model('User_model');
 			$this->load->model('Message_model');
+			$this->load->model('Comment_model');
 			$data['user'] = $this->User_model->get_user($id);
 			$data['messages'] = $this->Message_model->get_messages_by_user($data['user']->id);
+			$data['comments'] = $this->Comment_model->get_comments_by_user($data['user']->id);
 			$this->load->view('User/view', $data);
 			
 		}
@@ -37,12 +40,12 @@
 			if(isset($_POST['submit']))
 			{
 				$data = array(
-					'name' => $this->input->post('name'),
+					'name' => htmlspecialchars($this->input->post('name')),
 					'email' => $this->input->post('email'),
 					'birthday' => $this->input->post('birthday'),
-					'location' => $this->input->post('location'),
-					'website' => $this->input->post('website'),
-					'description' => $this->input->post('description')
+					'location' => htmlspecialchars($this->input->post('location')),
+					'website' => htmlspecialchars($this->input->post('website')),
+					'description' => htmlspecialchars($this->input->post('description'))
 				);
 				
 				$this->db->where('id', $this->session->userdata['user']->id);

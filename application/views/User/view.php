@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-	<title>register</title>
+	<title><?php echo $user->name . '的主页'; ?></title>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?>
 </head>
 
@@ -13,6 +13,7 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
 	<div class="container main">
 		<div id="userprofile">
+			<h3><?php echo $user->name; ?></h3>
 			<div class="profileimageupload">
 				<img title="profile image" src="<?php echo $user->profile_image_path; ?>"/>
 			</div>
@@ -37,7 +38,11 @@
 						</tr>
 						<tr>
 							<td>所在城市：</td>
-							<td><?php echo $user->location; ?></td>
+							<td><?php echo decode($user->location); ?></td>
+						</tr>
+						<tr>
+							<td>个人介绍:</td>
+							<td><?php echo decode($user->description); ?></td>
 						</tr>
 					<tbody>
 				</table>
@@ -46,31 +51,41 @@
 		</div>
 		<div style="clear:both;">
 		<div id="useractivities">
-			<ul class="tabs">
+			<ul data-tabs="tabs" class="tabs">
 				<li class='active'><a href='#mytopics'>发表的话题</a></li>
 				<li><a href='#mycomments'>发出的评论</a></li>
 			</ul>
-			<div id="mytopics">
-				<ul>
-					<?php foreach ($messages as $item) : ?>
-						<li>
-							<div class="entry">
-								<p class="message"><?php echo $item->content; ?>
-									<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link">查看</a>
-								</p>
-								<div class="tags">
-									<a href="/byregion?name=<?php echo $item->region_name; ?>" class="region_tag"><?php echo $item->region_name; ?></a>
-								</div>
-								<div class="user">
-									<span class="time"><?php echo  "发布于: " .relative_time($item->posted_time); ?></span>
-								</div>
+			<div class="tab-content" id="my-contents">
+				<div class="tab-pane active" id="mytopics">
+					<ul>
+						<?php foreach ($messages as $item) : ?>
+							<li>
+								<div class="entry">
+									<p class="message"><?php echo $item->content; ?>
+										<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link">查看</a>
+									</p>
+									<div class="tags">
+										<a href="/byregion?name=<?php echo $item->region_name; ?>" class="region_tag"><?php echo $item->region_name; ?></a>
+									</div>
+									
+										<span class="time"><?php echo  "发布于: " .relative_time($item->posted_time); ?></span>
+									
 							
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			</div>
-			<div id="mycomments">
-				comments
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+				<div class="tab-pane" id="mycomments">
+					<ul>
+						<?php foreach ($comments as $item) : ?> 
+							<li>
+        						<p><?php echo decode($item->content); ?></p>
+        						<div class='author'>
+        							<?php echo '发布于 ' . relative_time($item->posted_time); ?>
+        						</div>
+							</li>
+						<?php endforeach;?>
+				</div>
 			</div>
 		</div>
 	</div>

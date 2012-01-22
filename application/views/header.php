@@ -18,6 +18,7 @@ Modernizr.load([
 		      	yepnope('/scripts/bootstrap-dropdown.js');
 				yepnope('/scripts/bootstrap-modal.js');
 				yepnope('/scripts/aroundyou.js');
+				yepnope('/scripts/bootstrap-tabs.js');
 			}
 		}
 	}
