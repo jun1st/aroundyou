@@ -38,11 +38,11 @@
 						</tr>
 						<tr>
 							<td>所在城市：</td>
-							<td><?php echo decode($user->location); ?></td>
+							<td><?php echo $user->location; ?></td>
 						</tr>
 						<tr>
 							<td>个人介绍:</td>
-							<td><?php echo decode($user->description); ?></td>
+							<td><?php echo $user->description; ?></td>
 						</tr>
 					<tbody>
 				</table>
@@ -78,7 +78,7 @@
 				<div class="tab-pane" id="mycomments">
 					<ul>
 						<?php foreach ($comments as $item) : ?> 
-							<li>
+							<li style="list-style:none">
         						<p><?php echo decode($item->content); ?></p>
         						<div class='author'>
         							<?php echo '发布于 ' . relative_time($item->posted_time); ?>

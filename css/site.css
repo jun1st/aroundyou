@@ -341,8 +341,8 @@ h3.new-comment
 #userprofile h3
 {
 	padding-bottom:4px;
-	border-bottom:1px solid black;
-	margin-bottom:4px;
+	border-bottom:1px solid #cccccc;
+	margin-bottom:8px;
 }
 
 .profileimageupload
@@ -361,13 +361,13 @@ h3.new-comment
 	width:400px;
 }
 
-#mytopics ul
+#mytopics ul, #mycomments ul
 {
 	list-style:disc;
 	margin-left:2px;
 }
 
-#mytopics ul li
+#mytopics li, #mycomments li
 {
 	border-bottom:1px solid #cccccc;
 	list-style:none;

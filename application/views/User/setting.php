@@ -4,13 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-	<title>setting</title>
+	<title>修改<?php echo $user->name; ?>的个人信息</title>
 	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<link rel="stylesheet" href="/css/site.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	
-	<!-- <?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?> -->
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/header.php'; ?>
 	<link rel="stylesheet" href="/css/jquery.Jcrop.css" type="text/css" charset="utf-8" >
-	<script type="text/javascript" charset="utf-8" src="/scripts/jquery.min.js" ></script>
+	// <script type="text/javascript" charset="utf-8" src="/scripts/jquery.min.js" ></script>
 	<script type="text/javascript" charset="utf-8" src="/scripts/ajaxfileupload.js" ></script>
 	<script type="text/javascript" charset="utf-8" src="/scripts/jquery.Jcrop.min.js" ></script>
 </head>
@@ -18,16 +18,12 @@
 <body>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
-<div style="margin-top:40px; height:60px;">
-	<div class="container">
-		head lines;
-	</div>
-</div>
-<div class="container">
+
+<div class="container main">
 	<div class="profiledetail">
 		<?php echo form_open('user/setting'); ?>
 		<fieldset id="profile_setting" class="">
-			<legend>profile setting</legend>
+			<legend>个人信息</legend>
 			<div class='clearfix'>
 				<label for>名字：</label>
 				<div class='input'>
