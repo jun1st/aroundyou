@@ -340,8 +340,9 @@ h3.new-comment
 
 #userprofile h3
 {
+	font-family:'Trebuchet MS', 'Liberation Sans', 'DejaVu Sans', sans-serif;
 	padding-bottom:4px;
-	border-bottom:1px solid #cccccc;
+	border-bottom:1px solid #666;
 	margin-bottom:8px;
 }
 
@@ -349,6 +350,7 @@ h3.new-comment
 {
 	width:200px;
 	float:left;
+	text-align:center;
 }
 
 .profiledetail
@@ -371,4 +373,10 @@ h3.new-comment
 {
 	border-bottom:1px solid #cccccc;
 	list-style:none;
+	margin-top:4px;
+}
+
+#mycomments li p
+{
+	color:black;
 }

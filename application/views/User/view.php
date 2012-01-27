@@ -13,7 +13,12 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
 	<div class="container main">
 		<div id="userprofile">
+			<div class="subheader">
+			<div class="links" style="float:right;margin-top:4px;">
+				<a href="/user/setting">edit</a>
+			</div>
 			<h3><?php echo $user->name; ?></h3>
+			</div>
 			<div class="profileimageupload">
 				<img title="profile image" src="<?php echo $user->profile_image_path; ?>"/>
 			</div>
@@ -45,8 +50,7 @@
 							<td><?php echo $user->description; ?></td>
 						</tr>
 					<tbody>
-				</table>
-				<a href="/user/setting" class="btn">修改</a>	
+				</table>	
 			</div>
 		</div>
 		<div style="clear:both;">
@@ -78,7 +82,7 @@
 				<div class="tab-pane" id="mycomments">
 					<ul>
 						<?php foreach ($comments as $item) : ?> 
-							<li style="list-style:none">
+							<li>
         						<p><?php echo decode($item->content); ?></p>
         						<div class='author'>
         							<?php echo '发布于 ' . relative_time($item->posted_time); ?>

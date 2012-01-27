@@ -14,9 +14,6 @@
 	<?php echo form_open('login/index') ?>
 	<fieldset id="login">
 		<legend>登陆</legend>
-		<?php if (isset($login_error)) {
-			echo "<div class='clearfix'><p class='error'>$login_error</p></div>";
-		} ?>
 		<div class="clearfix">
 			<label for> 邮 箱:</label>
 			<div class="input">
@@ -35,6 +32,11 @@
 				<input type="checkbox" name="remember_me" value="remember_me" id="remember_me" />
 				<span>2周内不用登陆</span>
 			</div>
+		</div>
+		<div class="clearfix">
+		<?php if (isset($login_error)) {
+			echo "<label for='error'></label><div class='input'><div class='form_error'><span>$login_error</span></div></div>";
+		} ?>
 		</div>
 		<div class="actions">
 			<input type='submit' name='submit' class="btn primary" value='登陆' />
