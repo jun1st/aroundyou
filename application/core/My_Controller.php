@@ -5,7 +5,7 @@
 		function __construct()
 		{
 			parent::__construct();
-			//$this->check_identity();
+			$this->check_identity();
 		}
 		
 		function check_identity()
@@ -24,13 +24,13 @@
 						$this->session->set_userdata('user', $user);
 						redirect('/messages');
 					}
-					else
-					{
-						redirect('/login');
-					}
+					// else
+					// 					{
+					// 						redirect('/login');
+					// 					}
 				}
 				
-				redirect('/login');
+				// redirect('/login');
 			}
 			// else
 			// 			{
