@@ -197,6 +197,7 @@ i {
 {
 	font-size:13px;
 	color:#686868;
+	display:none;
 }
 
 .container .entry .message a.view_link:hover
@@ -277,6 +278,11 @@ div.entry
 {
 	margin-top:6px;
 	padding-bottom:4px;
+}
+
+div.entry:hover a.view_link
+{
+	display:inline !important;
 }
 
 .user h3
