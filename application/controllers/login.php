@@ -9,7 +9,9 @@
 		public function Index()
 		{
 			$this->load->library('form_validation');
-
+			$this->load->add_package_path(APPPATH.'third_party/sinaweibo/');
+			$this->load->library('sinaweibo');
+			
 			if (isset($_POST['submit'])) {
 				
 				$email = $this->input->post('email');

@@ -1,18 +1,18 @@
-<div class="topbar" data-dropdown="dropdown">
-	<div class="topbar-inner">
-		<div class="container fixed">
-			<h3><a class="logo" href="<?php echo site_url();?>">AroundYou</a></h3>
-			<form action="/blog?page=1" accept-charset="UTF-8" method="post" id="search-theme-form" class="">
-				<input id="search-q" name="search_theme_form" type="text" maxlength="128" size="15" value="Search" title="Enter search terms" placeholder="Search">
-			</form>
-			<div class="global-nav">
-				<div class="rightblock">
-					<div class="well topbar-tweet-btn">
-						<a class="btn-tweet" title="新消息" data-controls-modal="top-new-message" data-backdrop="true">
-							<i class="nav-tweet"></i>
-						</a>
-					</div>
-				</div>
+<div class="navbar navbar-fixed-top" data-dropdown="dropdown">
+	<div class="navbar-inner">
+		<div class="container">
+			<h3 style="display:inline;"><a class="logo" href="<?php echo site_url();?>">AroundYou</a></h3>
+			<!-- <form action="/blog?page=1" accept-charset="UTF-8" method="post" id="search-theme-form" class="">
+							<input id="search-q" name="search_theme_form" type="text" maxlength="128" size="15" value="Search" title="Enter search terms" placeholder="Search">
+						</form> -->
+			<div class="global-nav" style="float:right;">
+				<!-- <div class="rightblock">
+									<div class="well topbar-tweet-btn">
+										<a class="btn-tweet" title="新消息" data-controls-modal="top-new-message" data-backdrop="true">
+											<i class="nav-tweet"></i>
+										</a>
+									</div>
+								</div> -->
 	
 				<?php if($this->session->userdata('is_login') == 'true') { ?>
 					<ul class="nav rightblock">
