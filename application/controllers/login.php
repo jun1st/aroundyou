@@ -9,9 +9,15 @@
 		public function Index()
 		{
 			$this->load->library('form_validation');
-			$this->load->add_package_path(APPPATH.'third_party/sinaweibo/');
-			$this->load->library('sinaweibo');
 			
+            include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/config.php';
+            include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/saetv2.ex.class.php';
+			
+            $o = new SaeTOAuthV2( WB_AKEY , WB_SKEY );
+
+            $data['code_url'] = $o->getAuthorizeURL( WB_CALLBACK_URL );
+            
+            
 			if (isset($_POST['submit'])) {
 				
 				$email = $this->input->post('email');
@@ -51,9 +57,43 @@
                     return;
 				}
 			}
-			$this->load->view('Login/index.php');
+			$this->load->view('Login/index.php', $data);
 		}
 		
+        public function OAuth()
+        {
+            
+        }
+        
+        public function Callback()
+        {
+            session_start();
+            
+            include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/config.php';
+            include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/saetv2.ex.class.php';
+
+            $o = new SaeTOAuthV2( WB_AKEY , WB_SKEY );
+            $str = $_SERVER['QUERY_STRING'];
+            echo $str;
+            parse_str($str);
+            echo $code;
+            if (isset($code)) {
+                $keys = array();
+                $keys['code'] = $code;
+                $keys['redirect_uri'] = WB_CALLBACK_URL;
+                try {
+                    $token = $o->getAccessToken( 'code', $keys ) ;
+                } catch (OAuthException $e) {
+                    echo $e;
+                }
+            }
+                        
+            if ($token) {
+                echo 'authenticated';
+            }
+            
+        }
+        
 		public function logout()
 		{
 			$this->load->helper('cookie');

@@ -11,6 +11,9 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
 	
 	<div class="container main">
+    <div>
+        <a href="<?php echo $code_url; ?>"><img src="/img/weibo_login.png" title="点击进入授权页面" alt="点击进入授权页面" border="0" /></a>
+    </div>
 	<?php echo form_open('login/index') ?>
 	<fieldset id="login">
 		<legend>登陆</legend>
