@@ -21,8 +21,7 @@
 				$this->load->model('User_model');
 				
 				$user = $this->User_model->authenticate_user($email, $password);
-				// $query = $this->db->query("select * from users where email = '$email' and password = 	'$password'");
-				// 				$user = $query->row();
+
 				if( $user != null )
 				{
 					$this->session->set_userdata('is_login', 'true');
