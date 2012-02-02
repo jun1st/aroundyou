@@ -66,17 +66,15 @@
         }
         
         public function Callback()
-        {
-            session_start();
-            
+        {   
             include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/config.php';
             include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/saetv2.ex.class.php';
 
             $o = new SaeTOAuthV2( WB_AKEY , WB_SKEY );
             $str = $_SERVER['QUERY_STRING'];
-            echo $str;
+            //echo $str;
             parse_str($str);
-            echo $code;
+
             if (isset($code)) {
                 $keys = array();
                 $keys['code'] = $code;
@@ -89,7 +87,17 @@
             }
                         
             if ($token) {
-                echo 'authenticated';
+				
+				$c = new SaeTClientV2( WB_AKEY , WB_SKEY , $token['access_token'] );
+				//$ms  = $c->home_timeline(); // done
+				$uid_get = $c->get_uid();
+				$uid = $uid_get['uid'];
+				$user_message = $c->show_user_by_id( $uid);
+				
+				echo $user_message['screen_name'];
+				echo $user_message['name'];
+				echo $user_message['location'];
+				echo $user_message['description'];
             }
             
         }
