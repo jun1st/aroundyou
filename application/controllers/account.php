@@ -1,12 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	
-	class Login extends CI_Controller
+	class Account extends CI_Controller
 	{
 		function __construct()
 		{
 			parent::__construct();
 		}
-		public function Index()
+		public function Login()
 		{
 			$this->load->library('form_validation');
 			
@@ -57,7 +57,7 @@
                     return;
 				}
 			}
-			$this->load->view('Login/index.php', $data);
+			$this->load->view('Account/login.php', $data);
 		}
 		
         public function OAuth()
@@ -94,14 +94,32 @@
 				$uid = $uid_get['uid'];
 				$user_message = $c->show_user_by_id( $uid);
 				
-				echo $user_message['screen_name'];
-				echo $user_message['name'];
-				echo $user_message['location'];
-				echo $user_message['description'];
+				$user = new User_model;
+				$user->name = $user_message['name'];
+				$user->weibo = $user_message['uid'];
+				$user->location = $user_message['location'];
+				$user->description = $user_message['description'];
+				$user->register_time = date('Y-m-d H:i:s');
+				
+				$this->session->set_userdata('user', $user);
+				
+				redirect('/account/register');
             }
             
         }
         
+		public function register()
+		{
+			if (isset($_POST['submit'])) {
+				
+				$user = $this->session->userdata('user');
+				$user->email = $this->input->post('email');
+				
+				$this->db->insert('users', $user);
+			}
+			$this->load->view('Account/register');
+		}
+		
 		public function logout()
 		{
 			$this->load->helper('cookie');

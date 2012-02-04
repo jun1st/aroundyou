@@ -79,7 +79,7 @@
         		?>
         	<?php } else { ?>
                 <div>
-                    <span>请<a href="/login/<?php echo uri_string(); ?>">登陆</a>后再发表评论</span>
+                    <span>请<a href="/account/login?returnUrl=<?php echo uri_string(); ?>">登陆</a>后再发表评论</span>
                 </div>
         		
         	<?php } ?>
