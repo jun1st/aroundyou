@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="/css/site.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 <script type="text/javascript" charset="utf-8" src="/scripts/modernizr.js" ></script>
-<script type="text/javascript" charset="utf-8" src="/scripts/jquery-1.7.1.min.js" ></script>
 <script type="text/javascript">
 Modernizr.load([
 	{
@@ -19,7 +18,8 @@ Modernizr.load([
 				yepnope('/scripts/bootstrap-modal.js');
 				yepnope('/scripts/bootstrap-tab.js');
 				yepnope('/scripts/aroundyou.js');
-				
+				yepnope('/scripts/ajaxfileupload.js');
+				yepnope('/scripts/jquery.Jcrop.min.js');
 			}
 		}
 	}

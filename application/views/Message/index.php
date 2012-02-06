@@ -12,7 +12,7 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
 
 	<div class="container main">
-	    <div class="content">
+	    <div class="content pull-left">
             <div id="feeds_title">
                 最新动态
             </div>

@@ -10,13 +10,13 @@
 		{
 			$this->load->library('form_validation');
 			
-            include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/config.php';
-            include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/saetv2.ex.class.php';
+            require_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/config.php';
+            require_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/saetv2.ex.class.php';
+			
 			
             $o = new SaeTOAuthV2( WB_AKEY , WB_SKEY );
 
             $data['code_url'] = $o->getAuthorizeURL( WB_CALLBACK_URL );
-            
             
 			if (isset($_POST['submit'])) {
 				
@@ -60,9 +60,60 @@
 			$this->load->view('Account/login.php', $data);
 		}
 		
-        public function OAuth()
+        public function doubanOAuth()
         {
+			require_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/douban/Zend/Gdata/DouBan.php';
+			require_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/douban/Zend/Gdata/DouBan/BroadcastingEntry.php';
+			require_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/douban/Zend/Gdata/App/Extension/Content.php';
             
+			/* your apikey and secret */
+			$APIKEY= '03aefb54538fc5e10b0cf1fcfaaf51a3';
+			$API_SECRET= '634f7c150bc04ce0';
+
+			/* the Douban client does everything */
+			$client = new Zend_Gdata_DouBan($APIKEY, $API_SECRET);
+
+			/* step 2: when it comes back from Douban auth page */
+			if(isset($_GET['oauth_token']))
+			{
+			    /* exchange the request token for access token */
+			    $key = $_COOKIE['key'];
+			    $secret = $_COOKIE['secret'];
+			    $result = $client->getAccessToken($key, $secret);
+			    $key = $result["oauth_token"];
+			    $secret = $result["oauth_token_secret"];
+			    if($key){
+
+			        /* access success, let's say something. */
+			        $client->programmaticLogin($key, $secret);
+			        echo 'logged in.';
+			        $entry = new Zend_Gdata_Douban_BroadcastingEntry();
+			        $content = new Zend_Gdata_App_Extension_Content('Oauth from PHP is easy.');
+			        $entry->setContent($content);
+			        $entry = $client->addBroadcasting("saying", $entry);
+			        echo '<br/>you just posted: '.$entry->getContent()->getText();
+			    }else{
+			        echo 'Oops, get access token failed';
+			    }
+			}
+
+			/* step 1: */
+			else
+			{
+			    /* first, get request token. */
+			    $result = $client->getRequestToken();
+			    $key = $result["oauth_token"];
+			    $secret = $result["oauth_token_secret"];
+
+			    /* save them somewhere, you'll need them in step 2. */
+			    setcookie('key',$result["oauth_token"],time()+3600);
+			    setcookie('secret',$result["oauth_token_secret"],time()+3600);
+
+			    /* get the auth url */
+			    $authurl = $client->getAuthorizationURL($key, $secret, 'http://'.$_ENV['HTTP_HOST'].$_ENV['REQUEST_URI']);
+			    echo '<a href="'.$authurl.'">click me to oauth it.</a>';
+			}
+			
         }
         
         public function Callback()

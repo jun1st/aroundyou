@@ -15,7 +15,6 @@
 				if ($this->input->cookie('remember_me_token')) {
 					$this->load->model('User_model');
 					$user = $this->User_model->cookie_authenticate($this->input->cookie('remember_me_token'));
-					//echo 'user: ' . $user;
 					if($user != null)
 					{
 						$this->load->library('session');
@@ -24,18 +23,9 @@
 						$this->session->set_userdata('user', $user);
 						redirect('/messages');
 					}
-					// else
-					// 					{
-					// 						redirect('/login');
-					// 					}
 				}
-				
-				// redirect('/login');
 			}
-			// else
-			// 			{
-			// 				redirect('/messages');
-			// 			}
+
 		}
 	}
 
