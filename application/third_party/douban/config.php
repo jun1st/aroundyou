@@ -1,5 +1,7 @@
+
 <?php
 /* 全局配置文件 */
+include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/douban/OAuth.php';
 
 // request token 获取地址
 $request_token_url = 'http://www.douban.com/service/auth/request_token';

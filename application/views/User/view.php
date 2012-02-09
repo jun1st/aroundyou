@@ -19,11 +19,11 @@
 			</div>
 			<h3><?php echo $user->name; ?></h3>
 			</div>
-			<div class="profileimageupload">
+			<div class="profileimageupload" style="float:left;width:200px;text-align:center;padding-top:10px">
 				<img title="profile image" src="<?php echo $user->profile_image_path; ?>"/>
 			</div>
-			<div class="profiledetail">
-				<table class="zebra-striped">
+			<div class="profiledetail" style="float:left; padding:10px">
+				<table class="table">
 					<tbody>
 						<tr>
 							<td>名字：</td>
@@ -54,10 +54,10 @@
 			</div>
 		</div>
 		<div style="clear:both;">
-		<div id="useractivities">
-			<ul data-tabs="tabs" class="tabs">
-				<li class='active'><a href='#mytopics'>发表的话题</a></li>
-				<li><a href='#mycomments'>发出的评论</a></li>
+		<div id="useractivities" class="tabbable">
+			<ul class="nav nav-tabs">
+				<li class='active'><a href='#mytopics' data-toggle="tab">发表的话题</a></li>
+				<li><a href='#mycomments' data-toggle="tab">发出的评论</a></li>
 			</ul>
 			<div class="tab-content" id="my-contents">
 				<div class="tab-pane active" id="mytopics">
