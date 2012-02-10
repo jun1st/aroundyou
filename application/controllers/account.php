@@ -10,18 +10,6 @@
 		public function Login()
 		{
 			$this->load->library('form_validation');
-			
-            require_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/config.php';
-            require_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/saetv2.ex.class.php';
-			
-			include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/douban/douban_oauth.php';
-			
-            $o = new SaeTOAuthV2( WB_AKEY , WB_SKEY );
-			
-			
-
-            $data['code_url'] = $o->getAuthorizeURL( WB_CALLBACK_URL );
-			
             
 			if (isset($_POST['submit'])) {
 				
@@ -62,14 +50,41 @@
                     return;
 				}
 			}
-			$this->load->view('Account/login.php', $data);
+			$this->load->view('Account/login.php');
 		}
 		
+        public function sina_oauth()
+        {
+            $this->session->userdata['oauth_type'] = 'sina';
+            $this->load->add_package_path(APPPATH . 'third_party/sina_oauth');
+            $this->load->library('sina_oauth');
+            
+            $sina_oauth = new Sina_Oauth();
+            
+            $oauth_request_uri = $sina_oauth->get_auth_request_uri();
+            
+            header('location:' . $oauth_request_uri);
+        }
+        
+        public function sina_register()
+        {
+            $this->load->add_package_path(APPPATH . 'third_party/sina_oauth');
+            $this->load->library('sina_oauth');
+            
+            $sina_oauth = new Sina_Oauth();
+            
+            $user_id = $sina_oauth->get_authorized_user_id();
+            
+            echo $user_id;
+        }
+        
         public function douban_oauth()
         {
-			include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/douban/douban_oauth.php';
-			
-			$douban = new DoubanOAuth();
+            $this->load->add_package_path(APPPATH.'third_party/douban_oauth/');
+            $this->session->userdata['oauth_type'] = 'douban';
+            
+            $this->load->library('douban_oauth');
+			$douban = new Douban_OAuth();
 			
 			$authorize_url = $douban->get_auth_request();
 			
@@ -78,9 +93,9 @@
 		
 		public function douban_register()
 		{
-			include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/douban/douban_oauth.php';
-
-			$douban_oauth = new DoubanOAuth();
+			$this->load->add_package_path(APPPATH.'third_party/douban_oauth/');
+            $this->load->library('douban_oauth');
+			$douban = new Douban_OAuth();
 			
 			$user_id = $douban_oauth->get_authorized_user_id();
 			
@@ -88,48 +103,6 @@
 			
 		}
         
-        public function Callback()
-        {   
-            include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/config.php';
-            include_once  $_SERVER['DOCUMENT_ROOT'] . '/application/third_party/sinaweibo/saetv2.ex.class.php';
-
-            $o = new SaeTOAuthV2( WB_AKEY , WB_SKEY );
-            $str = $_SERVER['QUERY_STRING'];
-            //echo $str;
-            parse_str($str);
-
-            if (isset($code)) {
-                $keys = array();
-                $keys['code'] = $code;
-                $keys['redirect_uri'] = WB_CALLBACK_URL;
-                try {
-                    $token = $o->getAccessToken( 'code', $keys ) ;
-                } catch (OAuthException $e) {
-                    echo $e;
-                }
-            }
-                        
-            if ($token) {
-				
-				$c = new SaeTClientV2( WB_AKEY , WB_SKEY , $token['access_token'] );
-				//$ms  = $c->home_timeline(); // done
-				$uid_get = $c->get_uid();
-				$uid = $uid_get['uid'];
-				$user_message = $c->show_user_by_id( $uid);
-				
-				$user = new User_model;
-				$user->name = $user_message['name'];
-				$user->weibo = $user_message['uid'];
-				$user->location = $user_message['location'];
-				$user->description = $user_message['description'];
-				$user->register_time = date('Y-m-d H:i:s');
-				
-				$this->session->set_userdata('user', $user);
-				
-				redirect('/account/register');
-            }
-            
-        }
         
 		public function register()
 		{
