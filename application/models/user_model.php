@@ -41,6 +41,25 @@
 			return $query->row();
 		}
 		
+		function get_user_by_email($email)
+		{
+			$query = $this->db->get_where('users', array('email'=>$email));
+			
+			return $query->row();
+		}
+		
+		function add_oauth_user($user_name, $email)
+		{
+			$oauth_user = new User_model;
+			$oauth_user->name = $user_name;
+			$oauth_user->email = $email;
+			$oauth_user->register_time = date('Y-m-d H:i:s');
+			
+			$this->db->insert('users', $oauth_user);
+			
+			return $this->db->insert_id();
+		}
+		
 		function get_users()
 		{
 			$query = $this->db->get('users');

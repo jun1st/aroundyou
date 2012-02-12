@@ -1,4 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/application/models/user_model.php';
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/application/models/user_oauth_model.php';
 	
 	class Account extends CI_Controller
 	{
@@ -75,7 +78,15 @@
             
             $user_id = $sina_oauth->get_authorized_user_id();
             
-            echo $user_id;
+			if (isset($user_id)) {
+				$this->session->userdata['oauth_user_id'] = $user_id;
+				header('location:' . '/account/register');
+			}
+			else
+			{
+				header('location:' . '/account/login');
+			}
+            
         }
         
         public function douban_oauth()
@@ -95,12 +106,17 @@
 		{
 			$this->load->add_package_path(APPPATH.'third_party/douban_oauth/');
             $this->load->library('douban_oauth');
-			$douban = new Douban_OAuth();
+			$douban_oauth = new Douban_OAuth();
 			
 			$user_id = $douban_oauth->get_authorized_user_id();
-			
-			echo $user_id;
-			
+			if (isset($user_id)) {
+				$this->session->userdata['oauth_user_id'] = $user_id;
+				header('location:' . '/account/register');
+			}
+			else
+			{
+				header('location:' . '/account/login');
+			}
 		}
         
         
@@ -108,10 +124,21 @@
 		{
 			if (isset($_POST['submit'])) {
 				
-				$user = $this->session->userdata('user');
-				$user->email = $this->input->post('email');
+				$this->load->model('User_model');
+				$this->load->model('User_OAuth_Model');
+				$name = $this->input->post('name');
+				$email = $this->input->post('email');
 				
-				$this->db->insert('users', $user);
+				$new_user_id = $this->User_model->add_oauth_user($name, $email);
+				
+				$this->User_OAuth_Model->add($new_user_id, $this->session->userdata('oauth_user_id'), $this->session->userdata('oauth_type'));
+				
+				$user = $this->User_model->get_user($new_user_id);
+				
+				$this->session->set_userdata('is_login', 'true');
+				$this->session->set_userdata('user', $user);
+				
+				
 			}
 			$this->load->view('Account/register');
 		}

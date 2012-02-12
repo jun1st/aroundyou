@@ -16,6 +16,13 @@
 	<fieldset id="register">
 		<legend>设置你的邮箱地址</legend>
 		<div class="clearfix">
+			<label for> 用户名:</label>
+			<div class="input">
+				<?php echo form_input(array('name'=>'name', 'size'=>'50', 'class'=>'xlarge')); ?>
+			</div>
+		</div>
+		
+		<div class="clearfix">
 			<label for> 邮 箱:</label>
 			<div class="input">
 				<?php echo form_input(array('name'=>'email', 'size'=>'50', 'class'=>'xlarge')); ?>
