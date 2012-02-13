@@ -20,14 +20,14 @@
 								<ul class="dropdown-menu">
 									<li>
 										<a href="/users/<?php echo $this->session->userdata('user')->id; ?>">
-											我的主页</a>
+											<i class="icon-home"></i> 我的主页</a>
 									</li>
 									<li>
-										<a href="/user/setting">设置</a>
+										<a href="/user/setting"><i class="icon-edit"></i> 设置</a>
 									</li>
 									<li class="divider"></li>
 									<li>
-										<a href="/logout">退出</a>
+										<a href="/logout"><i class="icon-off"></i> 退出</a>
 									</li>
 								</ul>
 							</li>

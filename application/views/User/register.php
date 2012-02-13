@@ -10,46 +10,37 @@
 
 <body>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
-	<div style="margin-top:40px; height:60px;">
-		<div class="container">
-			head lines;
-		</div>
-	</div>
-	<div class="container">
-		<?php echo form_open('user/register') ?>
-		<fieldset id="profile_setting" class="">
+	<div class="container main">
+		<?php echo form_open('user/register', array('class'=>'form-horizontal')) ?>
+		<fieldset>
 			<legend>注册新用户</legend>
-			<div class='clearfix'>
-				<label for="name">用户名：</label>
-				<div class='input'>
+			<div class='control-group'>
+				<label class="control-label" for="name">用户名：</label>
+				<div class='controls'>
 					<?php echo form_input(array('name'=>'name', 'size'=>'50', 'value'=>set_value('name'))) ?>
-					<?php echo form_error('name'); ?>
 				</div>
 			</div>
-			<div class='clearfix'>
-				<label for="email">Email地址：</label>
-				<div class='input'>
+			<div class='control-group'>
+				<label class="control-label"  for="email">Email地址：</label>
+				<div class='controls'>
 					<?php echo form_input(array('name'=>'email', 'size'=>'50', 'value'=>set_value('email'))) ?>
-					<?php echo form_error('email'); ?>
 				</div>
 			</div>
-			<div class='clearfix'>
-				<label for="password">密码：</label>
-				<div class='input'>
+			<div class='control-group'>
+				<label class="control-label" for="password">密码：</label>
+				<div class='controls'>
 					<?php echo form_password(array('name'=>'password', 'size'=>'50', 'value'=>set_value('password'))) ?>
-					<?php echo form_error('password'); ?>
 				</div>
 			</div>
-			<div class='clearfix'>
-				<label for>确认密码：</label>
-				<div class='input'>
+			<div class='control-group'>
+				<label class="control-label"  for>确认密码：</label>
+				<div class='controls'>
 					<?php echo form_password(array('name'=>'passconf', 'size'=>'50', 'value'=>set_value('passconf'))) ?>
-					<?php echo form_error('passconf'); ?>
 				</div>
 			</div>
 			
-			<div class="actions">
-				<button name="submit" type="submit" class="btn primary">确认注册</button>
+			<div class="form-actions">
+				<button name="submit" type="submit" class="btn btn-primary">确认注册</button>
 				<button type="reset" class="btn" value="取消" >取消</button>
 			</div>
 		</fieldset>

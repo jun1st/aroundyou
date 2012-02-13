@@ -12,36 +12,39 @@
 	
 	<div class="container main">
     
-	<?php echo form_open('Account/Register') ?>
+	<?php echo form_open('Account/Register', array('class'=>'form-horizontal')) ?>
 	<fieldset id="register">
 		<legend>设置你的邮箱地址</legend>
-		<div class="clearfix">
-			<label for> 用户名:</label>
-			<div class="input">
-				<?php echo form_input(array('name'=>'name', 'size'=>'50', 'class'=>'xlarge')); ?>
+		<?php if (isset($validation_fails)) : ?>
+			<div class="control-group">
+				<div class="alert alert-error">
+					<?php echo validation_errors(); ?>
+				</div>
+			</div>
+		<?php endif; ?>
+		<div class="control-group">
+			<label class="control-label" for="name"> 用户名:</label>
+			<div class="controls">
+				<?php echo form_input(array('name'=>'name', 'size'=>'50', 'placeholder'=>'你的用户名','value'=>set_value('name'))) ?>
 			</div>
 		</div>
 		
-		<div class="clearfix">
-			<label for> 邮 箱:</label>
-			<div class="input">
-				<?php echo form_input(array('name'=>'email', 'size'=>'50', 'class'=>'xlarge')); ?>
+		<div class="control-group">
+			<label class="control-label" for="email"> 邮 箱:</label>
+			<div class="controls">
+				<?php echo form_input(array('name'=>'email', 'size'=>'50', 'value'=>set_value('email'), 'placeholder'=>'邮箱地址')) ?>
 			</div>
 		</div>
-		<div class="clearfix">
-			<label for="rememberme"></label>
-			<div class="input">
-				<input type="checkbox" name="remember_me" value="remember_me" id="remember_me" />
-				<span>2周内不用登陆</span>
+		<div class="control-group">
+			<label class="control-label" for="rememberme"></label>
+			<div class="controls">
+				<label class="checkbox">
+					<input type="checkbox" name="remember_me" value="remember_me" id="remember_me" />2周内不用登陆
+				</label>
 			</div>
 		</div>
-		<div class="clearfix">
-		<?php if (isset($login_error)) {
-			echo "<label for='error'></label><div class='input'><div class='form_error'><span>$login_error</span></div></div>";
-		} ?>
-		</div>
-		<div class="actions">
-			<input type='submit' name='submit' class="btn primary" value='登陆' />
+		<div class="form-actions">
+			<button type='submit' name='submit' class="btn btn-primary" >登 陆</button>
 		</div>
 	</fieldset>
 	

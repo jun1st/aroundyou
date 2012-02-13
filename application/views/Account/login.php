@@ -33,8 +33,9 @@
 		<div class="control-group">
 			<label for="rememberme"></label>
 			<div class="controls">
+				<label class="checkbox" for="remember_me">
 				<input type="checkbox" name="remember_me" value="remember_me" id="remember_me" />
-				<span>2周内不用登陆</span>
+				2周内不用登陆</label>
 			</div>
 		</div>
 		<div class="control-group">
@@ -43,8 +44,8 @@
 		} ?>
 		</div>
 		<div class="form-actions">
-			<input type='submit' name='submit' class="btn primary" value='登陆' />
-			<a href="/user/register" class="btn" title="注册称为新拥护">注册新用户</a>
+			<button type='submit' name='submit' class="btn btn-primary" value='submit'>登 陆</button>
+			<a href="/user/register" class="btn" title="注册为新拥护">注册新用户</a>
 		</div>
 	</fieldset>
 	
