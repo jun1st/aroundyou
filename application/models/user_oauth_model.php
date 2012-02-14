@@ -16,6 +16,15 @@
 			
 			$this->db->insert('users_oauth', $instance);
 		}
+		
+		
+		public function get_oauth_user($oauth_id, $oauth_type)
+		{
+			$query = $this->db->get_where('users_oauth', array('oauth_user_id'=>$oauth_id, 'oauth_type'=>$oauth_type));
+			
+			return $query->row();
+			
+		}
 	}
 
 ?>

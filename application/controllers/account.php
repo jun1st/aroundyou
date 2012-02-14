@@ -86,7 +86,23 @@
             
 			if (isset($user_id)) {
 				$this->session->set_userdata('oauth_user_id', $user_id);
-				header('location:' . '/account/register');
+				
+				$this->load->model('User_OAuth_Model');
+				
+				$oauthed_user = $this->User_OAuth_Model->get_oauth_user($user_id, $this->session->userdata('oauth_type'));
+
+				if ($oauthed_user){
+					
+					$user = $this->User_model->get_user($oauthed_user->user_id);
+					
+					$this->session->set_userdata('is_login', 'true');
+					$this->session->set_userdata('user', $user);
+				
+					header('location:'. '/messages');
+					
+				}
+				
+				//header('location:' . '/account/register');
 			}
 			else
 			{
@@ -117,6 +133,21 @@
 			$user_id = $douban_oauth->get_authorized_user_id();
 			if (isset($user_id)) {
 				$this->session->set_userdata('oauth_user_id', $user_id);
+				
+				$this->load->model('User_OAuth_Model');
+				
+				$oauthed_user = $this->User_OAuth_Model->get_oauth_user($user_id, $this->session->userdata('oauth_type'));
+
+				if ($oauthed_user){
+					$user = $this->User_model->get_user($oauthed_user->user_id);
+					
+					$this->session->set_userdata('is_login', 'true');
+					$this->session->set_userdata('user', $user);
+				
+					header('location: /messages');
+					
+				}
+				
 				header('location:' . '/account/register');
 			}
 			else
@@ -141,6 +172,10 @@
 					$this->load->model('User_OAuth_Model');
 					$name = $this->input->post('name');
 					$email = $this->input->post('email');
+					
+					if (!$this->User_model->get_user_by_email($email)) {
+						
+					}
 				
 					$new_user_id = $this->User_model->add_oauth_user($name, $email);
 				
