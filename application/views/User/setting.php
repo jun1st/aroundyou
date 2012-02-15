@@ -11,18 +11,18 @@
 
 </head>
 
-<body data-offset="50">
+<body>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
 
-<div class="container main">
+<div class="container">
 	<div class="tabbable tabs-left">
-		<ul class="nav nav-tabs">
-			<li class="active"><a href="#detail" data-toggle="tab">基本资料</a></li>
+		<ul class="nav nav-tabs span3" style="height:400px;">
+			<li class="active" style="margin-top:20px;"><a href="#detail" data-toggle="tab">基本资料</a></li>
 			<li><a href="#password" data-toggle="tab">密码设置</a></li>
 			<li><a href="#image" data-toggle="tab">头像设置</a></li>
 		</ul>
-		<div class="tab-content">
+		<div class="tab-content span8">
 			<div id="detail" class="tab-pane active">
 				<?php echo form_open('user/setting', array('class'=>'form-horizontal')); ?>
 				<fieldset>
@@ -72,7 +72,7 @@
 			</div>
 			<div id="password" class="tab-pane">
 			</div>
-			<div id="image" class="profile-imageupload tab-pane">
+			<div id="image" class="tab-pane">
 				<img id="profileImage" src="<?php echo $user->profile_image_path; ?>" title="profile image" />
 				<br/>
 				<input type="file" name="fileToUpload"  id="fileToUpload" />
@@ -82,6 +82,7 @@
 	
 	
 </div>
+<script type="text/javascript" src="/scripts/jquery.min.js"></script>
 <script type="text/javascript" charset="utf-8">
 function ajaxFileUpload()
 { 

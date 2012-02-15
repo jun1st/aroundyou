@@ -18,6 +18,13 @@
 	<?php echo form_open('Account/Login', array('class'=>'form-horizontal')) ?>
 	<fieldset id="login">
 		<legend>登陆</legend>
+		<?php if (isset($validation_fails)) : ?>
+			<div class="control-group">
+				<div class="alert alert-error">
+					<?php echo validation_errors(); ?>
+				</div>
+			</div>
+		<?php endif; ?>
 		<div class="control-group">
 			<label for> 邮 箱:</label>
 			<div class="controls">

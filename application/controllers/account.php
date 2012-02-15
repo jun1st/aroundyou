@@ -19,7 +19,8 @@
 				$this->form_validation->set_rules('email', "邮箱", "required");
 				$this->form_validation->set_rules("password", "密码", "required");
 				if ($this->form_validation->run() == FALSE) {
-					$this->load->view("Account/login");
+					$data['validation_fails'] = TRUE;
+					$this->load->view("Account/login", $data);
 					return;
 				}
 				$email = $this->input->post('email');
@@ -55,7 +56,7 @@
 				else
 				{
 					$data['login_error'] = "对不起，您的用户名和密码有误！";
-                    $this->load->view('Account/index.php', $data);
+                    $this->load->view('Account/login.php', $data);
                     return;
 				}
 			}
@@ -86,23 +87,20 @@
             
 			if (isset($user_id)) {
 				$this->session->set_userdata('oauth_user_id', $user_id);
-				
 				$this->load->model('User_OAuth_Model');
-				
 				$oauthed_user = $this->User_OAuth_Model->get_oauth_user($user_id, $this->session->userdata('oauth_type'));
 
 				if ($oauthed_user){
-					
 					$user = $this->User_model->get_user($oauthed_user->user_id);
-					
 					$this->session->set_userdata('is_login', 'true');
 					$this->session->set_userdata('user', $user);
 				
 					header('location:'. '/messages');
-					
+					return;
 				}
 				
-				//header('location:' . '/account/register');
+				header('location:' . '/account/register');
+				return;
 			}
 			else
 			{
@@ -135,7 +133,6 @@
 				$this->session->set_userdata('oauth_user_id', $user_id);
 				
 				$this->load->model('User_OAuth_Model');
-				
 				$oauthed_user = $this->User_OAuth_Model->get_oauth_user($user_id, $this->session->userdata('oauth_type'));
 
 				if ($oauthed_user){
@@ -144,11 +141,13 @@
 					$this->session->set_userdata('is_login', 'true');
 					$this->session->set_userdata('user', $user);
 				
-					header('location: /messages');
+					header('location:' . '/messages');
+					return;
 					
 				}
 				
 				header('location:' . '/account/register');
+				return;
 			}
 			else
 			{
@@ -163,8 +162,8 @@
 			
 			if (isset($_POST['submit'])) {
 				
-				$this->form_validation->set_rules('name', 'Name', 'required');
-				$this->form_validation->set_rules('email', 'Email', 'required');
+				$this->form_validation->set_rules('name', 'Name', 'required|is_unique[users.name]');
+				$this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]');
 				
 				if ($this->form_validation->run() == true) {
 					
@@ -172,10 +171,6 @@
 					$this->load->model('User_OAuth_Model');
 					$name = $this->input->post('name');
 					$email = $this->input->post('email');
-					
-					if (!$this->User_model->get_user_by_email($email)) {
-						
-					}
 				
 					$new_user_id = $this->User_model->add_oauth_user($name, $email);
 				

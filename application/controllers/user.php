@@ -125,8 +125,8 @@
 			
 			if (isset($_POST['submit'])) {
 				
-				$this->form_validation->set_rules('name', 'Name', 'required');
-				$this->form_validation->set_rules('password', 'Password', 'required');
+				$this->form_validation->set_rules('name', 'Name', 'required|is_unique[users.name]');
+				$this->form_validation->set_rules('password', 'Password', 'required|is_unique[users.email]');
 				$this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|matches[password]');
 				$this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]');
 				
@@ -138,13 +138,13 @@
 					$model->password = SHA1($this->input->post('password'));
 					$model->register_time = date('Y-m-d H:i:s');
 
-
 					$this->db->insert('users', $model);
 					$this->register_succeed();
 				}
 				else
 				{
-					$this->load->view('User/register');
+					$data['validation_fails'] = TRUE;
+					$this->load->view('User/register', $data);
 					return;
 				}	
 			}

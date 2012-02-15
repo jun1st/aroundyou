@@ -11,7 +11,7 @@
 <body>
 
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
-	<div class="container main">
+	<div class="container">
 		<div id="userprofile">
 			<div class="subheader">
 			<div class="links" style="float:right;margin-top:4px;">
@@ -20,7 +20,11 @@
 			<h3><?php echo $user->name; ?></h3>
 			</div>
 			<div class="profileimageupload" style="float:left;width:200px;text-align:center;padding-top:10px">
-				<img title="profile image" src="<?php echo $user->profile_image_path; ?>"/>
+				<?php if(empty($user->profile_image_path)): ?>
+					<img title="profile image" style="border:4px #ccc solid;" src="/img/default.jpeg"/>
+				<?php else: ?>
+					<img title="profile image" style="border:4px #ccc solid;" src="<?php echo $user->profile_image_path; ?>"/>
+				<?php endif; ?>
 			</div>
 			<div class="profiledetail" style="float:left; padding:10px">
 				<table class="table">

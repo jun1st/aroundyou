@@ -14,6 +14,13 @@
 		<?php echo form_open('user/register', array('class'=>'form-horizontal')) ?>
 		<fieldset>
 			<legend>注册新用户</legend>
+			<?php if (isset($validation_fails)) : ?>
+				<div class="control-group">
+					<div class="alert alert-error">
+						<?php echo validation_errors(); ?>
+					</div>
+				</div>
+			<?php endif; ?>
 			<div class='control-group'>
 				<label class="control-label" for="name">用户名：</label>
 				<div class='controls'>
