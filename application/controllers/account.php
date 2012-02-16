@@ -143,7 +143,6 @@
 				
 					header('location:' . '/messages');
 					return;
-					
 				}
 				
 				header('location:' . '/account/register');

@@ -146,17 +146,26 @@ class Message extends My_Controller
 		
 	public function comment()
 	{
+		$this->load->library('form_validation');
 		if (isset($_POST['submit'])) {
+			
+			$this->form_validation->set_rules('comment_content', '评论内容', 'required|max_length[140]');
+			if ($this->form_validation->run() == TRUE) {
+				$comment = new Comment_model;
+				$comment->message_id = $this->input->post('message_id');
+				$comment->user_id = $this->session->userdata('user')->id;
+				$comment->content = htmlspecialchars($this->input->post('comment_content', true));
+				$comment->posted_time = date('Y-m-d H:i:s');
 				
-			$comment = new Comment_model;
-			$comment->message_id = $this->input->post('message_id');
-			$comment->user_id = $this->session->userdata('user')->id;
-			$comment->content = htmlspecialchars($this->input->post('comment_content', true));
-			$comment->posted_time = date('Y-m-d H:i:s');
+				$this->db->insert('comments', $comment);
 				
-			$this->db->insert('comments', $comment);
-				
-			redirect("message/view/$comment->message_id");
+				redirect("message/view/$comment->message_id");
+			}
+			else
+			{
+			
+			}
+			
 		}
 	}
 }

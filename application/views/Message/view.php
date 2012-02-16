@@ -11,8 +11,8 @@
 <body>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
 
-	<div class="container main">
-        <div class="content">
+	<div class="container">
+        <div class="span8 pull-left">
         		<div class="entry">
         			<div class="tags">
         				<a href="/byregion?name=<?php echo $message->region_name; ?>" class="region_tag"><?php echo $message->region_name; ?></a>
@@ -62,16 +62,15 @@
 	
         	<?php if ($this->session->userdata('is_login') == 'true') { ?>
 		
-        	<?php echo form_open('message/comment', array('method'=>'post')); ?>
+        	<?php echo form_open('message/comment', array('method'=>'post', 'class'=>'well')); ?>
         		<input type="hidden" name="message_id" value="<?php echo $message->message_id; ?>" />
-        		<h3 class="new-comment">发表你的评论</h3>
-        		<p>
-        			<textarea name="comment_content" size="140" rows="4" class="xxlarge" value='<?php set_value('comment_content'); ?>'></textarea>
-        		</p>
+        		<label><em>发表你的评论</em></label>
+        		<textarea name="comment_content" class="span5" value='<?php set_value('comment_content'); ?>'></textarea>
+				<br/>
         		<?php 
         			$data = array(
         				'name' =>'submit',
-        				'class'=>'btn primary',
+        				'class'=>'btn btn-primary',
         				'value'=>'发表',
         			);
         			echo form_submit($data); 
