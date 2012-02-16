@@ -73,7 +73,11 @@
 			<div id="password" class="tab-pane">
 			</div>
 			<div id="image" class="tab-pane">
-				<img id="profileImage" src="<?php echo $user->profile_image_path; ?>" title="profile image" />
+				<?php if(empty($user->profile_image_path)): ?>
+					<img title="profile image" style="border:4px #ccc solid;" src="/img/default.jpeg"/>
+				<?php else: ?>
+					<img title="profile image" style="border:4px #ccc solid;" src="<?php echo $user->profile_image_path; ?>"/>
+				<?php endif; ?>
 				<br/>
 				<input type="file" name="fileToUpload"  id="fileToUpload" />
 				<button class="small btn" name="upload" id="upload" value="上传">上传</button>

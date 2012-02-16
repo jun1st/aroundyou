@@ -36,13 +36,14 @@
 				redirect('login');
 			}
 			$this->load->model('User_model');
-			
+
 			if(isset($_POST['submit']))
 			{
+                $birthday = $this->input->post('birthday');
 				$data = array(
 					'name' => htmlspecialchars($this->input->post('name')),
 					'email' => $this->input->post('email'),
-					'birthday' => $this->input->post('birthday'),
+					'birthday' => empty($birthday) ? NULL : $birthday,
 					'location' => htmlspecialchars($this->input->post('location')),
 					'website' => htmlspecialchars($this->input->post('website')),
 					'description' => htmlspecialchars($this->input->post('description'))
