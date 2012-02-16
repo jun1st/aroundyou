@@ -69,7 +69,7 @@
 			}
 		
 			$config['upload_path'] = $filePath;
-			$config['allowed_types'] = 'gif|jpg|png';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['max_size']	= '4096';
 			
 

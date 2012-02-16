@@ -43,7 +43,7 @@
         						<div>
         							<div class="user">
         								<a href="/users/<?php echo $comment->user_id; ?>" title="查看<?php echo $comment->user_name; ?>的信息" >
-        								<img src="<?php echo $message->user_profile_image; ?>" alt="profile" title="<?php echo $comment->user_name; ?>" />	
+        								<img src="<?php echo $comment->profile_image; ?>" alt="profile" title="<?php echo $comment->user_name; ?>" />	
         								</a>
         								<h3>
         								<?php echo "<a href=/users/$comment->user_id title='查看$comment->user_name 的信息' >$comment->user_name</a>"; ?>
