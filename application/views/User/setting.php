@@ -17,7 +17,7 @@
 
 <div class="container">
 	<div class="tabbable tabs-left">
-		<ul class="nav nav-tabs span3" style="height:400px;">
+		<ul id="user-setting-navs" class="nav nav-tabs span3" style="height:400px;">
 			<li class="active" style="margin-top:20px;"><a href="#detail" data-toggle="tab">基本资料</a></li>
 			<li><a href="#password" data-toggle="tab">密码设置</a></li>
 			<li><a href="#image" data-toggle="tab">头像设置</a></li>
@@ -26,7 +26,7 @@
 			<div id="detail" class="tab-pane active">
 				<?php echo form_open('user/setting', array('class'=>'form-horizontal')); ?>
 				<fieldset>
-							<legend>个人信息</legend>
+					<legend>个人信息</legend>
 					<div class='control-group'>
 						<label for>名字：</label>
 						<div class='controls'>
@@ -36,7 +36,7 @@
 					<div class='control-group'>
 						<label for>Email地址：</label>
 						<div class='controls'>
-							<input class="large" value="<?php echo $user->email; ?>" id="email" name="email" size="255" type="text" />
+							<input class="input-large disabled" value="<?php echo $user->email; ?>" id="email" name="email" size="255" type="text" disabled />
 						</div>
 					</div>
 					<div class='control-group'>
@@ -71,6 +71,39 @@
 				<?php echo form_close(); ?>
 			</div>
 			<div id="password" class="tab-pane">
+				<?php echo form_open('user/setting/password', array('class'=>'form-horizontal')); ?>
+				<fieldset>
+					<legend>修改密码</legend>
+					<?php echo validation_errors(); ?>
+					<div class="control-group">
+						<label class="control-label" for="old">
+							旧密码:
+						</label>
+						<div class="controls">
+							<input type="password" name="old" value="<?php echo set_value('old'); ?>" id="old">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="new">
+							新密码:
+						</label>
+						<div class="controls">
+							<input type="password" name="new" value="<?php echo set_value('new'); ?>" id="old">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="confirm">
+							确认新密码:
+						</label>
+						<div class="controls">
+							<input type="password" name="confirm" value="<?php echo set_value('confirm'); ?>" id="old">
+						</div>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary" name="submit" value="change">确认修改</button>
+					</div>
+				</fieldset>
+				<?php echo form_close(); ?>
 			</div>
 			<div id="image" class="tab-pane">
 				<?php if(empty($user->profile_image_path)): ?>
@@ -80,11 +113,10 @@
 				<?php endif; ?>
 				<br/>
 				<input type="file" name="fileToUpload"  id="fileToUpload" />
-				<button class="small btn" name="upload" id="upload" value="上传">上传</button>
+				<br/>
+				<button class="btn btn-primary" name="upload" id="upload" value="上传">上传</button>
 			</div>
 	</div>
-	
-	
 </div>
 <script type="text/javascript" src="/scripts/jquery.min.js"></script>
 <script type="text/javascript" charset="utf-8">

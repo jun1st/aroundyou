@@ -12,8 +12,19 @@
 	
 	<div class="container main">
     <div>
-        <a href="/account/oauth/sina"><img src="/img/weibo-login.png" title="点击进入授权页面" alt="点击进入授权页面" border="0" /></a>
-		<a href="/account/oauth/douban" title="DOUBAN"><img src="/img/douban-login.png" title="点击进入授权页面" alt="点击进入授权页面" border="0" /></a>
+		<form class="form-horizontal">
+			<legend>通过第三方登陆</legend>
+			<div class="control-group">
+				<div class="controls">
+					<a href="/account/oauth/sina"><img src="/img/weibo-login.png" title="点击进入授权页面" alt="点击进入授权页面" border="0" /></a>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<a href="/account/oauth/douban" title="DOUBAN"><img src="/img/douban-login.png" title="点击进入授权页面" alt="点击进入授权页面" border="0" /></a>
+				</div>
+			</div>			
+		</form>
     </div>
 	<?php echo form_open('Account/Login', array('class'=>'form-horizontal')) ?>
 	<fieldset id="login">

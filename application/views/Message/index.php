@@ -20,27 +20,23 @@
 	      		<?php foreach ($messages as $item): ?>
 					<li>
 						<div class="entry">
-							<!-- <h3>
-								<a href="/message/view/<?php echo $item->message_id; ?>" class="topic">
-								<?php echo $item->topic; ?></a>
-							</h3> -->
-							<p class="message"><?php echo $item->content; ?>
-								<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link"><i class="icon-eye-open"></i> 查看</a>
-							</p>
-							<div class="tags">
+							<div class="tags" style="float:left;width:78px;">
 								<a href="/byregion?name=<?php echo $item->region_name; ?>"><i class="icon-map-marker"></i><?php echo $item->region_name; ?></a>
 							</div>
-							<div class="user">
-								<a href="/users/<?php echo $item->user_id; ?>" title="查看<?php echo $item->user_name; ?>的信息" >
-								<!-- <img src="<?php echo $item->profile_tiny_image_path; ?>" alt="profile" title="<?php echo $item->user_name; ?>" /> -->
-								</a>
-								<h3>
-								<?php echo "<a href=/users/$item->user_id title='查看$item->user_name 的信息' >$item->user_name</a>"; ?><strong><span class="description"><?php echo $item->user_description; ?></span></strong>
-								</h3>
-								<span class="time"><i class="icon-time"></i><?php echo " ".relative_time($item->posted_time); ?></span>
-							</div>
-							<div>
-								
+							<div style="margin-left:80px;">
+								<p class="message"><?php echo $item->content; ?>
+									<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link"><i class="icon-eye-open"></i> 查看</a>
+								</p>
+							
+								<div class="user">
+									<a href="/users/<?php echo $item->user_id; ?>" title="查看<?php echo $item->user_name; ?>的信息" >
+									<!-- <img src="<?php echo $item->profile_tiny_image_path; ?>" alt="profile" title="<?php echo $item->user_name; ?>" /> -->
+									</a>
+									<h3>
+									<?php echo "<a href=/users/$item->user_id title='查看$item->user_name 的信息' >$item->user_name</a>"; ?><strong><span class="description"><?php echo $item->user_description; ?></span></strong>
+									</h3>
+									<span class="time"><i class="icon-time"></i><?php echo " ".relative_time($item->posted_time); ?></span>
+								</div>
 							</div>
 						</div>
 					</li>

@@ -52,6 +52,7 @@ $route['account/oauth/sina'] = "account/sina_oauth";
 $route['account/sina/register.php'] = "account/sina_register";
 $route['users'] = "user/index";
 $route['user/setting']="user/setting";
+$route['user/setting/password'] = "user/change_password";
 $route['user/upload_profile_image/']="user/upload_profile_image";
 $route['users/(:any)'] = 'user/get/$1';
 

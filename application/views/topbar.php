@@ -1,7 +1,7 @@
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<div class="nav-collapse">
+			<div class="span8 nav-collapse">
 				<ul class="nav">
 					<li>
 						<a href="<?php echo site_url(); ?>" class="brand">首页</a>

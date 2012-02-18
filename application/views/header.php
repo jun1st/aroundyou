@@ -20,6 +20,7 @@ Modernizr.load([
 				yepnope('/scripts/aroundyou.js');
 				yepnope('/scripts/ajaxfileupload.js');
 				yepnope('/scripts/jquery.Jcrop.min.js');
+				yepnope('/scripts/application.js');
 			}
 		}
 	}

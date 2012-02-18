@@ -14,9 +14,11 @@
 	<div class="container">
 		<div id="userprofile">
 			<div class="subheader">
-			<div class="links" style="float:right;margin-top:4px;">
-				<a href="/user/setting">edit</a>
-			</div>
+			<?php if($this->session->userdata('user') != null && $this->session->userdata('user')->id == $user->id): ?>
+				<div class="links" style="float:right;margin-top:4px;">
+					<a href="/user/setting">edit</a>
+				</div>
+			<?php endif; ?>
 			<h3><?php echo $user->name; ?></h3>
 			</div>
 			<div class="profileimageupload" style="float:left;width:200px;text-align:center;padding-top:10px">
@@ -69,16 +71,16 @@
 						<?php foreach ($messages as $item) : ?>
 							<li>
 								<div class="entry">
+									<div class="tags" style="float:left; vertical-align:middle;">
+										<a href="/byregion?name=<?php echo $item->region_name; ?>"><i class="icon-map-marker"></i><?php echo $item->region_name; ?></a>
+									</div>
+									<div style="margin-left:80px;">
 									<p class="message"><?php echo $item->content; ?>
 										<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link">查看</a>
 									</p>
-									<div class="tags">
-										<a href="/byregion?name=<?php echo $item->region_name; ?>" class="region_tag"><?php echo $item->region_name; ?></a>
+									
+										<span class="time"><i class="icon-time"></i><?php echo  " " .relative_time($item->posted_time); ?></span>
 									</div>
-									
-										<span class="time"><?php echo  "发布于: " .relative_time($item->posted_time); ?></span>
-									
-							
 							</li>
 						<?php endforeach; ?>
 					</ul>
@@ -89,7 +91,7 @@
 							<li>
         						<p><?php echo decode($item->content); ?></p>
         						<div class='author'>
-        							<?php echo '发布于 ' . relative_time($item->posted_time); ?>
+        							<i class="icon-time"></i><?php echo ' ' . relative_time($item->posted_time); ?>
         						</div>
 							</li>
 						<?php endforeach;?>

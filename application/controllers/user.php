@@ -42,7 +42,6 @@
                 $birthday = $this->input->post('birthday');
 				$data = array(
 					'name' => htmlspecialchars($this->input->post('name')),
-					'email' => $this->input->post('email'),
 					'birthday' => empty($birthday) ? NULL : $birthday,
 					'location' => htmlspecialchars($this->input->post('location')),
 					'website' => htmlspecialchars($this->input->post('website')),
@@ -52,11 +51,37 @@
 				$this->db->where('id', $this->session->userdata['user']->id);
 				$this->db->update('users', $data);
 			}
-			
-			$data['user'] = $this->User_model->get_user($this->session->userdata['user']->id);
+			$user = $this->User_model->get_user($this->session->userdata['user']->id);
+			$data['user'] = $user;
+			$this->session->set_userdata('user', $user);
 			
 			
 			$this->load->view('User/setting', $data);
+		}
+		
+		public function change_password()
+		{
+			if (isset($_POST['submit'])) {
+				$this->load->library('form_validation');
+				$this->form_validation->set_rules('old', '旧密码', 'required');
+				$this->form_validation->set_rules('new', '新密码', 'required');
+				$this->form_validation->set_rules('confirm', '确认新密码', 'required|matches[new]');
+				if ($this->form_validation->run() == TRUE) {
+					$old = $this->input->post('old');
+					$new = $this->input->post('new');
+					$user = $this->session->user_date('user');
+					if ($user->password == SHA1($new)) {
+						$this->User_model->update_password($user->id, $new);
+					}
+					else
+					{
+						$this->form_validation->set_message('旧密码不正确');
+					}
+				}
+				
+				header('location:' . '/user/setting#password');
+			}
+			header('location:' . '/user/setting#password');
 		}
 		
 		public function upload()
