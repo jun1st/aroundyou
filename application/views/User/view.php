@@ -98,5 +98,6 @@
 			</div>
 		</div>
 	</div>
+	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/footer.php';  ?>
 </body>
 </html>

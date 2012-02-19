@@ -109,6 +109,12 @@ h2 a, h3 a,  h4 a
 	border-bottom:1px solid #cccccc;
 }
 
+#messages li:last-child
+{
+	border-bottom:none;
+	margin-bottom:20px;
+}
+
 #messages .user, #comments .user
 {
 	margin-top:0px;
@@ -182,7 +188,7 @@ div.entry .actions a
 	border-bottom:1px solid #cccccc;
 }
 
-#comments li:last-child
+#mycomments li:last-child, #comments li:last-child, #mytopics li:last-child
 {
 	border-bottom:none;
 	margin-bottom:20px;
