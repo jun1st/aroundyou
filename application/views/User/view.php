@@ -71,14 +71,13 @@
 						<?php foreach ($messages as $item) : ?>
 							<li>
 								<div class="entry">
-									<div class="tags" style="float:left; vertical-align:middle;">
+									<div class="region">
 										<a href="/byregion?name=<?php echo $item->region_name; ?>"><i class="icon-map-marker"></i><?php echo $item->region_name; ?></a>
 									</div>
-									<div style="margin-left:80px;">
-									<p class="message"><?php echo $item->content; ?>
-										<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link">查看</a>
-									</p>
-									
+									<div class="message">
+										<p><?php echo $item->content; ?>
+											<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link">查看</a>
+										</p>
 										<span class="time"><i class="icon-time"></i><?php echo  " " .relative_time($item->posted_time); ?></span>
 									</div>
 							</li>

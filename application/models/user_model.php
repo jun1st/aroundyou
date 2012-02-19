@@ -67,6 +67,17 @@
 			return $query->result();
 		}
 		
+		function update_password($user_id, $new_password)
+		{
+			$data = array(
+				'password' => $new_password
+			);
+			
+			$this->db->where('id', $user_id);
+			$this->db->update('users', $data);
+			
+		}
+		
 		function update_profile_image($new_profile_image_path, $new_profile_small_image_path, 
 			$new_profile_tiny_image_path, $user_id)
 		{

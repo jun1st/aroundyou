@@ -69,9 +69,9 @@
 				if ($this->form_validation->run() == TRUE) {
 					$old = $this->input->post('old');
 					$new = $this->input->post('new');
-					$user = $this->session->user_date('user');
-					if ($user->password == SHA1($new)) {
-						$this->User_model->update_password($user->id, $new);
+					$user = $this->session->userdata('user');
+					if ($user->password == SHA1($old)) {
+						$this->User_model->update_password($user->id, SHA1($new));
 					}
 					else
 					{

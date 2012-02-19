@@ -7,29 +7,6 @@ input[type= "submit"]:hover
 	cursor:pointer;
 }
 
-.region_tag
-{
-	background: #E1F0F7;
-	padding: 0 10px;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-	-o-border-radius: 30px;
-	border-radius: 30px;
-	text-decoration: none;
-	margin: 0 5px 5px 0;
-	display: inline-block;
-}
-
-
-
-
-
-
-
-#footer {
-	margin-top: 80px;
-}
-
 #masthead h1, #footer h1, #masthead p, #footer p {
 	color: white;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
@@ -64,7 +41,16 @@ input[type= "submit"]:hover
 	min-height:600px;
 }
 
-.container .entry .message
+.container .entry div.region
+{
+	float:left;
+	width:78px;
+}
+.container .entry div.message
+{
+	margin-left:80px;
+}
+.container .entry p
 {
 	color:#202020;
 	font: 16px Georgia, "Times New Roman", Times, san-serif;
@@ -83,15 +69,6 @@ input[type= "submit"]:hover
 	text-decoration:none;
 }
 
-#feeds_title
-{
-background: transparent url("../img/latestfeed.png") scroll no-repeat 0 50%;
-margin:0 0 10px;
-font-size: 14px;
-text-indent: 25px;
-color: #666;
-font-weight: bold;
-}
 #messages
 {
 	margin-left:0px;
@@ -199,6 +176,18 @@ div.entry .actions a
 	list-style:none;
 }
 
+#comments li
+{
+	margin-bottom:10px; 
+	border-bottom:1px solid #cccccc;
+}
+
+#comments li:last-child
+{
+	border-bottom:none;
+	margin-bottom:20px;
+}
+
 ul li .author
 {
 	margin-top:4px;
@@ -220,36 +209,6 @@ h3.new-comment
 	padding-bottom:4px;
 	border-bottom:1px solid #666;
 	margin-bottom:8px;
-}
-
-.profile-sections
-{
-	float:left;
-	padding-right:20px;
-	width:180px;
-}
-
-.profile-imageupload
-{
-	width:200px;
-	float:left;
-	float:left;
-	padding-left:20px;
-	border-left:2px solid #cccccc;
-	display:none;
-	
-}
-
-.profiledetail
-{
-	float:left;
-	padding-left:20px;
-	border-left:2px solid #cccccc;
-}
-
-.profiledetail table.zebra-striped
-{
-	width:400px;
 }
 
 #mytopics ul, #mycomments ul
