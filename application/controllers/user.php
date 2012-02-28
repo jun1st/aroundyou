@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	include_once $_SERVER['DOCUMENT_ROOT'] . '/application/models/user_model.php';
 	
 	class User extends My_Controller{
 		
@@ -20,9 +19,9 @@
 			}
 			$this->load->helper('html');
 			$this->load->helper('date');
-			$this->load->model('User_model');
-			$this->load->model('Message_model');
-			$this->load->model('Comment_model');
+			$this->load->Model('User_model');
+			$this->load->Model('Message_model');
+			$this->load->Model('Comment_model');
 			$data['user'] = $this->User_model->get_user($id);
 			$data['messages'] = $this->Message_model->get_messages_by_user($data['user']->id);
 			$data['comments'] = $this->Comment_model->get_comments_by_user($data['user']->id);
@@ -35,7 +34,7 @@
 			if ($this->session->userdata['is_login'] != 'true') {
 				redirect('login');
 			}
-			$this->load->model('User_model');
+			$this->load->Model('User_model');
 
 			if(isset($_POST['submit']))
 			{
@@ -62,6 +61,8 @@
 		public function change_password()
 		{
 			if (isset($_POST['submit'])) {
+				
+				$this->load->Model('User_model');
 				$this->load->library('form_validation');
 				$this->form_validation->set_rules('old', '旧密码', 'required');
 				$this->form_validation->set_rules('new', '新密码', 'required');

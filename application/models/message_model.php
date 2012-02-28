@@ -35,6 +35,8 @@
 			);
 			
 			$this->db->insert('message_region', $message_region);
+			
+			return $message_id;
 		}
 		
         function update_message($message_id, $content, $new_region_id)

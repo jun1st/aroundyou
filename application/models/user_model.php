@@ -1,8 +1,8 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+ <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	require_once BASEPATH.'core/Model.php';
 	
-	class User_model extends CI_Model{
-		
+	class User_model extends CI_Model
+	{
 		var $id;
 		var $name;
 		var $email;

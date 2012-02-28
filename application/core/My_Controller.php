@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	include_once $_SERVER['DOCUMENT_ROOT'] . '/application/models/user_model.php';
 	class My_Controller extends CI_Controller
 	{
 		function __construct()
