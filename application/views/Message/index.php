@@ -30,7 +30,6 @@
 							
 								<div class="user">
 									<a href="/users/<?php echo $item->user_id; ?>" title="查看<?php echo $item->user_name; ?>的信息" >
-									<!-- <img src="<?php echo $item->profile_tiny_image_path; ?>" alt="profile" title="<?php echo $item->user_name; ?>" /> -->
 									</a>
 									<h3>
 									<?php echo "<a href=/users/$item->user_id title='查看$item->user_name 的信息' >$item->user_name</a>"; ?><strong><span class="description"><?php echo $item->user_description; ?></span></strong>

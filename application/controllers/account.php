@@ -129,6 +129,7 @@
 			$douban_oauth = new Douban_OAuth();
 			
 			$user_id = $douban_oauth->get_authorized_user_id();
+			echo $user_id;
 			if (isset($user_id)) {
 				$this->session->set_userdata('oauth_user_id', $user_id);
 				
@@ -150,7 +151,7 @@
 			}
 			else
 			{
-				header('location:' . '/account/login');
+				//header('location:' . '/account/login');
 			}
 		}
         

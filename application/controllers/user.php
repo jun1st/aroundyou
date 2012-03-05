@@ -87,6 +87,7 @@
 		
 		public function upload()
 		{
+			
 			$filePath = "./uploads/profile_images/" . $this->session->userdata['user']->id ."/";
 		
 			if(!file_exists($filePath))
