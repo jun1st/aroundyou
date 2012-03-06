@@ -10,6 +10,7 @@
 		var $latitude;
 		var $longitude;
 		var $posted_time;
+		var $comments_count;
 		
 		function __construct()
 		{
@@ -52,7 +53,7 @@
 		*/
 		function get_messages()
 		{	
-			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
+			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, messages.comments_count, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
 			$this->db->join('message_region', 'messages.id = message_region.message_id', 'left');

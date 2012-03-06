@@ -20,6 +20,8 @@
 		var $birthday;
 		var $remember_me_token;
 		var $last_visit_time;
+		var $messages_count;
+		var $comments_count;
 		
 		function __construct()
 		{
