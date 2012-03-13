@@ -41,7 +41,22 @@ class Api extends CI_Controller{
 		}
 	}
 	
-
+    function login()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
+            
+            if (isset($email) && isset($password)) {
+                $user = $this->User_model->authenticate_user($email, SHA1($password));
+                if($user != null)
+                {
+                    $this->output->set_content_type('application/json');
+                    $this->output->set_output(json_encode($user));
+                }
+            }
+        }
+    }
 }
 
 ?>
