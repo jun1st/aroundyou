@@ -8,6 +8,7 @@
 		var $added_time;
 		var $longitude;
 		var $latitude;
+        var $messages_count;
 		
 		function __construct()
 		{
@@ -40,6 +41,17 @@
 			
 			return $query->result();
 		}
+        
+        function get_hot_regions()
+        {
+            $this->db->select('regions.id, regions.name, COUNT(message_region.message_id) as messages_count');
+            $this->db->from('regions');
+            $this->db->join('message_region', 'regions.id = message_region.region_id');
+            $this->db->group_by(array('regions.id', 'regions.name'));
+            $this->db->order_by('messages_count');
+            
+            return $this->db->get()->result();
+        }
         
         function get_regions_by_message($message_id)
         {

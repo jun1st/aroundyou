@@ -42,6 +42,8 @@ $route['default_controller'] = "message";
 $route['404_override'] = '';
 
 $route['messages'] = "message/index";
+$route['messages/hot'] = "message/messages_hot";
+$route['regions/hot'] = "message/regions_hot";
 $route['login/callback.php'] = "account/callback";
 $route['login/callback'] = "account/callback";
 $route['login'] = "account/login";

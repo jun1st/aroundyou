@@ -15,7 +15,7 @@ class Message extends My_Controller
 		$this->load->Model('Region_model');
 
 		$data['messages'] = $this->Message_model->get_messages();
-		$data['regions'] = $this->Region_model->get_regions();
+		$data['regions'] = $this->Region_model->get_hot_regions();
 			
 		// $config['base_url'] = 'http://localhost';
 		// $config['total_row'] = 8;
@@ -24,6 +24,23 @@ class Message extends My_Controller
 		
 		$this->load->view('Message/index', $data);
 	}
+    
+    public function messages_hot()
+    {
+        $this->load->helper('date');
+        
+		$this->load->Model('Message_model');
+		$this->load->Model('Region_model');
+
+        $data['messages'] = $this->Message_model->get_hot_messages();
+        $data['regions'] = $this->Region_model->get_regions();
+        
+        $this->load->view('Message/index', $data);
+    }
+    
+    public function regions_hot()
+    {
+    }
 		
 	public function get_by_region()
 	{
