@@ -80,9 +80,9 @@
 					}
 				}
 				
-				header('location:' . '/user/setting#password');
+				//header('location:' . '/user/setting#password');
 			}
-			header('location:' . '/user/setting#password');
+			//header('location:' . '/user/setting#password');
 		}
 		
 		public function upload()

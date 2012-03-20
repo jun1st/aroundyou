@@ -14,10 +14,8 @@ Modernizr.load([
 		    	// Inject it into the middle of our order of scripts to execute
 		    	// even if other scripts are listed after this one, and are already
 		    	// done loading.
-		      	yepnope('/scripts/bootstrap-dropdown.js');
-				yepnope('/scripts/bootstrap-modal.js');
-				yepnope('/scripts/bootstrap-tab.js');
-				yepnope('/scripts/aroundyou.js');
+				yepnope('/scripts/jquery.form.js');
+				yepnope('/scripts/bootstrap.js');
 				yepnope('/scripts/ajaxfileupload.js');
 				yepnope('/scripts/jquery.Jcrop.min.js');
 				yepnope('/scripts/application.js');

@@ -165,7 +165,6 @@ function ajaxFileUpload()
 				}
 			);
             
-            //$('#detail-form').ajaxForm();
             $('#detail-form').submit(function() { 
                 // submit the form 
                 $(this).ajaxSubmit(); 

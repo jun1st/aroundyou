@@ -41,6 +41,7 @@
 					</li>
 				<?php endforeach; ?>
 	    	</ul>
+			<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/pager.php'; ?>
 		</div>
 		<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/sidebar.php';  ?>
 	  </div>
