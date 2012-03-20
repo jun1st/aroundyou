@@ -59,7 +59,7 @@
 			$this->db->join('message_region', 'messages.id = message_region.message_id', 'left');
 			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
 			$this->db->order_by("posted_time", "desc");
-			
+			$this->db->limit(15, 0);
 			return $this->db->get()->result();
 		}
         

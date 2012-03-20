@@ -24,7 +24,7 @@
 		</ul>
 		<div class="tab-content span8">
 			<div id="detail" class="tab-pane active">
-				<?php echo form_open('user/setting', array('class'=>'form-horizontal')); ?>
+				<?php echo form_open('user/setting', array('class'=>'form-horizontal', 'id'=>'detail-form')); ?>
 				<fieldset>
 					<legend>个人信息</legend>
 					<div class='control-group'>
@@ -71,7 +71,7 @@
 				<?php echo form_close(); ?>
 			</div>
 			<div id="password" class="tab-pane">
-				<?php echo form_open('user/setting/password', array('class'=>'form-horizontal')); ?>
+				<?php echo form_open('user/setting/password', array('class'=>'form-horizontal', 'id' => 'password-form')); ?>
 				<fieldset>
 					<legend>修改密码</legend>
 					<?php echo validation_errors(); ?>
@@ -119,6 +119,7 @@
 	</div>
 </div>
 <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.form.js"></script>
 <script type="text/javascript" charset="utf-8">
 function ajaxFileUpload()
 { 
@@ -163,6 +164,22 @@ function ajaxFileUpload()
 					ajaxFileUpload();
 				}
 			);
+            
+            //$('#detail-form').ajaxForm();
+            $('#detail-form').submit(function() { 
+                // submit the form 
+                $(this).ajaxSubmit(); 
+                // return false to prevent normal browser submit and page navigation 
+                return false; 
+            });
+            
+            $('#password-form').submit(function() { 
+                // submit the form 
+                $(this).ajaxSubmit(); 
+                // return false to prevent normal browser submit and page navigation 
+                return false; 
+            });
+            
 		});
 	</script>
 </script>
