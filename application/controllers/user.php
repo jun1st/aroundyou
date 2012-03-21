@@ -36,7 +36,7 @@
 			}
 			$this->load->Model('User_model');
 
-			if($_SERVER['REQUEST_METHOD'] === 'POST')
+			if($this->input->post())
 			{
                 $birthday = $this->input->post('birthday');
 				$data = array(
@@ -60,7 +60,7 @@
 		
 		public function change_password()
 		{
-			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			if ($this->input->post()) {
 				
 				$this->load->Model('User_model');
 				$this->load->library('form_validation');
