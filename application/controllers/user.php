@@ -36,7 +36,7 @@
 			}
 			$this->load->Model('User_model');
 
-			if(isset($_POST['submit']))
+			if($_SERVER['REQUEST_METHOD'] === 'POST')
 			{
                 $birthday = $this->input->post('birthday');
 				$data = array(
@@ -60,7 +60,7 @@
 		
 		public function change_password()
 		{
-			if (isset($_POST['submit'])) {
+			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				
 				$this->load->Model('User_model');
 				$this->load->library('form_validation');
@@ -80,7 +80,9 @@
 					}
 				}
 				
-				//header('location:' . '/user/setting#password');
+				$this->output->set_content_type('application/json');
+				$this->output->set_output(json_encode($info));
+				
 			}
 			//header('location:' . '/user/setting#password');
 		}
