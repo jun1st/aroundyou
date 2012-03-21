@@ -118,8 +118,6 @@
 			</div>
 	</div>
 </div>
-<script type="text/javascript" src="/scripts/jquery.min.js"></script>
-<script type="text/javascript" src="/scripts/jquery.form.js"></script>
 <script type="text/javascript" charset="utf-8">
 function ajaxFileUpload()
 { 

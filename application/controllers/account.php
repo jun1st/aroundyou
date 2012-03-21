@@ -56,11 +56,11 @@
 				else
 				{
 					$data['login_error'] = "对不起，您的用户名和密码有误！";
-                    $this->load->view('Account/login.php', $data);
+                    $this->load->view('account/login.php', $data);
                     return;
 				}
 			}
-			$this->load->view('Account/login.php');
+			$this->load->view('account/login.php');
 		}
 		
         public function sina_oauth()
