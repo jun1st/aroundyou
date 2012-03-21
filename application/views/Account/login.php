@@ -37,13 +37,13 @@
 			</div>
 		<?php endif; ?>
 		<div class="control-group">
-			<label for> 邮 箱:</label>
+			<label for="email" class="control-label"> 邮 箱:</label>
 			<div class="controls">
 				<?php echo form_input(array('name'=>'email', 'size'=>'50', 'class'=>'xlarge')); ?>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for> 密 码:</label>
+			<label for="email"  class="control-label"> 密 码:</label>
 			<div class="controls">
 				<?php echo form_password(array('name'=>'password', 'size'=>'50', 'class'=>'xlarge', 'value'=>set_value('password'))); ?>
 			</div>
