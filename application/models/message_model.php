@@ -48,10 +48,15 @@
             
             $this->update_regions($message_id, $new_region_id);
         }
+        
+        function get_messages_count()
+        {
+            return $this->db->count_all('messages');
+        }
 		/*
 		//get messages with auth, region
 		*/
-		function get_messages()
+		function get_messages($page_size=NULL, $which_page=NULL)
 		{	
 			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, messages.comments_count, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
 			$this->db->from("messages");
@@ -59,7 +64,13 @@
 			$this->db->join('message_region', 'messages.id = message_region.message_id', 'left');
 			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
 			$this->db->order_by("posted_time", "desc");
-			$this->db->limit(15, 0);
+            if (!isset($which_page)) {
+                $which_page = 0;
+            }
+            if (!isset($page_size)) {
+                $page_size = PAGE_SIZE;
+            }
+			$this->db->limit(PAGE_SIZE, $which_page * PAGE_SIZE);
 			return $this->db->get()->result();
 		}
         

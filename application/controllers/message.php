@@ -7,16 +7,22 @@ class Message extends My_Controller
 	{
 		parent::__construct();
 	}
-	public function index()
+	public function index($page = NULL)
 	{
 		$this->load->helper('date');
+        $this->load->helper('url');
 		//$this->load->library('pagination');
 		$this->load->Model('Message_model');
 		$this->load->Model('Region_model');
-
-		$data['messages'] = $this->Message_model->get_messages();
+        
+        if (!isset($page)) {
+            $page = 1;
+        }
+        
+		$data['messages'] = $this->Message_model->get_messages(PAGE_SIZE, $page-1);
 		$data['regions'] = $this->Region_model->get_hot_regions();
-			
+		
+        $data['page_count'] = round($this->Message_model->get_messages_count() / PAGE_SIZE, 0);
 		// $config['base_url'] = 'http://localhost';
 		// $config['total_row'] = 8;
 		// $config['per_page'] = 5;
