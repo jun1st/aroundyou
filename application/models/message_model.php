@@ -17,13 +17,15 @@
 			parent::__construct();
 		}
 		
-		function add_message($topic, $content, $user_id, $region_id)
+		function add_message($topic, $content, $user_id, $region_id, $latitude, $longitude)
 		{
 			$message = new Message_model;
 			$message->topic = $topic;
 			$message->content = $content;
 			$message->posted_time = date('Y-m-d H:i:s');
 			$message->user_id = $user_id;
+			$message->latitude = $latitude;
+			$message->longitude = $longitude;
 
 			$this->db->insert('messages', $message);
 			

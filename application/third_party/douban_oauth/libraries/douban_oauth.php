@@ -25,7 +25,7 @@ class Douban_OAuth
 		session_start();
 		$_SESSION['request_token_secret'] = $attr['oauth_token_secret'];
 		
-		$callback = urlencode("http://localhost/account/douban/register");
+		$callback = urlencode("http://iaroundyou.com/account/douban/register");
 		$authorize_request_url = $authorize_url . "?" . $param_str . "&oauth_callback=" . $callback;
 		
 		

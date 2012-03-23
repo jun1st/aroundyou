@@ -16,6 +16,8 @@ class Api extends CI_Controller{
 			$content = $this->input->post('content');
 			$user_id = $this->input->post('user_id');
 			$region_id = $this->input->post('region_id');
+			$latitude = $this->input->post('latitude');
+			$longitude = $this->input->post('longitude');
 			
 			if (isset($user_id) || empty($user_id)) {
 				$user_id = 7;
@@ -24,7 +26,7 @@ class Api extends CI_Controller{
 				$region_id = 1;
 			}
 			
-			$message_id = $this->Message_model->add_message($topic, $content, $user_id, $region_id);
+			$message_id = $this->Message_model->add_message($topic, $content, $user_id, $region_id, $latitude, $longitude);
 			
 			$message_url = "http://aroundyou.com/message/" . $message_id;
 			
