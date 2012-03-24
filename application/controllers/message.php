@@ -22,11 +22,7 @@ class Message extends My_Controller
 		$data['messages'] = $this->Message_model->get_messages(PAGE_SIZE, $page-1);
 		$data['regions'] = $this->Region_model->get_hot_regions();
 		
-        $data['page_count'] = round($this->Message_model->get_messages_count() / PAGE_SIZE, 0);
-		// $config['base_url'] = 'http://localhost';
-		// $config['total_row'] = 8;
-		// $config['per_page'] = 5;
-		// $this->pagination->initialize($config);
+        $data['page_count'] = ceil($this->Message_model->get_messages_count() / PAGE_SIZE);
 		
 		$this->load->view('Message/index', $data);
 	}
