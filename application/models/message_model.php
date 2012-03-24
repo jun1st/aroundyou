@@ -72,7 +72,7 @@
             if (!isset($page_size)) {
                 $page_size = PAGE_SIZE;
             }
-			$this->db->limit(PAGE_SIZE, $which_page * PAGE_SIZE);
+			$this->db->limit($page_size, $which_page * $page_size);
 			return $this->db->get()->result();
 		}
         
