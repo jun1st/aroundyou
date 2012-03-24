@@ -37,12 +37,10 @@ class Api extends CI_Controller{
 		else
 		{
 			$how_many_messages = $this->uri->segment(3);
-			$start_from_post_id = $this->uri->segment(4);
-			if (!empty($start_from_post_id)) {
-				$messages = $this->Message_model->get_messages_id_bigger_than($start_from_post_id);
-			}else{
-				$messages = $this->Message_model->get_messages($how_many_messages);
-			}
+			$start_from_message_id = $this->uri->segment(4);
+
+			$messages = $this->Message_model->get_messages($how_many_messages, NULL, $start_from_message_id);
+			
 			//$data['regions'] = $this->Region_model->get_regions();
 			
 			$this->output->set_content_type('application/json');
