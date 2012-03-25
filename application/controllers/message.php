@@ -36,6 +36,7 @@ class Message extends My_Controller
 
         $data['messages'] = $this->Message_model->get_hot_messages();
         $data['regions'] = $this->Region_model->get_regions();
+		$data['page_count'] = ceil(count($data['messages']) / PAGE_SIZE );
         
         $this->load->view('Message/index', $data);
     }
