@@ -7,7 +7,7 @@ class Message extends My_Controller
 	{
 		parent::__construct();
 	}
-	public function index($page = NULL)
+	public function index($page = 1)
 	{
 		$this->load->helper('date');
         $this->load->helper('url');
@@ -15,28 +15,25 @@ class Message extends My_Controller
 		$this->load->Model('Message_model');
 		$this->load->Model('Region_model');
         
-        if (!isset($page)) {
-            $page = 1;
-        }
-        
 		$data['messages'] = $this->Message_model->get_messages(PAGE_SIZE, $page-1);
 		$data['regions'] = $this->Region_model->get_hot_regions();
-		
+		$data['page_url'] = "messages/page";
         $data['page_count'] = ceil($this->Message_model->get_messages_count() / PAGE_SIZE);
 		
 		$this->load->view('Message/index', $data);
 	}
     
-    public function messages_hot()
+    public function messages_hot($page = 1)
     {
         $this->load->helper('date');
         
 		$this->load->Model('Message_model');
 		$this->load->Model('Region_model');
 
-        $data['messages'] = $this->Message_model->get_hot_messages();
+        $data['messages'] = $this->Message_model->get_hot_messages(PAGE_SIZE, $page-1);
         $data['regions'] = $this->Region_model->get_regions();
-		$data['page_count'] = ceil(count($data['messages']) / PAGE_SIZE );
+		$data['page_url'] = "messages/hot/page";
+		$data['page_count'] = ceil($this->Message_model->get_messages_count() / PAGE_SIZE );
         
         $this->load->view('Message/index', $data);
     }

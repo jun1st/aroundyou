@@ -44,6 +44,7 @@ $route['404_override'] = '';
 $route['messages'] = "message/index";
 $route['messages/page/(:any)'] = "message/index/$1";
 $route['messages/hot'] = "message/messages_hot";
+$route['messages/hot/page/(:any)']="message/messages_hot/$1";
 $route['regions/hot'] = "region/hot";
 $route['login/callback.php'] = "account/callback";
 $route['login/callback'] = "account/callback";

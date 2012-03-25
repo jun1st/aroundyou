@@ -69,9 +69,7 @@
 				$this->db->where("messages.id > ", $last_message_id);
 			}
 			$this->db->order_by("posted_time", "desc");
-            if (!isset($which_page)) {
-                $which_page = 0;
-            }
+           
             if (!isset($page_size)) {
                 $page_size = PAGE_SIZE;
             }
@@ -80,15 +78,22 @@
 		}
         
         //get hot messages
-        function get_hot_messages()
+        function get_hot_messages($page_size=NULL, $which_page=NULL)
         {
 			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, messages.comments_count, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
 			$this->db->join('message_region', 'messages.id = message_region.message_id', 'left');
 			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
+            if (!isset($which_page)) {
+                $which_page = 0;
+            }
+			if (!isset($page_size)) {
+				$page_size = PAGE_SIZE;
+			}
 			$this->db->order_by("comments_count", "desc");
-            
+			$this->db->order_by("messages.posted_time", "desc");
+            $this->db->limit($page_size, $which_page * $page_size);
             return $this->db->get()->result();
         }
 		
