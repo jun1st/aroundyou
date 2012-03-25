@@ -34,7 +34,7 @@
 									<h3>
 									<?php echo "<a href=/users/$item->user_id title='查看$item->user_name 的信息' >$item->user_name</a>"; ?><strong><span class="description"><?php echo $item->user_description; ?></span></strong>
 									</h3>
-									<span class="time"><i class="icon-time"></i><?php echo $item->posted_time; ?></span>
+									<span class="time"><i class="icon-time"></i><?php echo " " . relative_time($item->posted_time); ?></span>
 								</div>
 							</div>
 						</div>
