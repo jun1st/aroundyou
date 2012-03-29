@@ -8,25 +8,35 @@ class Api extends CI_Controller{
 	{
 
 		$this->load->Model('Message_model');
-		//$this->load->Model('Region_model');
+		$this->load->Model('Region_model');
 
 		if (isset($_POST['user_id'])) {
 			
 			$topic = $this->input->post('topic');
 			$content = $this->input->post('content');
 			$user_id = $this->input->post('user_id');
-			$region_id = $this->input->post('region_id');
+			$region_name = $this->input->post('region_name');
 			$latitude = $this->input->post('latitude');
 			$longitude = $this->input->post('longitude');
 			
-			if (isset($user_id) || empty($user_id)) {
-				$user_id = 7;
-			}
-			if (isset($region_id) || empty($region_id)) {
-				$region_id = 1;
+			if (empty($content) || empty($user_id) || empty($region_name) || empty($latitude) || empty($longitude) ) {
+			    $this->output->set_status_header(400);
+                $this->output->set_output(json_encode("bad request"));
+                return;
 			}
 			
-			$message_id = $this->Message_model->add_message($topic, $content, $user_id, $region_id, $latitude, $longitude);
+            $region = $this->Region_model->get_region_by_name($region_name);
+            $new_region_id;
+            if($region == null)
+            {
+                $new_region_id = $this->Region_model->add_region($region_name, $latitude, $longitude);
+            }
+            else
+            {
+                $new_region_id = $region->id;
+            }
+            
+			$message_id = $this->Message_model->add_message($topic, $content, $user_id, $new_region_id, $latitude, $longitude);
 			
 			$message_url = "http://aroundyou.com/message/" . $message_id;
 			
