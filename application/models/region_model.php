@@ -8,7 +8,6 @@
 		var $added_time;
 		var $longitude;
 		var $latitude;
-        var $messages_count;
 		
 		function __construct()
 		{
