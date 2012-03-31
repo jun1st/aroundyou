@@ -42,27 +42,34 @@ $route['default_controller'] = "message";
 $route['404_override'] = '';
 
 $route['messages'] = "message/index";
-$route['messages/page/(:any)'] = "message/index/$1";
+$route['messages/page/(:num)'] = "message/index/$1";
 $route['messages/hot'] = "message/messages_hot";
-$route['messages/hot/page/(:any)']="message/messages_hot/$1";
+$route['messages/hot/page/(:num)']="message/messages_hot/$1";
 $route['regions/hot'] = "region/hot";
-$route['login/callback.php'] = "account/callback";
-$route['login/callback'] = "account/callback";
-$route['login'] = "account/login";
-$route['logout'] = "account/logout";
+$route['byregion'] = "message/get_by_region";
+$route['messages/byregion/'] = "message/get_by_region";
+$route['messages/edit/(:num)'] = "message/edit/$1";
+
 $route['account/oauth/douban'] = "account/douban_oauth";
 $route['account/douban/register'] = "account/douban_register";
 $route['account/oauth/sina'] = "account/sina_oauth";
 $route['account/sina/register'] = "account/sina_register";
+
+$route['login/callback.php'] = "account/callback";
+$route['login/callback'] = "account/callback";
+$route['login'] = "account/login";
+$route['logout'] = "account/logout";
+
 $route['users'] = "user/index";
 $route['user/setting']="user/setting";
 $route['user/setting/password'] = "user/change_password";
 $route['user/upload_profile_image/']="user/upload_profile_image";
-$route['users/(:any)'] = 'user/get/$1';
+$route['users/(:num)'] = 'user/get/$1';
 
-$route['byregion'] = "message/get_by_region";
-$route['messages/byregion/'] = "message/get_by_region";
-$route['messages/edit/(:any)'] = "message/edit/$1";
+/* API calls */
+$route['api/messages'] = "api/messages";
+$route['api/message/(:num)'] = "api/message/$1";
+$route['api/comments'] = "api/comments";
 
 
 /* End of file routes.php */

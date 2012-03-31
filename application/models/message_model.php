@@ -42,6 +42,19 @@
 			return $message_id;
 		}
 		
+		function add_comment($message_id, $user_id, $content, $posted_time)
+		{
+			$this->load->model('Comment_model');
+			$comment = new Comment_model;
+			$comment->message_id = $message_id;
+			$comment->user_id = $user_id;
+			$comment->content = $content;
+			$comment->posted_time = $posted_time;
+				
+			$this->db->insert('comments', $comment);
+			
+		}
+		
         function update_message($message_id, $content, $new_region_id)
         {
             $data = array('content' => $content);
@@ -144,6 +157,14 @@
             return $this->db->get()->row();
             
         }
+		
+		function get_comments_of_message($id)
+		{
+			$query = $this->db->get_where('comments', array('message_id'=>$id));
+			
+			return $query->result();
+		}
+		
         
         function update_regions($message_id, $new_region_ids)
         {

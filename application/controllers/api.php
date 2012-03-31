@@ -10,7 +10,7 @@ class Api extends CI_Controller{
 		$this->load->Model('Message_model');
 		$this->load->Model('Region_model');
 
-		if (isset($_POST['user_id'])) {
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			
 			$topic = $this->input->post('topic');
 			$content = $this->input->post('content');
@@ -74,6 +74,48 @@ class Api extends CI_Controller{
             }
         }
     }
+	
+	public function message($id)
+	{
+		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+			$data['message'] = $this->Message_model->get_message($id);
+			if ($data['message']) {
+				$this->output->set_content_type('application/json');
+				$data['comments'] = $this->Message_model->get_comments_of_message($id);
+				$this->output->set_output(json_encode($data));
+			}
+			else
+			{
+				$this->output->set_status_header('404');
+				$this->output->set_output('resource not found');
+			}
+		}
+		else
+		{
+			$this->output->set_status_header('400');
+		}
+	}
+	
+	public function comments()
+	{
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			
+			$message_id = $this->input->post('message_id');
+			$user_id = $this->input->post('user_id');
+			$content = htmlspecialchars($this->input->post('comment_content', true));
+			$posted_time = $this->input->post('posted_time');
+			
+			if (!empty($message_id) && !empty($user_id) && !empty($content) && !empty($posted_time)) {
+				$this->Message_model->add_comment($message_id, $user_id, $content, $posted_time);
+			}
+			else
+			{
+				$this->output->set_status_header('400');
+				$this->output->set_output('bad request');
+			}
+		}
+		$this->output->set_status_header('400');
+	}
 }
 
 ?>
