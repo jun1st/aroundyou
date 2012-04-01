@@ -21,7 +21,7 @@
 					<li>
 						<div class="entry">
 							<div class="region">
-								<a href="/byregion?name=<?php echo $item->region_name; ?>"><i class="icon-map-marker"></i><?php echo $item->region_name; ?></a>
+								<a href="/messages/inregion/<?php echo $item->region_name; ?>"><i class="icon-map-marker"></i><?php echo $item->region_name; ?></a>
 							</div>
 							<div class="message">
 								<p><?php echo $item->content; ?>

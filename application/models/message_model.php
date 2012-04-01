@@ -68,11 +68,15 @@
         {
             return $this->db->count_all('messages');
         }
+		
+		
 		/*
 		//get messages with auth, region
 		*/
-		function get_messages($page_size=NULL, $which_page=NULL, $last_message_id=NULL)
+		function get_messages($page_size=NULL, $which_page=NULL, $last_message_id=NULL, &$total_count)
 		{	
+			$total_count = $this->db->count_all('messages');
+			
 			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, messages.comments_count, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
@@ -91,8 +95,10 @@
 		}
         
         //get hot messages
-        function get_hot_messages($page_size=NULL, $which_page=NULL)
+        function get_hot_messages($page_size=NULL, $which_page=NULL, &$count)
         {
+			$count = $this->db->count_all('messages');
+			
 			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, messages.comments_count, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
@@ -110,15 +116,29 @@
             return $this->db->get()->result();
         }
 		
-		function get_messages_by_region($region_id)
+		function get_messages_by_region($region_id, $page_size=NULL, $which_page=NULL, &$count)
 		{
+			$this->db->from("messages");
+			$this->db->join('message_region', 'messages.id = message_region.message_id');
+			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
+			$this->db->where('message_region.region_id', $region_id);
+			$count = $this->db->count_all_results();
+			
 			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
 			$this->db->join('message_region', 'messages.id = message_region.message_id');
 			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
 			$this->db->where('message_region.region_id', $region_id);
+			
+            if (!isset($which_page)) {
+                $which_page = 0;
+            }
+			if (!isset($page_size)) {
+				$page_size = PAGE_SIZE;
+			}
 			$this->db->order_by("posted_time", "desc");
+			$this->db->limit($page_size, $which_page * $page_size);
 			
 			return $this->db->get()->result();
 			

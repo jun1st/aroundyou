@@ -15,7 +15,7 @@
         <div class="span8 pull-left">
         		<div class="entry">
         			<div class="tags">
-        				<a href="/byregion?name=<?php echo $message->region_name; ?>" ><i class="icon-map-marker"></i><?php echo $message->region_name; ?></a>
+        				<a href="/messages/inregion/<?php echo $message->region_name; ?>" ><i class="icon-map-marker"></i><?php echo $message->region_name; ?></a>
         			</div>
         			<p class="message">
         				<?php echo $message->content; ?>	

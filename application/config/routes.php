@@ -42,13 +42,12 @@ $route['default_controller'] = "message";
 $route['404_override'] = '';
 
 $route['messages'] = "message/index";
-$route['messages/page/(:num)'] = "message/index/$1";
 $route['messages/hot'] = "message/messages_hot";
-$route['messages/hot/page/(:num)']="message/messages_hot/$1";
-$route['regions/hot'] = "region/hot";
-$route['byregion'] = "message/get_by_region";
-$route['messages/byregion/'] = "message/get_by_region";
+$route['messages/inregion/(:any)'] = "message/get_by_region/$1";
 $route['messages/edit/(:num)'] = "message/edit/$1";
+$route['messages/(:any)'] = "message/index";
+
+$route['regions/hot'] = "region/hot";
 
 $route['account/oauth/douban'] = "account/douban_oauth";
 $route['account/douban/register'] = "account/douban_register";

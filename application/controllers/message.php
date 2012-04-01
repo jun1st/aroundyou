@@ -7,33 +7,42 @@ class Message extends My_Controller
 	{
 		parent::__construct();
 	}
-	public function index($page = 1)
+	public function index()
 	{
 		$this->load->helper('date');
         $this->load->helper('url');
-		//$this->load->library('pagination');
 		$this->load->Model('Message_model');
 		$this->load->Model('Region_model');
-        
-		$data['messages'] = $this->Message_model->get_messages(PAGE_SIZE, $page-1);
+		$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+		if ($page == 0) {
+			$page = 1;
+		}
+        $total_count;
+		$data['messages'] = $this->Message_model->get_messages(PAGE_SIZE, $page-1, null, $total_count);
 		$data['regions'] = $this->Region_model->get_hot_regions();
-		$data['page_url'] = "messages/page";
-        $data['page_count'] = ceil($this->Message_model->get_messages_count() / PAGE_SIZE);
+		$data['page_url'] = "messages?page=";
+        $data['page_count'] = ceil($total_count / PAGE_SIZE);
 		
 		$this->load->view('Message/index', $data);
 	}
     
-    public function messages_hot($page = 1)
+    public function messages_hot()
     {
         $this->load->helper('date');
         
 		$this->load->Model('Message_model');
 		$this->load->Model('Region_model');
-
-        $data['messages'] = $this->Message_model->get_hot_messages(PAGE_SIZE, $page-1);
+		
+		$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+		if ($page == 0) {
+			$page = 1;
+		}
+		
+		$count = null;
+        $data['messages'] = $this->Message_model->get_hot_messages(PAGE_SIZE, $page-1, $count);
         $data['regions'] = $this->Region_model->get_regions();
-		$data['page_url'] = "messages/hot/page";
-		$data['page_count'] = ceil($this->Message_model->get_messages_count() / PAGE_SIZE );
+		$data['page_url'] = "messages/hot?page=";
+		$data['page_count'] = ceil($count / PAGE_SIZE );
         
         $this->load->view('Message/index', $data);
     }
@@ -42,19 +51,26 @@ class Message extends My_Controller
     {
     }
 		
-	public function get_by_region()
+	public function get_by_region($name)
 	{
-		if(empty($_GET['name']))
-		{
-			redirect('/messages');
-		}
 		$this->load->helper('date');
-		$this->load->Model('Message_model');
 		$this->load->Model('Region_model');
-		$region = $this->Region_model->get_region_by_name($_GET['name']);
-		$data['messages'] = $this->Message_model->get_messages_by_region($region->id);
+		$region = $this->Region_model->get_region_by_name(urldecode($name));
+		if (!$region) {
+			$this->output->set_status_header('404');
+			show_404();
+			return;
+		}
+		$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+		if ($page == 0) {
+			$page = 1;
+		}
+		$count;
+		$data['messages'] = $this->Message_model->get_messages_by_region($region->id, PAGE_SIZE, $page-1, $count);
 		$data['regions'] = $this->Region_model->get_regions();
-			
+		$data['page_url'] = "messages/inregion/" . urldecode($name) . "?page=";
+		$data['page_count'] = ceil($count / PAGE_SIZE );
+		
 		$this->load->view('Message/index', $data);
 	}
 		
@@ -69,7 +85,7 @@ class Message extends My_Controller
         if(isset($data['message']->region_name))
         {
 		    $region = $this->Region_model->get_region_by_name($data['message']->region_name);
-            $data['region_messages'] = $this->Message_model->get_messages_by_region($region->id);
+            $data['region_messages'] = $this->Message_model->get_messages_by_region($region->id, null, null, $region->name);
         }
         if ($data['message'] == null) {
 			echo 'not found';
