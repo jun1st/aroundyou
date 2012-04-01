@@ -10,8 +10,7 @@ class Api extends CI_Controller{
 		$this->load->Model('Message_model');
 		$this->load->Model('Region_model');
 
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			
+		if ($this->input->post()) {
 			$topic = $this->input->post('topic');
 			$content = $this->input->post('content');
 			$user_id = $this->input->post('user_id');
@@ -38,7 +37,7 @@ class Api extends CI_Controller{
             
 			$message_id = $this->Message_model->add_message($topic, $content, $user_id, $new_region_id, $latitude, $longitude);
 			
-			$message_url = "http://aroundyou.com/message/" . $message_id;
+			$message_url = "http://iaroundyou.com/messages/" . $message_id;
 			
 			$this->output->set_content_type('application/json');
 			$this->output->set_output(json_encode($message_url));
@@ -48,8 +47,8 @@ class Api extends CI_Controller{
 		{
 			$how_many_messages = $this->uri->segment(3);
 			$start_from_message_id = $this->uri->segment(4);
-
-			$messages = $this->Message_model->get_messages($how_many_messages, NULL, $start_from_message_id);
+			$count;
+			$messages = $this->Message_model->get_messages($how_many_messages, NULL, $start_from_message_id, $count);
 			
 			//$data['regions'] = $this->Region_model->get_regions();
 			

@@ -86,8 +86,7 @@
 				$this->db->where("messages.id > ", $last_message_id);
 			}
 			$this->db->order_by("posted_time", "desc");
-           
-            if (!isset($page_size)) {
+            if (is_null($page_size) || $page_size == 0) {
                 $page_size = PAGE_SIZE;
             }
 			$this->db->limit($page_size, $which_page * $page_size);
