@@ -102,10 +102,13 @@ class Api extends CI_Controller{
 			$message_id = $this->input->post('message_id');
 			$user_id = $this->input->post('user_id');
 			$content = htmlspecialchars($this->input->post('comment_content', true));
-			$posted_time = $this->input->post('posted_time');
+			$posted_time = date('Y-m-d H:i:s');//$this->input->post('posted_time');
 			
 			if (!empty($message_id) && !empty($user_id) && !empty($content) && !empty($posted_time)) {
 				$this->Message_model->add_comment($message_id, $user_id, $content, $posted_time);
+				
+				$this->output->set_status_header('200');
+				$this->output->set_output('comment posted!');				
 			}
 			else
 			{
@@ -113,7 +116,10 @@ class Api extends CI_Controller{
 				$this->output->set_output('bad request');
 			}
 		}
-		$this->output->set_status_header('400');
+		else{
+			$this->output->set_status_header('400');
+			$this->output->set_output('HTTP GET is not allowed to post a comment');
+		}
 	}
 }
 

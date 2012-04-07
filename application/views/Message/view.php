@@ -54,7 +54,7 @@
         								<strong><span class="description"><?php echo $comment->user_description; ?></span></strong>
         								</h3>
         							</div>
-        						<p><?php echo decode($comment->content); ?></p>
+        						<p><?php echo $comment->content; ?></p>
         						<div class='author'>
         							<i class="icon-time"></i><?php echo ' ' . relative_time($comment->posted_time); ?>
         						</div>
