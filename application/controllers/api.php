@@ -97,7 +97,7 @@ class Api extends CI_Controller{
 	
 	public function comments()
 	{
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+		if ($this->input->post()) {
 			
 			$message_id = $this->input->post('message_id');
 			$user_id = $this->input->post('user_id');
