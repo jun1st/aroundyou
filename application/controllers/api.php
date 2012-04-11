@@ -17,13 +17,12 @@ class Api extends CI_Controller{
 			$region_name = $this->input->post('region_name');
 			$latitude = $this->input->post('latitude');
 			$longitude = $this->input->post('longitude');
-			
 			if (empty($content) || empty($user_id) || empty($region_name) || empty($latitude) || empty($longitude) ) {
 			    $this->output->set_status_header(400);
                 $this->output->set_output(json_encode("bad request"));
                 return;
 			}
-			
+
             $region = $this->Region_model->get_region_by_name($region_name);
             $new_region_id;
             if($region == null)
@@ -34,14 +33,14 @@ class Api extends CI_Controller{
             {
                 $new_region_id = $region->id;
             }
-            
+
 			$message_id = $this->Message_model->add_message($topic, $content, $user_id, $new_region_id, $latitude, $longitude);
-			
+
 			$message_url = "http://iaroundyou.com/messages/" . $message_id;
-			
+
 			$this->output->set_content_type('application/json');
 			$this->output->set_output(json_encode($message_url));
-			
+
 		}
 		else
 		{
@@ -49,20 +48,20 @@ class Api extends CI_Controller{
 			$start_from_message_id = $this->uri->segment(4);
 			$count;
 			$messages = $this->Message_model->get_messages($how_many_messages, NULL, $start_from_message_id, $count);
-			
+
 			//$data['regions'] = $this->Region_model->get_regions();
-			
+
 			$this->output->set_content_type('application/json');
 			$this->output->set_output(json_encode($messages));
 		}
 	}
-	
+
     function login()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $email = $this->input->post('email');
             $password = $this->input->post('password');
-            
+
             if (isset($email) && isset($password)) {
                 $user = $this->User_model->authenticate_user($email, SHA1($password));
                 if($user != null)
@@ -73,7 +72,7 @@ class Api extends CI_Controller{
             }
         }
     }
-	
+
 	public function message($id)
 	{
 		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -94,21 +93,21 @@ class Api extends CI_Controller{
 			$this->output->set_status_header('400');
 		}
 	}
-	
+
 	public function comments()
 	{
 		if ($this->input->post()) {
-			
+
 			$message_id = $this->input->post('message_id');
 			$user_id = $this->input->post('user_id');
 			$content = htmlspecialchars($this->input->post('comment_content', true));
 			$posted_time = date('Y-m-d H:i:s');//$this->input->post('posted_time');
-			
+
 			if (!empty($message_id) && !empty($user_id) && !empty($content) && !empty($posted_time)) {
 				$this->Message_model->add_comment($message_id, $user_id, $content, $posted_time);
-				
+
 				$this->output->set_status_header('200');
-				$this->output->set_output('comment posted!');				
+				$this->output->set_output('comment posted!');
 			}
 			else
 			{

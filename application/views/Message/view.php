@@ -18,10 +18,10 @@
         				<a href="/messages/inregion/<?php echo $message->region_name; ?>" ><i class="icon-map-marker"></i><?php echo $message->region_name; ?></a>
         			</div>
         			<p class="message">
-        				<?php echo $message->content; ?>	
+        				<?php echo $message->content; ?>
         				<?php if ($this->session->userdata('is_login') && $message->user_id == $this->session->userdata['user']->id) {
         					echo "<a href='/messages/edit/$message->message_id' title='编辑' class='edit_link'>编辑</a>";
-        				} ?>			
+        				} ?>
         			</p>
         			<div class="user">
         				<h3>
@@ -54,7 +54,7 @@
         								<strong><span class="description"><?php echo $comment->user_description; ?></span></strong>
         								</h3>
         							</div>
-        						<p><?php echo $comment->content; ?></p>
+        						<p><?php echo decode($comment->content); ?></p>
         						<div class='author'>
         							<i class="icon-time"></i><?php echo ' ' . relative_time($comment->posted_time); ?>
         						</div>
@@ -63,9 +63,9 @@
         				<?php endforeach; ?>
         			</ul>
         		</div>
-	
+
         	<?php if ($this->session->userdata('is_login') == 'true') { ?>
-		
+
         	<?php echo form_open('message/comment', array('method'=>'post', 'class'=>'well')); ?>
         		<input type="hidden" name="message_id" value="<?php echo $message->message_id; ?>" />
         		<label><em>发表你的评论</em></label>
@@ -84,9 +84,9 @@
                 <div>
                     <span>请<a href="/account/login?returnUrl=<?php echo uri_string(); ?>">登陆</a>后再发表评论</span>
                 </div>
-        		
+
         	<?php } ?>
-            
+
         </div>
 		<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/Message/message_view_sidebar.php';  ?>
 	</div>
