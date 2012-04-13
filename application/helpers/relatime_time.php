@@ -6,7 +6,7 @@ define("DAY", 24 * HOUR);
 define("MONTH", 30 * DAY);
 
 function relativeTime($time)
-{   
+{
     $delta = time() - strtotime($time);
 
     if ($delta < 1 * MINUTE)
