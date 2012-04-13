@@ -10,6 +10,15 @@ class MY_Input extends CI_Input{
 		
 		return parent::post($index, $xss_clean);
 	}
+
+	public function get($index = '', $xss_clean = FALSE)
+	{
+		if ($index === '') {
+			return $_SERVER['REQUEST_METHOD'] === 'GET';
+		}
+
+		return parent::get($index, $xss_clean);
+	}
 }
 
 ?>

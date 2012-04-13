@@ -59,7 +59,7 @@ class Api extends CI_Controller{
 	
     function login()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($this->input->post()) {
             $email = $this->input->post('email');
             $password = $this->input->post('password');
             
@@ -76,7 +76,7 @@ class Api extends CI_Controller{
 	
 	public function message($id)
 	{
-		if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+		if ($this->input->get()) {
 			$data['message'] = $this->Message_model->get_message($id);
 			if ($data['message']) {
 				$this->output->set_content_type('application/json');
@@ -97,7 +97,7 @@ class Api extends CI_Controller{
 	
 	public function comments()
 	{
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+		if ($this->input->get()) {
 			
 			$message_id = $this->input->post('message_id');
 			$user_id = $this->input->post('user_id');

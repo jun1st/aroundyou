@@ -19,6 +19,10 @@ Modernizr.load([
 				yepnope('/scripts/ajaxfileupload.js');
 				yepnope('/scripts/jquery.Jcrop.min.js');
 				yepnope('/scripts/application.js');
+				yepnope('/scripts/underscore-1.3.1.js');
+				yepnope('/scripts/json2.js');
+				yepnope('/scripts/backbone.js');
+				yepnope('/scripts/message.js');
 			}
 		}
 	}

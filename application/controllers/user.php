@@ -22,7 +22,19 @@
 			$this->load->Model('User_model');
 			$this->load->Model('Message_model');
 			$this->load->Model('Comment_model');
+			
 			$data['user'] = $this->User_model->get_user($id);
+
+			$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+			if ($page == 0) {
+				$page = 1;
+			}
+	        $total_count;
+			$data['messages'] = $this->Message_model->get_messages(PAGE_SIZE, $page-1, null, $total_count);
+			
+			$data['page_url'] = "messages?page=";
+	        $data['page_count'] = ceil($total_count / PAGE_SIZE);
+
 			$data['messages'] = $this->Message_model->get_messages_by_user($data['user']->id);
 			$data['comments'] = $this->Comment_model->get_comments_by_user($data['user']->id);
 			$this->load->view('User/view', $data);

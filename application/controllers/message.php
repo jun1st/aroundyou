@@ -65,6 +65,7 @@ class Message extends My_Controller
 		if ($page == 0) {
 			$page = 1;
 		}
+		
 		$count;
 		$data['messages'] = $this->Message_model->get_messages_by_region($region->id, PAGE_SIZE, $page-1, $count);
 		$data['regions'] = $this->Region_model->get_regions();
