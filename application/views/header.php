@@ -22,7 +22,11 @@ Modernizr.load([
 				yepnope('/scripts/underscore-1.3.1.js');
 				yepnope('/scripts/json2.js');
 				yepnope('/scripts/backbone.js');
+				yepnope('/scripts/jquery.ba-dotimeout.js');
+				yepnope('/scripts/backbone.infinitscroll.js');
+				yepnope('/scripts/jquery.mustache.js');
 				yepnope('/scripts/message.js');
+				yepnope('/scripts/comment.js');
 			}
 		}
 	}

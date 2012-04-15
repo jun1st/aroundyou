@@ -32,10 +32,14 @@
             return $this->db->get()->result();
         }
 		
-		function get_comments_by_user($user_id)
+		function get_comments_by_user($user_id, $page)
 		{
 			$query = $this->db->get_where("comments", array('user_id'=>$user_id));
-			
+			if (is_null($page)) {
+            	$page = 0;
+            }
+            $this->db->order_by('posted_time', 'desc');
+			$this->db->limit(PAGE_SIZE, $page * PAGE_SIZE);
 			return $query->result();
 		}
 	}

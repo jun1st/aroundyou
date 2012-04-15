@@ -2,6 +2,7 @@
 	
 	class User extends My_Controller{
 		
+
 		public function index()
 		{
 			$this->load->model('User_model');
@@ -20,32 +21,35 @@
 			$this->load->helper('html');
 			$this->load->helper('date');
 			$this->load->Model('User_model');
-			$this->load->Model('Message_model');
-			$this->load->Model('Comment_model');
 			
 			$data['user'] = $this->User_model->get_user($id);
 
-			$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-			if ($page == 0) {
-				$page = 1;
-			}
-	        $total_count;
-			$data['messages'] = $this->Message_model->get_messages(PAGE_SIZE, $page-1, null, $total_count);
-			
-			$data['page_url'] = "messages?page=";
-	        $data['page_count'] = ceil($total_count / PAGE_SIZE);
-
-			$data['messages'] = $this->Message_model->get_messages_by_user($data['user']->id);
-			$data['comments'] = $this->Comment_model->get_comments_by_user($data['user']->id);
 			$this->load->view('User/view', $data);
-			
+		}
+
+		function get_messages($page = NULL)
+		{	
+			$user = $this->session->userdata('user');
+			$messages = $this->Message_model->get_messages_by_user($user->id, $page);
+
+			$this->output->set_content_type('application/json');
+			$this->output->set_output(json_encode($messages));
+		}
+
+		function get_comments($page = NULL)
+		{
+			$this->load->Model('Comment_model');
+			$user = $this->session->userdata('user');
+			$comments = $this->Comment_model->get_comments_by_user($user->id, $page);
+
+			$this->output->set_content_type('application/json');
+			$this->output->set_output(json_encode($comments));
+
 		}
 		
 		public function setting()
 		{
-			if ($this->session->userdata['is_login'] != 'true') {
-				redirect('login');
-			}
+			
 			$this->load->Model('User_model');
 
 			if($this->input->post())
