@@ -1,5 +1,6 @@
 <?php
 
+class My_Input extends CI_Input{
 	
 	public function post($index = '', $xss_clean = FALSE)
 	{
