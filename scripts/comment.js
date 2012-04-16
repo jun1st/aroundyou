@@ -10,7 +10,7 @@ $(function() {
     // Reference to this collection's model.
     model: Comment,
     url: function(){
-    		return "/user/comments/" + (this.page++);
+    		return "/user/comments";
     }
 
   });

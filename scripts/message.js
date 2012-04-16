@@ -27,34 +27,16 @@ $(function(){
       };
     },
 
-    // Ensure that each todo created has `title`.
-    initialize: function() {
-      
-    },
-
-    
-
   });
 
-  // Todo Collection
-  // ---------------
 
-  // The collection of todos is backed by *localStorage* instead of a remote
-  // server.
   var MessageList = Backbone.Collection.extend({
 
     page: 0,
     // Reference to this collection's model.
     model: Message,
     url: function(){
-      return "/user/messages/" + (this.page++);
-    },
-
-    // We keep the Todos in sequential order, despite being saved by unordered
-    // GUID in the database. This generates the next order number for new items.
-    loadMore: function() {
-      
-      this.fetch();
+      return "/user/messages";
     }
 
   });
@@ -71,13 +53,13 @@ $(function(){
     tagName:  "li",
 
     // Cache the template function for a single item.
-    template: _.template($('#message-template').html()),
+    template: $('#message-template').html(),
 
 
 
     // Re-render the titles of the todo item.
     render: function() {
-      $(this.$el).html(this.template(this.model.toJSON()));
+      $(this.$el).html($.mustache(this.template, this.model.toJSON()));
       return this;
     }
 
@@ -92,23 +74,7 @@ $(function(){
 
     initialize: function(){
 
-      //messages.bind('add', this.addOne, this);
-      //messages.bind('reset', this.addAll, this);
-      //messages.fetch();
-
       this.infinitScroll = new Backbone.InfinitScroll(this, messages, {"add": this.addOne, "reset": this.addAll});
-    },
-
-    // events: {
-    //   "scroll": this.infinitScroll.onScroll
-    // },
-
-    scroll: function(){
-      
-      if ($(document).height() - 200 < $(document).scrollTop() + $(window).height()) {
-        console.log('true');
-        messages.loadMore();
-      };
     },
 
     addOne: function(message){
@@ -116,7 +82,6 @@ $(function(){
       $('#messagesView').append(view.render().el);
     },
     addAll: function(){
-      console.log('reset');
       messages.each(this.addOne);
     }
   });

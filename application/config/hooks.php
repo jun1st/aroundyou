@@ -10,6 +10,19 @@
 |
 */
 
+$hook['pre_system'] = array(
+	'class'		=> 'Query_String',
+	'function'	=> 'clean_uri',
+	'filename'	=> 'query_string.php',
+	'filepath'	=> 'hooks'
+);
+$hook['pre_controller'] = array(
+	'class'		=> 'Query_String',
+	'function'	=> 'recreate_get',
+	'filename'	=> 'query_string.php',
+	'filepath'	=> 'hooks'
+);
+
 $hook['post_controller_constructor'] = array(
 	'class' => 'Authorization',
 	'function' => 'authorize',

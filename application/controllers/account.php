@@ -14,7 +14,7 @@
 		{
 			$this->load->library('form_validation');
             
-			if (isset($_POST['submit'])) {
+			if (isset($_POST['submit'])){
 				
 				$this->form_validation->set_rules('email', "邮箱", "required");
 				$this->form_validation->set_rules("password", "密码", "required");

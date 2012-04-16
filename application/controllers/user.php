@@ -29,6 +29,16 @@
 
 		function get_messages($page = NULL)
 		{	
+			if (is_null($page)) {
+				$query_string = $_SERVER['QUERY_STRING'];
+				if (!is_null($query_string)) {
+					parse_str($query_string, $qs);
+					if (count($qs) > 0) {
+						$page = $qs['page'];
+					}
+				}
+			}
+
 			$user = $this->session->userdata('user');
 			$messages = $this->Message_model->get_messages_by_user($user->id, $page);
 
