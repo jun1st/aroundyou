@@ -1,7 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	
 	class User extends My_Controller{
-		
+
+		function __construct(){
+			$queryString = $_SERVER['QUERY_STRING'];
+			if (!is_null($queryString) && !empty($queryString)) {
+				parse_str($queryString, $_GET);
+			}
+
+			parent::__construct();
+		}		
 
 		public function index()
 		{
@@ -30,13 +38,7 @@
 		function get_messages($page = NULL)
 		{	
 			if (is_null($page)) {
-				$query_string = $_SERVER['QUERY_STRING'];
-				if (!is_null($query_string)) {
-					parse_str($query_string, $qs);
-					if (count($qs) > 0) {
-						$page = $qs['page'];
-					}
-				}
+				$page = $this->input->get("page");
 			}
 
 			$user = $this->session->userdata('user');
