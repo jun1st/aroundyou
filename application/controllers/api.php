@@ -46,8 +46,9 @@ class Api extends CI_Controller{
 		{
 			$how_many_messages = $this->uri->segment(3);
 			$start_from_message_id = $this->uri->segment(4);
+			$page = $this->uri->segment(5);
 			$count;
-			$messages = $this->Message_model->get_messages($how_many_messages, NULL, $start_from_message_id, $count);
+			$messages = $this->Message_model->get_messages($how_many_messages, $page, $start_from_message_id, $count);
 
 			//$data['regions'] = $this->Region_model->get_regions();
 
@@ -100,7 +101,7 @@ class Api extends CI_Controller{
 			$message_id = $this->input->post('message_id');
 			$user_id = $this->input->post('user_id');
 			$content = htmlspecialchars($this->input->post('comment_content', true));
-			$posted_time = date('Y-m-d H:i:s');//$this->input->post('posted_time');
+			$posted_time = date('Y-m-d H:i:s');
 
 			if (!empty($message_id) && !empty($user_id) && !empty($content) && !empty($posted_time)) {
 				$this->Message_model->add_comment($message_id, $user_id, $content, $posted_time);

@@ -68,55 +68,35 @@
 			<div class="tab-content" id="my-contents">
 				<div class="tab-pane active" id="mytopics">
 					<ul id="messagesView">
-						<!--<?php foreach ($messages as $item) : ?> -->
-						<!-- <li>
-							<div class="entry">
-								<div class="region">
-									<a href="/byregion?name=<?php echo $item->region_name; ?>"><i class="icon-map-marker"></i><?php echo $item->region_name; ?></a>
-								</div>
-								<div class="message">
-									<p><?php echo $item->content; ?>
-										<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link">查看</a>
-									</p>
-									<span class="time"><i class="icon-time"></i><?php echo  " " .relative_time($item->posted_time); ?></span>
-								</div>
-							</div>
-						</li> -->
-						<!-- <?php endforeach; ?> -->
 					</ul>
-					<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/pager.php'; ?>
 				</div>
 				<div class="tab-pane" id="mycomments">
-					<ul>
-						<?php foreach ($comments as $item) : ?> 
-						<li>
-							<p><?php echo decode($item->content); ?></p>
-							<div class='author'>
-								<i class="icon-time"></i><?php echo ' ' . relative_time($item->posted_time); ?>
-							</div>
-						</li>
-					<?php endforeach;?>
+					<ul id="commentsView">
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 	<script type="text/template" id="message-template">
-	<li>
 		<div class="entry">
 			<div class="region">
 				<a href="/byregion?name=<%= region_name %>"><i class="icon-map-marker"></i><%= region_name %></a>
 			</div>
 			<div class="message">
 				<p><%= content %>
-					<a href="/message/view/<%= content %>" class="view_link">查看</a>
+					<a href="/message/view/<%= message_id %>" class="view_link">查看</a>
 				</p>
 				<span class="time"><i class="icon-time"></i><%= posted_time %></span>
 			</div>
 		</div>
-	</li>
 	</script>
-	<script type="text/template" id="comment-template">
-
+	<script type="text/html" id="comment-template">
+		<li>
+			<p>{{ content }}</p>
+			<div class='author'>
+				<i class="icon-time"></i>{{posted_time}}
+			</div>
+		</li>
 	</script>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/footer.php';  ?>
 </body>

@@ -43,23 +43,29 @@ $(function(){
   // server.
   var MessageList = Backbone.Collection.extend({
 
+    page: 0,
     // Reference to this collection's model.
     model: Message,
-    url: '/api/messages',
-    page: 1,
-
-    page_size: 10, 
+    url: function(){
+      return "/user/messages/" + (this.page++);
+    },
 
     // We keep the Todos in sequential order, despite being saved by unordered
     // GUID in the database. This generates the next order number for new items.
     loadMore: function() {
-      //load more messages to be implemented
+      
+      this.fetch();
     }
 
   });
 
   // The DOM element for a todo item...
   var MessageView = Backbone.View.extend({
+
+    initialize:function()
+    {
+      this.model.bind('change', this.render, this);
+    },
 
     //... is a list tag.
     tagName:  "li",
@@ -77,16 +83,44 @@ $(function(){
 
   });
   // Create our global collection of **Todos**.
-  var messages = new MessageList;
-  messages.fetch({
-    success: function()
-    {
-      messages.each(function(message){
-        var view = new MessageView({model: message});
-        console.log(view.render().el);
-        $('#messagesView').append(view.render().el);
-      });
+  window.messages = new MessageList;
+  
+  window.MyMessagesView = Backbone.View.extend({
+    
+    el: $(window),
+    //infinitScroll: null,
+
+    initialize: function(){
+
+      //messages.bind('add', this.addOne, this);
+      //messages.bind('reset', this.addAll, this);
+      //messages.fetch();
+
+      this.infinitScroll = new Backbone.InfinitScroll(this, messages, {"add": this.addOne, "reset": this.addAll});
+    },
+
+    // events: {
+    //   "scroll": this.infinitScroll.onScroll
+    // },
+
+    scroll: function(){
+      
+      if ($(document).height() - 200 < $(document).scrollTop() + $(window).height()) {
+        console.log('true');
+        messages.loadMore();
+      };
+    },
+
+    addOne: function(message){
+      var view = new MessageView({model:message});
+      $('#messagesView').append(view.render().el);
+    },
+    addAll: function(){
+      console.log('reset');
+      messages.each(this.addOne);
     }
   });
+
+  var myMessagesView = new MyMessagesView;
 
 });

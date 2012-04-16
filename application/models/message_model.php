@@ -69,7 +69,6 @@
             return $this->db->count_all('messages');
         }
 		
-		
 		/*
 		//get messages with auth, region
 		*/
@@ -88,6 +87,9 @@
 			$this->db->order_by("posted_time", "desc");
             if (is_null($page_size) || $page_size == 0) {
                 $page_size = PAGE_SIZE;
+            }
+            if (is_null($which_page)) {
+            	$which_page = 0;
             }
 			$this->db->limit($page_size, $which_page * $page_size);
 			return $this->db->get()->result();
@@ -143,7 +145,7 @@
 			
 		}
 		
-		function get_messages_by_user($id)
+		function get_messages_by_user($id, $page)
 		{
 			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
 			$this->db->from("messages");
@@ -151,6 +153,11 @@
 			$this->db->join('message_region', 'messages.id = message_region.message_id');
 			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
 			$this->db->where('users.id', $id);
+			
+			if (!isset($page)) {
+                $page = 0;
+            }
+			$this->db->limit(PAGE_SIZE, $page * PAGE_SIZE);
 			$this->db->order_by("posted_time", "desc");
 			
 			return $this->db->get()->result();

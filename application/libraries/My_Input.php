@@ -1,6 +1,6 @@
 <?php
 
-class MY_Input extends CI_Input{
+class My_Input extends CI_Input{
 	
 	public function post($index = '', $xss_clean = FALSE)
 	{

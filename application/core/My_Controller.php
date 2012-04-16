@@ -9,9 +9,11 @@
 		
 		function check_identity()
 		{
-			if ($this->session->userdata('is_login') != 'true') {
-						
-				if ($this->input->cookie('remember_me_token')) {
+			if (!$this->session->is_authenticated()) 
+			{
+				echo 'not authenticated';
+				if ($this->input->cookie('remember_me_token')) 
+				{
 					$this->load->model('User_model');
 					$user = $this->User_model->cookie_authenticate($this->input->cookie('remember_me_token'));
 					if($user != null)
@@ -22,6 +24,14 @@
 						$this->session->set_userdata('user', $user);
 						redirect('/messages');
 					}
+					else
+					{
+						redirect('login');
+					}
+				}
+				else
+				{
+					redirect('/login');
 				}
 			}
 
