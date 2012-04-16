@@ -9,7 +9,6 @@ function relative_time($time)
 {   
     $delta = time() - strtotime($time);
     $date = new DateTime($time);
-    
     if ($delta < 24 * HOUR)
     {
 		$date = new DateTime($time);
