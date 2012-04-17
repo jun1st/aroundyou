@@ -1,11 +1,8 @@
 $(function() {
-
-	var Comment = Backbone.Model.extend({
-
+  
+	window.Comment = Backbone.Model.extend({
   	});
-
-	var CommentList = Backbone.Collection.extend({
-
+	window.CommentList = Backbone.Collection.extend({
 		page: 0,
     // Reference to this collection's model.
     model: Comment,
@@ -16,7 +13,7 @@ $(function() {
   });
 
   // The DOM element for a todo item...
-  var CommentView = Backbone.View.extend({
+  window.CommentView = Backbone.View.extend({
 
     initialize:function()
     {
@@ -39,28 +36,5 @@ $(function() {
     }
 
   });
-
-  // Create our global collection of **Todos**.
-  window.comments = new CommentList;
-  
-  window.MyCommentView = Backbone.View.extend({
-    
-    el: $(window),
-
-    initialize: function(){
-
-      //this.infinitScroll = new Backbone.InfinitScroll(this, comments, {"add": this.addOne, "reset": this.addAll});
-    },
-
-    addOne: function(message){
-      var view = new CommentView({model:message});
-      $('#commentsView').append(view.render().el);
-    },
-    addAll: function(){
-      comments.each(this.addOne);
-    }
-  });
-
-  //var myCommentView = new MyCommentView;
 
 });

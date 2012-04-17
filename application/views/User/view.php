@@ -99,5 +99,14 @@
 		</li>
 	</script>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/footer.php';  ?>
+	<script type="text/javascript">
+		yepnope({
+			load:["/scripts/underscore-1.3.1.js", "/scripts/backbone.js", "/scripts/jquery.ba-dotimeout.js", 
+			"/scripts/backbone.infinitscroll.js", "/scripts/jquery.mustache.js", "/scripts/message.js", "/scripts/comment.js"]
+		});
+		yepnope({
+					load:["/scripts/user.js"]
+				});
+	</script>
 </body>
 </html>
