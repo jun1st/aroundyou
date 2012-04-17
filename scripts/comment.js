@@ -49,7 +49,7 @@ $(function() {
 
     initialize: function(){
 
-      this.infinitScroll = new Backbone.InfinitScroll(this, comments, {"add": this.addOne, "reset": this.addAll});
+      //this.infinitScroll = new Backbone.InfinitScroll(this, comments, {"add": this.addOne, "reset": this.addAll});
     },
 
     addOne: function(message){
@@ -61,6 +61,6 @@ $(function() {
     }
   });
 
-  var myCommentView = new MyCommentView;
+  //var myCommentView = new MyCommentView;
 
 });

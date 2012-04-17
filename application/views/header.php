@@ -27,6 +27,7 @@ Modernizr.load([
 				yepnope('/scripts/jquery.mustache.js');
 				yepnope('/scripts/message.js');
 				yepnope('/scripts/comment.js');
+				yepnope('/scripts/user.js');
 			}
 		}
 	}

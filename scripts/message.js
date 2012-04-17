@@ -10,7 +10,7 @@ $(function(){
   // ----------
 
   // Our basic **Todo** model has `title`, `order`, and `done` attributes.
-  var Message = Backbone.Model.extend({
+  window.Message = Backbone.Model.extend({
 
     // Default attributes for the todo item.
     defaults: function() {
@@ -30,32 +30,28 @@ $(function(){
   });
 
 
-  var MessageList = Backbone.Collection.extend({
+  window.MessageList = Backbone.Collection.extend({
 
-    page: 0,
-    // Reference to this collection's model.
+    initialize: function(options)
+    {
+      this.url = options['url'];
+    },
+
     model: Message,
-    url: function(){
-      return "/user/messages";
-    }
+    url: ""
 
   });
 
   // The DOM element for a todo item...
-  var MessageView = Backbone.View.extend({
+  window.MessageView = Backbone.View.extend({
 
     initialize:function()
     {
       this.model.bind('change', this.render, this);
     },
 
-    //... is a list tag.
-    tagName:  "li",
-
     // Cache the template function for a single item.
     template: $('#message-template').html(),
-
-
 
     // Re-render the titles of the todo item.
     render: function() {
@@ -64,28 +60,5 @@ $(function(){
     }
 
   });
-  // Create our global collection of **Todos**.
-  window.messages = new MessageList;
-  
-  window.MyMessagesView = Backbone.View.extend({
-    
-    el: $(window),
-    //infinitScroll: null,
-
-    initialize: function(){
-
-      this.infinitScroll = new Backbone.InfinitScroll(this, messages, {"add": this.addOne, "reset": this.addAll});
-    },
-
-    addOne: function(message){
-      var view = new MessageView({model:message});
-      $('#messagesView').append(view.render().el);
-    },
-    addAll: function(){
-      messages.each(this.addOne);
-    }
-  });
-
-  var myMessagesView = new MyMessagesView;
 
 });

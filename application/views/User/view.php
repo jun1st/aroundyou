@@ -80,7 +80,7 @@
 	<script type="text/template" id="message-template">
 		<div class="entry">
 			<div class="region">
-				<a href="/byregion?name={{region_name}}  %>"><i class="icon-map-marker"></i>{{region_name}}</a>
+				<a href="/messages/inregion/{{region_name}}  %>"><i class="icon-map-marker"></i>{{region_name}}</a>
 			</div>
 			<div class="message">
 				<p>{{content}}
