@@ -26,7 +26,7 @@
 			</div>			
 		</form>
     </div>
-	<?php echo form_open('Account/Login', array('class'=>'form-horizontal')) ?>
+	<?php echo form_open('account/login', array('class'=>'form-horizontal')) ?>
 	<fieldset id="login">
 		<legend>登陆</legend>
 		<?php if (isset($validation_fails)) : ?>
