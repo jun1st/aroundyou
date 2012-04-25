@@ -11,13 +11,14 @@
 		var $longitude;
 		var $posted_time;
 		var $comments_count;
+		var $street;
 		
 		function __construct()
 		{
 			parent::__construct();
 		}
 		
-		function add_message($topic, $content, $user_id, $region_id, $latitude, $longitude)
+		function add_message($topic, $content, $user_id, $region_id, $latitude, $longitude, $street)
 		{
 			$message = new Message_model;
 			$message->topic = $topic;
@@ -26,6 +27,7 @@
 			$message->user_id = $user_id;
 			$message->latitude = $latitude;
 			$message->longitude = $longitude;
+			$message->street = $street;
 
 			$this->db->insert('messages', $message);
 			

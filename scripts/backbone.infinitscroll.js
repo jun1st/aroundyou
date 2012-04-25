@@ -1,9 +1,9 @@
 (function(){
 	Backbone.InfinitScroll = function(view, collection, options){
-		options = options || {},
-		isFetch = false,
+		options        = options || {},
+		isFetch        = false,
 		hasMoreToFetch = true,
-		page = 1,
+		page           = 1,
 
 		onScroll = function(){
 			if ($(document).height() - 200 < $(document).scrollTop() + $(window).height()) {

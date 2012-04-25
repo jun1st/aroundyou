@@ -26,8 +26,6 @@ $(function() {
     // Cache the template function for a single item.
     template: $('#comment-template').html(),
 
-
-
     // Re-render the titles of the todo item.
     render: function() {
       //$(this.$el).html(this.template(this.model.toJSON()));

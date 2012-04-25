@@ -44,7 +44,7 @@ $(function(){
 
   // The DOM element for a todo item...
   window.MessageView = Backbone.View.extend({
-
+    tagName: "li",
     initialize:function()
     {
       this.model.bind('change', this.render, this);

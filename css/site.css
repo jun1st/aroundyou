@@ -45,6 +45,7 @@ input[type= "submit"]:hover
 {
 	float:left;
 	width:78px;
+	padding-top:6px;
 }
 .container .entry div.message
 {
@@ -127,9 +128,14 @@ h2 a, h3 a,  h4 a
 	display:block;
 }
 
+.ui-striped li:nth-child(even),
+.ui-striped li:nth-child(even){
+  background-color: #f9f9f9;
+}
+
 div.entry
 {
-	margin-top:6px;
+	padding-top:6px;
 	padding-bottom:4px;
 }
 
@@ -225,9 +231,9 @@ h3.new-comment
 
 #mytopics li, #mycomments li
 {
+	padding: 6px 0px;
 	border-bottom:1px solid #cccccc;
 	list-style:none;
-	margin-top:4px;
 }
 
 #mycomments li p
