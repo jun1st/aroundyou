@@ -15,6 +15,7 @@ class Api extends CI_Controller{
 			$content = $this->input->post('content');
 			$user_id = $this->input->post('user_id');
 			$region_name = $this->input->post('region_name');
+			$street = $this->input->post('street');
 			$latitude = $this->input->post('latitude');
 			$longitude = $this->input->post('longitude');
 			if (empty($content) || empty($user_id) || empty($region_name) || empty($latitude) || empty($longitude) ) {
@@ -34,7 +35,7 @@ class Api extends CI_Controller{
                 $new_region_id = $region->id;
             }
 
-			$message_id = $this->Message_model->add_message($topic, $content, $user_id, $new_region_id, $latitude, $longitude);
+			$message_id = $this->Message_model->add_message($topic, $content, $user_id, $new_region_id, $latitude, $longitude, $street);
 
 			$message_url = "http://iaroundyou.com/messages/" . $message_id;
 
