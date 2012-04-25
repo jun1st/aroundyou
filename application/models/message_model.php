@@ -131,7 +131,7 @@
 			$this->db->where('message_region.region_id', $region_id);
 			$count = $this->db->count_all_results();
 			
-			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
+			$this->db->select("messages.id as message_id, messages.content as content, street, messages.posted_time, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
 			$this->db->join('message_region', 'messages.id = message_region.message_id');

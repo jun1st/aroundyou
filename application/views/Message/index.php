@@ -27,7 +27,7 @@
 								<p><?php echo $item->content; ?>
 									<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link"><i class="icon-eye-open"></i> 查看</a>
 								</p>
-							
+								<span>@<?php echo $item->street; ?></span>							
 								<div class="user">
 									<a href="/users/<?php echo $item->user_id; ?>" title="查看<?php echo $item->user_name; ?>的信息" >
 									</a>
