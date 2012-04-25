@@ -120,6 +120,26 @@ class Api extends CI_Controller{
 			$this->output->set_output('HTTP GET is not allowed to post a comment');
 		}
 	}
+
+	public function user($id)
+	{
+		if ($this->input->get()) {
+			$user = $this->User_model->get_user($id);
+			if ($user) {
+				$this->output->set_content_type('application/json');
+				$this->output->set_output(json_encode($user));
+			}
+			else
+			{
+				$this->output->set_status_header('404');
+				$this->output->set_output('resource not found');
+			}
+		}
+		else
+		{
+			$this->output->set_status_header('400');
+		}
+	}
 }
 
 ?>
