@@ -188,7 +188,7 @@ class Message extends My_Controller
 		
 		$this->load->library('form_validation');
 		if (isset($_POST['submit'])) {
-			
+			$this->load->Model("Comment_model");
 			$this->form_validation->set_rules('comment_content', '评论内容', 'required|max_length[140]|min_length[7]');
 			if ($this->form_validation->run() == TRUE) {
 				$comment = new Comment_model;
@@ -199,7 +199,7 @@ class Message extends My_Controller
 				
 				$this->Message_model->add_comment($message_id, $user_id, $content, $posted_time);
 				
-				redirect("/message/view/" . $comment->message_id);
+				redirect("/message/view/" . $message_id);
 			}
 			else
 			{

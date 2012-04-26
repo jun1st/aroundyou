@@ -80,14 +80,18 @@
 	<script type="text/template" id="message-template">
 	
 		<div class="entry">
-			<div class="region">
-				<a href="/messages/inregion/{{region_name}}  %>"><i class="icon-map-marker"></i>{{region_name}}</a>
-			</div>
 			<div class="message">
+				<div style="float:right">
+					<span>{{ comments_count }} <br/>
+					<span class="time"><i class="icon-time"></i>{{ posted_time }}</span>
+				</div>
 				<p>{{content}}
 					<a href="/message/view/{{ message_id }}" class="view_link">查看</a>
 				</p>
-				<span class="time"><i class="icon-time"></i>{{ posted_time }}</span>
+				<div>
+					<a href="/messages/inregion/{{region_name}}  %>"><i class="icon-map-marker"></i>{{region_name}}{{street}}</a>
+				</div>
+				
 			</div>
 		</div>
 	</script>

@@ -1,4 +1,4 @@
-<div class="pull-right span3">
+<div class="pull-right span2">
 	<h3>热门地标</h3>
 	<ul id="hot-regions">
 		<?php foreach ($regions as $region) {

@@ -12,7 +12,7 @@
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/topbar.php';  ?>
 
 	<div class="container main">
-	    <div class="span8 pull-left">
+	    <div class="span7 pull-left">
             <div>
                 <i class="icon-list"></i> 最新动态
             </div>
@@ -20,15 +20,12 @@
 	      		<?php foreach ($messages as $item): ?>
 					<li>
 						<div class="entry">
-							<div class="region">
-								<a href="/messages/inregion/<?php echo $item->region_name; ?>"><i class="icon-map-marker"></i><?php echo $item->region_name; ?></a>
-							</div>
 							<div class="message">
 								<a href="/message/view/<?php echo $item->message_id; ?>" style="float:right"><span><?php echo is_null($item->comments_count) ? 0 : $item->comments_count; ?></span>条评论</a>
 								<p><?php echo $item->content; ?>
-									<!-- <a href="/message/view/<?php echo $item->message_id; ?>" class="view_link"><i class="icon-eye-open"></i> 查看</a> -->
 								</p>
-								<span>@<?php echo $item->street; ?></span>							
+								<a href="/messages/inregion/<?php echo $item->region_name; ?>">
+									<i class="icon-map-marker"></i><?php echo $item->region_name . " " . $item->street; ?></a>						
 								<div class="user">
 									<a href="/users/<?php echo $item->user_id; ?>" title="查看<?php echo $item->user_name; ?>的信息" >
 									</a>
