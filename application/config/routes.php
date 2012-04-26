@@ -60,6 +60,7 @@ $route['login'] = "account/login";
 $route['logout'] = "account/logout";
 
 $route['users'] = "user/index";
+$route['user/register'] = "user/register";
 $route['user/messages'] = 'user/get_messages';
 $route['user/messages/(:num)'] = "user/get_messages/$1";
 $route['user/comments'] = 'user/get_comments';

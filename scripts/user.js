@@ -46,5 +46,5 @@ $(function(){
   });
 
   var myCommentView = new user.MyCommentView;
-  console.log('cool');
+
 });

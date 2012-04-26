@@ -63,7 +63,7 @@
 		</div>
 		<div class="form-actions">
 			<button type='submit' name='submit' class="btn btn-primary" value='submit'>登 陆</button>
-			<a href="/user/register" class="btn" title="注册为新拥护">注册新用户</a>
+			<a href="/account/register" class="btn" title="注册为新拥护">注册新用户</a>
 		</div>
 	</fieldset>
 	

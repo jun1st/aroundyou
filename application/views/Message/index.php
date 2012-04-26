@@ -24,8 +24,9 @@
 								<a href="/messages/inregion/<?php echo $item->region_name; ?>"><i class="icon-map-marker"></i><?php echo $item->region_name; ?></a>
 							</div>
 							<div class="message">
+								<a href="/message/view/<?php echo $item->message_id; ?>" style="float:right"><span><?php echo is_null($item->comments_count) ? 0 : $item->comments_count; ?></span>条评论</a>
 								<p><?php echo $item->content; ?>
-									<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link"><i class="icon-eye-open"></i> 查看</a>
+									<!-- <a href="/message/view/<?php echo $item->message_id; ?>" class="view_link"><i class="icon-eye-open"></i> 查看</a> -->
 								</p>
 								<span>@<?php echo $item->street; ?></span>							
 								<div class="user">
