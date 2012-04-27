@@ -8,13 +8,11 @@
 	</p>
 </footer>
 </div>
+<script type="text/javascript" charset="utf-8" src="/scripts/yepnope.1.5.4-min.js" ></script>
+<script type="text/javascript" charset="utf-8" src="/scripts/jquery-1.7.1.min.js"></script>
 <script type="text/javascript">
 	yepnope(
 		{
-			load: ["/scripts/jquery-1.7.1.min.js"],
-			callback: function(url, result, key)
-			{
-				yepnope('/scripts/bootstrap.js');
-			}
+			load: ["/scripts/bootstrap.js"]
 		});
 </script>

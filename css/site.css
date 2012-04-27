@@ -206,6 +206,16 @@ ul li .author
 	margin-bottom:8px;
 }
 
+ul li .comment 
+{
+	margin-left: 4px;
+}
+
+ul li .comment .author
+{
+	margin-bottom:0px;
+}
+
 /*new comment */
 
 h3.new-comment

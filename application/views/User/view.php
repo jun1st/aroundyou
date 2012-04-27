@@ -62,17 +62,20 @@
 	<div style="clear:both;">
 		<div id="useractivities" class="tabbable">
 			<ul class="nav nav-tabs ">
-				<li class='active'><a href='#mytopics' data-toggle="tab">发表的话题</a></li>
-				<li><a href='#mycomments' data-toggle="tab">发出的评论</a></li>
+				<li class='active'><a href='#mytopics' data-toggle="tab">我的的话题</a></li>
+				<li><a href='#my-comments' data-toggle="tab">我的的评论</a></li>
+				<li><a href="#my-regions" data-toggle="tab"></a></li>
 			</ul>
 			<div class="tab-content" id="my-contents">
 				<div class="tab-pane active" id="mytopics">
 					<ul id="messagesView" class="ui-striped">
 					</ul>
 				</div>
-				<div class="tab-pane" id="mycomments">
+				<div class="tab-pane" id="my-comments">
 					<ul id="commentsView" class="ui-striped">
 					</ul>
+				</div>
+				<div class="tab-pane" id="my-regions">
 				</div>
 			</div>
 		</div>
@@ -96,10 +99,12 @@
 		</div>
 	</script>
 	<script type="text/html" id="comment-template">
+		<div class="comment">
 			<p>{{ content }}</p>
 			<div class='author'>
 				<i class="icon-time"></i>{{posted_time}}
 			</div>
+		<div>
 	</script>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/footer.php';  ?>
 	<script type="text/javascript">

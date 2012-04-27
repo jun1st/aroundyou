@@ -22,6 +22,10 @@
 			<li><a href="#image" data-toggle="tab">头像设置</a></li>
 		</ul>
 		<div class="tab-content" style="width:600px;">
+            <div id="success-message" class="alert alert-success hide">
+                <a class="close" data-dismiss="alert" href="#">×</a>
+                <h4>updated successfully!</h4>
+            </div>
 			<div id="detail" class="tab-pane active">
 				<?php echo form_open('user/setting', array('class'=>'form-horizontal', 'id'=>'detail-form')); ?>
 				<input type="hidden" name="id" value="<?php echo $user->id; ?>" id="id">
@@ -119,5 +123,82 @@
 	</div>
 </div>
 	<?php include $_SERVER['DOCUMENT_ROOT'] . '/application/views/footer.php';  ?>
+	<script type="text/javascript">
+		yepnope({
+					load:["/scripts/ajaxfileupload.js", "/scripts/jquery.form.js"]
+				});
+	</script>
+	<script type="text/javascript" charset="utf-8">
+        function ajaxFileUpload()
+        { 
+        	$.ajaxFileUpload
+        	(
+        		{
+        			url:'/user/upload', 
+        			secureuri:false,
+        			fileElementId:'fileToUpload',
+        			dataType: 'json',
+        			success: function (data, status)
+        			{
+        				alert(data.error_message);
+        				$('#profileImage').attr('src', data.image_address);
+        				if(typeof(data.error) != 'undefined')
+        				{
+        					if(data.error != '')
+        					{
+        						alert(data.error);
+        					}
+        					else
+        					{
+        						alert(data.msg);
+        					}
+        				}
+        			},
+        			error: function (data, status, e)
+        			{
+        				alert(e);
+        			}
+        			
+        		}
+        	);
+        	return false;
+        }
+
+    	$(document).ready(function()
+    		{
+    			$('#upload').click(
+    				function()
+    				{
+    					ajaxFileUpload();
+    				}
+    			);
+                $('#detail-form').submit(function() { 
+                    // submit the form 
+                    var options = {
+                        success: function(){
+                            $('#success-message').show();
+                        }
+                    };
+                    $(this).ajaxSubmit(options); 
+                    // return false to prevent normal browser submit and page navigation 
+                    return false; 
+                });
+            
+                $('#password-form').submit(function() { 
+                    // submit the form
+                    var options = {
+                        success: function(){
+                            $('#success-message').show();
+                        }
+                    };
+                    $(this).ajaxSubmit(options); 
+                    // return false to prevent normal browser submit and page navigation 
+                    return false; 
+                });
+
+    		});
+    	</script>
+</script>
+
 </body>
 </html>
