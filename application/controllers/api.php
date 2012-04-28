@@ -71,8 +71,37 @@ class Api extends CI_Controller{
                     $this->output->set_content_type('application/json');
                     $this->output->set_output(json_encode($user));
                 }
+                else
+                {
+                	$this->output->set_content_type('application/json');
+                	$this->output->set_output(json_encode(array('error_message' => "Invalid email or password")));	
+                }
             }
         }
+    }
+
+    function register()
+    {
+    	$this->load->library('form_validation');
+    	$this->form_validation->set_rules('name', 'Name', 'required|is_unique[users.name]');
+		$this->form_validation->set_rules('password', 'Password', 'required|is_unique[users.email]');
+		$this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]');
+		
+		if($this->form_validation->run() == true)
+		{
+			$model = new User_model;
+			$model->name = $this->input->post('name');
+			$model->email = $this->input->post('email');
+			$model->password = SHA1($this->input->post('password'));
+			$model->register_time = date('Y-m-d H:i:s');
+
+			$this->db->insert('users', $model);
+		}
+		else
+		{
+			$data['validation_fails'] = TRUE;
+			return;
+		}	
     }
 
 	public function message($id)

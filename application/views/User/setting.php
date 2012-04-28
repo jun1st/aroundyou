@@ -24,7 +24,11 @@
 		<div class="tab-content" style="width:600px;">
             <div id="success-message" class="alert alert-success hide">
                 <a class="close" data-dismiss="alert" href="#">×</a>
-                <h4>updated successfully!</h4>
+                <h4>更新成功！</h4>
+            </div>
+            <div id="fail-message" class="alert alert-success hide">
+                <a class="close" data-dismiss="alert" href="#">×</a>
+                <h4>更新失败，请稍后再试！</h4>
             </div>
 			<div id="detail" class="tab-pane active">
 				<?php echo form_open('user/setting', array('class'=>'form-horizontal', 'id'=>'detail-form')); ?>
@@ -111,9 +115,9 @@
 			</div>
 			<div id="image" class="tab-pane">
 				<?php if(empty($user->profile_image_path)): ?>
-					<img title="profile image" style="border:4px #ccc solid;" src="/img/default.jpeg"/>
+					<img id="profileImage" title="profile image" style="border:4px #ccc solid;" src="/img/default.jpeg"/>
 				<?php else: ?>
-					<img title="profile image" style="border:4px #ccc solid;" src="<?php echo $user->profile_image_path; ?>"/>
+					<img id="profileImage" title="profile image" style="border:4px #ccc solid;" src="<?php echo $user->profile_image_path; ?>"/>
 				<?php endif; ?>
 				<br/>
 				<input type="file" name="fileToUpload"  id="fileToUpload" />
@@ -140,8 +144,9 @@
         			dataType: 'json',
         			success: function (data, status)
         			{
-        				alert(data.error_message);
-        				$('#profileImage').attr('src', data.image_address);
+        				$('#success-message').show();
+        				console.log(data.image_address);
+        				$('#profileImage').attr('src', data.image_address + "?" + new Date().getTime());
         				if(typeof(data.error) != 'undefined')
         				{
         					if(data.error != '')

@@ -128,6 +128,7 @@
 			$config['upload_path'] = $filePath;
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 			$config['max_size']	= '4096';
+			$config['remove_spaces'] = true;
 			
 
 			$this->load->library('upload', $config);
@@ -135,7 +136,7 @@
 			if ( ! $this->upload->do_upload('fileToUpload'))
 			{
 				
-				$info = array('error_message'=>$this->upload->display_errors());
+				$info = array('error_message'=>$this->upload->display_errors(), 'file_path'=>$filePath);
 				$this->output->set_content_type('application/json');
 				$this->output->set_output(json_encode($info));
 			}
@@ -143,7 +144,7 @@
 			{
 				
 				$data = $this->upload->data();
-				$source_file = $filePath . $data['client_name'];
+				$source_file = $data['full_path'];
 				
 				$this->load->library('image_lib');
 				$config['image_library'] = 'gd2';

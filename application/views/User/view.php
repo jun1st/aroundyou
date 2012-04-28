@@ -62,12 +62,12 @@
 	<div style="clear:both;">
 		<div id="useractivities" class="tabbable">
 			<ul class="nav nav-tabs ">
-				<li class='active'><a href='#mytopics' data-toggle="tab">我的的话题</a></li>
+				<li class='active'><a href='#my-topics' data-toggle="tab">我的的话题</a></li>
 				<li><a href='#my-comments' data-toggle="tab">我的的评论</a></li>
 				<li><a href="#my-regions" data-toggle="tab"></a></li>
 			</ul>
 			<div class="tab-content" id="my-contents">
-				<div class="tab-pane active" id="mytopics">
+				<div class="tab-pane active" id="my-topics">
 					<ul id="messagesView" class="ui-striped">
 					</ul>
 				</div>
@@ -86,7 +86,7 @@
 			<div class="message">
 				<div style="float:right">
 					<span>{{ comments_count }} <br/>
-					<span class="time"><i class="icon-time"></i>{{ posted_time }}</span>
+					<i class="icon-time"></i><span class="time" title="{{posted_time}}">{{posted_time}}</span>
 				</div>
 				<p>{{content}}
 					<a href="/message/view/{{ message_id }}" class="view_link">查看</a>
@@ -110,11 +110,19 @@
 	<script type="text/javascript">
 		yepnope({
 			load:["/scripts/underscore-1.3.1.js", "/scripts/backbone.js", "/scripts/jquery.ba-dotimeout.js", 
-			"/scripts/backbone.infinitscroll.js", "/scripts/jquery.mustache.js", "/scripts/message.js", "/scripts/comment.js"]
+			"/scripts/backbone.infinitscroll.js", "/scripts/jquery.mustache.js", "/scripts/message.js", "/scripts/comment.js"],
+			complete: function()
+			{
+				yepnope("/scripts/user.js");
+			}
 		});
-		yepnope({
-					load:["/scripts/user.js"]
-				});
+		// yepnope({
+		// 			load:["/scripts/user.js", "/scripts/jquery.prettydate.js"],
+		// 			complete: function()
+		// 			{
+		// 				console.log($('span.time').length);
+		// 			}
+		// 		});
 	</script>
 </body>
 </html>

@@ -56,18 +56,10 @@
 	"buffers":
 	[
 		{
-			"file": "application/libraries/My_Session.php",
-			"settings":
-			{
-				"buffer_size": 298,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "application/views/header.php",
 			"settings":
 			{
-				"buffer_size": 1436,
+				"buffer_size": 226,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,7 +67,7 @@
 			"file": "application/views/User/view.php",
 			"settings":
 			{
-				"buffer_size": 3437,
+				"buffer_size": 3692,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,31 +75,7 @@
 			"file": "scripts/comment.js",
 			"settings":
 			{
-				"buffer_size": 828,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/user.js",
-			"settings":
-			{
-				"buffer_size": 1264,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/message.js",
-			"settings":
-			{
-				"buffer_size": 1437,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/views/footer.php",
-			"settings":
-			{
-				"buffer_size": 371,
+				"buffer_size": 826,
 				"line_ending": "Unix"
 			}
 		},
@@ -115,7 +83,7 @@
 			"file": "application/views/User/setting.php",
 			"settings":
 			{
-				"buffer_size": 4918,
+				"buffer_size": 7564,
 				"line_ending": "Unix"
 			}
 		},
@@ -126,20 +94,144 @@
 				"buffer_size": 1445,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "application/views/Message/index.php",
+			"settings":
+			{
+				"buffer_size": 1864,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/topbar.php",
+			"settings":
+			{
+				"buffer_size": 1298,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/message.php",
+			"settings":
+			{
+				"buffer_size": 6507,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/Message/view.php",
+			"settings":
+			{
+				"buffer_size": 4376,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/Message/message_view_sidebar.php",
+			"settings":
+			{
+				"buffer_size": 446,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/message_model.php",
+			"settings":
+			{
+				"buffer_size": 7715,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/region.php",
+			"settings":
+			{
+				"buffer_size": 306,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/welcome.php",
+			"settings":
+			{
+				"buffer_size": 770,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/user.php",
+			"settings":
+			{
+				"buffer_size": 6293,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Jun1st/Downloads/jquery-validation-1.9.0/demo/custom-messages-metadata-demo.html",
+			"settings":
+			{
+				"buffer_size": 2977,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 267.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"re",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"red",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rebui",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"ind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"id",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"in",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"git:c",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"Package Control: ",
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 593.0
 	},
 	"console":
 	{
@@ -156,6 +248,21 @@
 	},
 	"file_history":
 	[
+		"/Users/Jun1st/Sites/aroundyou/scripts/jquery.validate.min.js",
+		"/Users/Jun1st/Sites/aroundyou/application/controllers/api.php",
+		"/Users/Jun1st/Sites/aroundyou/css/site.css",
+		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/Alignment/Default (OSX).sublime-keymap",
+		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/Jun1st/Sites/aroundyou/application/models/message_model.php",
+		"/Users/Jun1st/Sites/aroundyou/css/bootstrap.css",
+		"/Users/Jun1st/Sites/aroundyou/application/views/sidebar.php",
+		"/Users/Jun1st/Sites/aroundyou/application/controllers/message.php",
+		"/Users/Jun1st/Sites/aroundyou/application/libraries/My_Session.php",
+		"/Users/Jun1st/Sites/aroundyou/application/models/region_model.php",
+		"/Users/Jun1st/Sites/aroundyou/application/views/topbar.php",
+		"/Users/Jun1st/Sites/aroundyou/application/views/footer.php",
+		"/Users/Jun1st/Sites/aroundyou/scripts/message.js",
+		"/Users/Jun1st/Sites/aroundyou/scripts/user.js",
 		"/Users/Jun1st/Sites/aroundyou/application/controllers/user.php",
 		"/Users/Jun1st/Sites/aroundyou/scripts/jquery.mustache.js",
 		"/Users/Jun1st/Sites/aroundyou/system/core/Input.php",
@@ -165,15 +272,12 @@
 		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/Jun1st/Sites/mustache.js/jquery.mustache.js",
 		"/Users/Jun1st/Sites/aroundyou/application/config/constants.php",
-		"/Users/Jun1st/Sites/aroundyou/application/models/message_model.php",
-		"/Users/Jun1st/Sites/aroundyou/scripts/message.js",
 		"/Users/Jun1st/Sites/aroundyou/application/config/routes.php",
 		"/Users/Jun1st/Sites/aroundyou/application/views/header.php",
 		"/Users/Jun1st/Sites/aroundyou/application/views/User/view.php",
 		"/Users/Jun1st/Sites/mustache.js/wrappers/jquery/mustache.js.pre",
 		"/Users/Jun1st/Sites/mustache.js/wrappers/jquery/mustache.js.post",
 		"/Users/Jun1st/Sites/aroundyou/scripts/infiniScroll.js",
-		"/Users/Jun1st/Sites/aroundyou/application/controllers/api.php",
 		"/Users/Jun1st/Sites/aroundyou/system/libraries/Session.php",
 		"/Users/Jun1st/Sites/aroundyou/application/core/My_Controller.php",
 		"/Users/Jun1st/Sites/aroundyou/application/libraries/My_Input.php",
@@ -190,7 +294,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 		]
@@ -200,6 +304,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"messages",
 			"AllowOverride",
 			"vhosts"
 		],
@@ -219,22 +324,23 @@
 	"groups":
 	[
 		{
+			"selected": 14,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "application/libraries/My_Session.php",
+					"file": "application/views/header.php",
 					"settings":
 					{
-						"buffer_size": 298,
+						"buffer_size": 226,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								292,
-								292
+								0,
+								0
 							]
 						],
 						"settings":
@@ -250,18 +356,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "application/views/header.php",
+					"file": "application/views/User/view.php",
 					"settings":
 					{
-						"buffer_size": 1436,
+						"buffer_size": 3692,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								867,
-								867
+								3388,
+								3388
 							]
 						],
 						"settings":
@@ -277,171 +383,61 @@
 				},
 				{
 					"buffer": 2,
-					"file": "application/views/User/view.php",
+					"file": "scripts/comment.js",
 					"settings":
 					{
-						"buffer_size": 3437,
+						"buffer_size": 826,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3088,
-								3009
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1513.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "scripts/comment.js",
+					"file": "application/views/User/setting.php",
 					"settings":
 					{
-						"buffer_size": 828,
+						"buffer_size": 7564,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								483,
-								483
+								6401,
+								7521
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3177.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "scripts/user.js",
-					"settings":
-					{
-						"buffer_size": 1264,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12,
-								12
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 316.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "scripts/message.js",
-					"settings":
-					{
-						"buffer_size": 1437,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1026,
-								1026
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 113.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "application/views/footer.php",
-					"settings":
-					{
-						"buffer_size": 371,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								370,
-								370
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "application/views/User/setting.php",
-					"settings":
-					{
-						"buffer_size": 4918,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								616,
-								616
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 50.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
 					"file": "scripts/setting.js",
 					"settings":
 					{
@@ -461,7 +457,274 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 468.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "application/views/Message/index.php",
+					"settings":
+					{
+						"buffer_size": 1864,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								821,
+								821
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "application/views/topbar.php",
+					"settings":
+					{
+						"buffer_size": 1298,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "application/controllers/message.php",
+					"settings":
+					{
+						"buffer_size": 6507,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6296,
+								6296
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3313.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "application/views/Message/view.php",
+					"settings":
+					{
+						"buffer_size": 4376,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4186,
+								4186
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 467.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "application/views/Message/message_view_sidebar.php",
+					"settings":
+					{
+						"buffer_size": 446,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								250,
+								250
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "application/models/message_model.php",
+					"settings":
+					{
+						"buffer_size": 7715,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1332,
+								1332
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 505.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "application/controllers/region.php",
+					"settings":
+					{
+						"buffer_size": 306,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								99,
+								99
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "application/controllers/welcome.php",
+					"settings":
+					{
+						"buffer_size": 770,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "application/controllers/user.php",
+					"settings":
+					{
+						"buffer_size": 6293,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3987,
+								3987
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3365.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/Users/Jun1st/Downloads/jquery-validation-1.9.0/demo/custom-messages-metadata-demo.html",
+					"settings":
+					{
+						"buffer_size": 2977,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -500,6 +763,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.git":
+	{
+		"height": 124.0
+	},
 	"replace":
 	{
 		"height": 0.0
@@ -510,6 +777,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"mess",
+				"application/controllers/message.php"
+			],
+			[
+				"bootstr",
+				"css/bootstrap.css"
+			],
 			[
 				"me",
 				"scripts/message.js"

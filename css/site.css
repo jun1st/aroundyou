@@ -233,20 +233,20 @@ h3.new-comment
 	margin-bottom:8px;
 }
 
-#mytopics ul, #mycomments ul
+#my-topics ul, #my-comments ul
 {
 	list-style:disc;
 	margin-left:2px;
 }
 
-#mytopics li, #mycomments li
+#my-topics li, #my-comments li
 {
 	padding: 6px 0px;
 	border-bottom:1px solid #cccccc;
 	list-style:none;
 }
 
-#mycomments li p
+#my-comments li p
 {
 	color:black;
 }

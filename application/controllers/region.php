@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Region extends My_Controller
+class Region extends CI_Controller
 {
     public function hot()
     {

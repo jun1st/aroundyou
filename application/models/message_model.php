@@ -50,7 +50,7 @@
 			$comment = new Comment_model;
 			$comment->message_id = $message_id;
 			$comment->user_id = $user_id;
-			$comment->content = $this->db->escape($content);
+			$comment->content = $content;
 			$comment->posted_time = $posted_time;
 				
 			$this->db->insert('comments', $comment);
