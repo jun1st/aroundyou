@@ -14,14 +14,23 @@
 	<div class="container main">
 	    <div class="span8 pull-left">
             <div>
-                <i class="icon-list"></i> 最新动态
+                <i class="icon-list"></i> 本月热点区域
             </div>
 			<ul id="messages">
-	      		<?php foreach ($regions as $item): ?>
+	      		<?php foreach ($structured_regions as $key=>$name): ?>
 					<li>
 						<div class="entry">
 							<div>
-								<p><a href="/messages/inregion/<?php echo $item->name; ?>"><i class="icon-map-marker"></i><?php echo $item->name; ?></a></p>
+								<p>
+									<?php echo "<i class='icon-map-marker'></i><a href='/messages/inregion/" . $name . "'>". $name ."</a>"; ?>
+								</p>
+								<p>
+									<?php foreach ($hot_regions as $region) {
+										if ($region->id == $key) {
+											echo $region->street . " ";
+										}
+									} ?>
+								</p>
 							</div>
 						</div>
 					</li>

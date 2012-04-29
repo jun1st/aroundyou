@@ -11,14 +11,15 @@
 		var $longitude;
 		var $posted_time;
 		var $comments_count;
-		var $street;
+		var $street_id;
+		var $region_id;
 		
 		function __construct()
 		{
 			parent::__construct();
 		}
 		
-		function add_message($topic, $content, $user_id, $region_id, $latitude, $longitude, $street)
+		function add_message($topic, $content, $user_id, $region_id, $latitude, $longitude, $street_id, $region_id)
 		{
 			$message = new Message_model;
 			$message->topic = $topic;
@@ -27,19 +28,20 @@
 			$message->user_id = $user_id;
 			$message->latitude = $latitude;
 			$message->longitude = $longitude;
-			$message->street = $street;
+			$message->street_id = $street_id;
+			$message->region_id = $region_id;
 
 			$this->db->insert('messages', $message);
 			
-			$message_id = $this->db->insert_id();
+			// $message_id = $this->db->insert_id();
 			
-			$message_region = array(
-					'message_id' => $message_id,
-					'region_id' => $region_id,
-					'added_time' => date('Y-m-d H:i:s')
-			);
+			// $message_region = array(
+			// 		'message_id' => $message_id,
+			// 		'region_id' => $region_id,
+			// 		'added_time' => date('Y-m-d H:i:s')
+			// );
 			
-			$this->db->insert('message_region', $message_region);
+			// $this->db->insert('message_region', $message_region);
 			
 			return $message_id;
 		}
@@ -78,13 +80,13 @@
 		{	
 			$total_count = $this->db->count_all('messages');
 			
-			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, messages.street,
+			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time,
 				messages.comments_count, users.id as user_id, users.name as user_name, 
-				users.description as user_description, profile_tiny_image_path, regions.name as region_name");
+				users.description as user_description, profile_tiny_image_path, streets.name_cn as street, regions.name as region_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
-			$this->db->join('message_region', 'messages.id = message_region.message_id', 'left');
-			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
+			$this->db->join('streets', 'messages.street_id = streets.id');
+			$this->db->join('regions', 'messages.region_id = regions.id', 'left');
 			if (isset($last_message_id) && !empty($last_message_id)) {
 				$this->db->where("messages.id > ", $last_message_id);
 			}
@@ -104,13 +106,13 @@
         {
 			$count = $this->db->count_all('messages');
 			
-			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, messages.street,
+			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time,
 				messages.comments_count, users.id as user_id, users.name as user_name, users.description as user_description, 
-				profile_tiny_image_path, regions.name as region_name");
+				profile_tiny_image_path, streets.name_cn as street, regions.name as region_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
-			$this->db->join('message_region', 'messages.id = message_region.message_id', 'left');
-			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
+			$this->db->join("streets", "messages.street_id = streets.id");
+			$this->db->join('regions', 'messages.region_id = regions.id', 'left');
             if (!isset($which_page)) {
                 $which_page = 0;
             }
@@ -126,17 +128,15 @@
 		function get_messages_by_region($region_id, $page_size=NULL, $which_page=NULL, &$count)
 		{
 			$this->db->from("messages");
-			$this->db->join('message_region', 'messages.id = message_region.message_id');
-			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
-			$this->db->where('message_region.region_id', $region_id);
+			$this->db->where('messages.region_id', $region_id);
 			$count = $this->db->count_all_results();
 			
-			$this->db->select("messages.id as message_id, messages.content as content, street, messages.posted_time, messages.comments_count, users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, regions.name as region_name");
+			$this->db->select("messages.id as message_id, messages.content as content, 
+				messages.posted_time, messages.comments_count, users.id as user_id, users.name as user_name, 
+				users.description as user_description, profile_tiny_image_path");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
-			$this->db->join('message_region', 'messages.id = message_region.message_id');
-			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
-			$this->db->where('message_region.region_id', $region_id);
+			$this->db->where('messages.region_id', $region_id);
 			
             if (!isset($which_page)) {
                 $which_page = 0;
@@ -153,13 +153,12 @@
 		
 		function get_messages_by_user($id, $page)
 		{
-			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, , messages.street, 
+			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time, 
 				users.id as user_id, users.name as user_name, users.description as user_description, profile_tiny_image_path, 
 				regions.name as region_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
-			$this->db->join('message_region', 'messages.id = message_region.message_id');
-			$this->db->join('regions', 'message_region.region_id = regions.id', 'left');
+			$this->db->join('regions', 'messages.region_id = regions.id', 'left');
 			$this->db->where('users.id', $id);
 			
 			if (!isset($page)) {
@@ -181,11 +180,13 @@
         
         function get_message_detail($id)
         {
-            $this->db->select("messages.id as message_id, topic, content, posted_time, street, users.id as user_id, users.name as user_name,users.description as user_description, users.profile_tiny_image_path as user_profile_image, regions.name as region_name");
+            $this->db->select("messages.id as message_id, topic, content, posted_time, users.id as user_id, users.name as user_name,
+            	users.description as user_description, users.profile_tiny_image_path as user_profile_image, regions.name as region_name,
+            	streets.name_cn as street");
             $this->db->from("messages");
             $this->db->join("users", 'messages.user_id = users.id');
-            $this->db->join('message_region', 'messages.id = message_region.message_id', 'left');
-            $this->db->join('regions', 'message_region.region_id = regions.id', 'left');
+            $this->db->join('regions', 'messages.region_id = regions.id', 'left');
+            $this->db->join("streets", "messages.street_id = streets.id", "left");
             $this->db->where('messages.id', $id);
             
             return $this->db->get()->row();

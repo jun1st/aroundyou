@@ -67,7 +67,7 @@
 			"file": "application/views/User/view.php",
 			"settings":
 			{
-				"buffer_size": 3692,
+				"buffer_size": 3921,
 				"line_ending": "Unix"
 			}
 		},
@@ -99,7 +99,7 @@
 			"file": "application/views/Message/index.php",
 			"settings":
 			{
-				"buffer_size": 1864,
+				"buffer_size": 1979,
 				"line_ending": "Unix"
 			}
 		},
@@ -112,10 +112,18 @@
 			}
 		},
 		{
-			"file": "application/controllers/message.php",
+			"file": "scripts/message.js",
 			"settings":
 			{
-				"buffer_size": 6507,
+				"buffer_size": 1455,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/site.css",
+			"settings":
+			{
+				"buffer_size": 2988,
 				"line_ending": "Unix"
 			}
 		},
@@ -123,55 +131,15 @@
 			"file": "application/views/Message/view.php",
 			"settings":
 			{
-				"buffer_size": 4376,
+				"buffer_size": 4727,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "application/views/Message/message_view_sidebar.php",
+			"file": "application/models/comment_model.php",
 			"settings":
 			{
-				"buffer_size": 446,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/models/message_model.php",
-			"settings":
-			{
-				"buffer_size": 7715,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/controllers/region.php",
-			"settings":
-			{
-				"buffer_size": 306,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/controllers/welcome.php",
-			"settings":
-			{
-				"buffer_size": 770,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/controllers/user.php",
-			"settings":
-			{
-				"buffer_size": 6293,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/Jun1st/Downloads/jquery-validation-1.9.0/demo/custom-messages-metadata-demo.html",
-			"settings":
-			{
-				"buffer_size": 2977,
+				"buffer_size": 1329,
 				"line_ending": "Unix"
 			}
 		}
@@ -248,28 +216,33 @@
 	},
 	"file_history":
 	[
+		"/Users/Jun1st/Sites/aroundyou/application/controllers/message.php",
+		"/Users/Jun1st/Sites/aroundyou/application/views/Message/view.php",
+		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Jun1st/Sites/aroundyou/application/views/Message/message_view_sidebar.php",
+		"/Users/Jun1st/Sites/aroundyou/application/models/message_model.php",
+		"/Users/Jun1st/Sites/aroundyou/application/controllers/region.php",
+		"/Users/Jun1st/Sites/aroundyou/application/controllers/welcome.php",
+		"/Users/Jun1st/Sites/aroundyou/application/controllers/user.php",
+		"/Users/Jun1st/Downloads/jquery-validation-1.9.0/demo/custom-messages-metadata-demo.html",
 		"/Users/Jun1st/Sites/aroundyou/scripts/jquery.validate.min.js",
 		"/Users/Jun1st/Sites/aroundyou/application/controllers/api.php",
 		"/Users/Jun1st/Sites/aroundyou/css/site.css",
 		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/Alignment/Default (OSX).sublime-keymap",
 		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/Jun1st/Sites/aroundyou/application/models/message_model.php",
 		"/Users/Jun1st/Sites/aroundyou/css/bootstrap.css",
 		"/Users/Jun1st/Sites/aroundyou/application/views/sidebar.php",
-		"/Users/Jun1st/Sites/aroundyou/application/controllers/message.php",
 		"/Users/Jun1st/Sites/aroundyou/application/libraries/My_Session.php",
 		"/Users/Jun1st/Sites/aroundyou/application/models/region_model.php",
 		"/Users/Jun1st/Sites/aroundyou/application/views/topbar.php",
 		"/Users/Jun1st/Sites/aroundyou/application/views/footer.php",
 		"/Users/Jun1st/Sites/aroundyou/scripts/message.js",
 		"/Users/Jun1st/Sites/aroundyou/scripts/user.js",
-		"/Users/Jun1st/Sites/aroundyou/application/controllers/user.php",
 		"/Users/Jun1st/Sites/aroundyou/scripts/jquery.mustache.js",
 		"/Users/Jun1st/Sites/aroundyou/system/core/Input.php",
 		"/Users/Jun1st/Sites/aroundyou/scripts/comment.js",
 		"/Users/Jun1st/Sites/aroundyou/application/models/comment_model.php",
 		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/Jun1st/Sites/mustache.js/jquery.mustache.js",
 		"/Users/Jun1st/Sites/aroundyou/application/config/constants.php",
 		"/Users/Jun1st/Sites/aroundyou/application/config/routes.php",
@@ -294,7 +267,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 		]
@@ -304,6 +277,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"hover",
 			"messages",
 			"AllowOverride",
 			"vhosts"
@@ -324,7 +298,6 @@
 	"groups":
 	[
 		{
-			"selected": 14,
 			"sheets":
 			[
 				{
@@ -359,15 +332,15 @@
 					"file": "application/views/User/view.php",
 					"settings":
 					{
-						"buffer_size": 3692,
+						"buffer_size": 3921,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3388,
-								3388
+								2016,
+								2016
 							]
 						],
 						"settings":
@@ -376,7 +349,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 477.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -421,8 +394,8 @@
 						"selection":
 						[
 							[
-								6401,
-								7521
+								905,
+								1083
 							]
 						],
 						"settings":
@@ -431,7 +404,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3177.0,
+						"translation.y": 130.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -467,15 +440,15 @@
 					"file": "application/views/Message/index.php",
 					"settings":
 					{
-						"buffer_size": 1864,
+						"buffer_size": 1979,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								821,
-								821
+								904,
+								904
 							]
 						],
 						"settings":
@@ -483,8 +456,8 @@
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": 151.0,
+						"translation.y": 56.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -511,84 +484,32 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 140.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "application/controllers/message.php",
+					"file": "scripts/message.js",
 					"settings":
 					{
-						"buffer_size": 6507,
+						"buffer_size": 1455,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6296,
-								6296
+								1417,
+								1417
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 3313.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "application/views/Message/view.php",
-					"settings":
-					{
-						"buffer_size": 4376,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4186,
-								4186
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 467.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "application/views/Message/message_view_sidebar.php",
-					"settings":
-					{
-						"buffer_size": 446,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								250,
-								250
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -597,37 +518,38 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "application/models/message_model.php",
+					"buffer": 8,
+					"file": "css/site.css",
 					"settings":
 					{
-						"buffer_size": 7715,
+						"buffer_size": 2988,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1332,
-								1332
+								1772,
+								1781
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 505.0,
+						"translation.y": 2339.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "application/controllers/region.php",
+					"buffer": 9,
+					"file": "application/views/Message/view.php",
 					"settings":
 					{
-						"buffer_size": 306,
+						"buffer_size": 4727,
 						"regions":
 						{
 						},
@@ -640,7 +562,9 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -649,78 +573,24 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "application/controllers/welcome.php",
+					"buffer": 10,
+					"file": "application/models/comment_model.php",
 					"settings":
 					{
-						"buffer_size": 770,
+						"buffer_size": 1329,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								568,
+								568
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "application/controllers/user.php",
-					"settings":
-					{
-						"buffer_size": 6293,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3987,
-								3987
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3365.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "/Users/Jun1st/Downloads/jquery-validation-1.9.0/demo/custom-messages-metadata-demo.html",
-					"settings":
-					{
-						"buffer_size": 2977,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -763,10 +633,6 @@
 		]
 	},
 	"menu_visible": true,
-	"output.git":
-	{
-		"height": 124.0
-	},
 	"replace":
 	{
 		"height": 0.0
@@ -777,6 +643,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"",
+				"css/site.css"
+			],
 			[
 				"mess",
 				"application/controllers/message.php"
@@ -795,10 +665,6 @@
 			],
 			[
 				"user",
-				"application/controllers/user.php"
-			],
-			[
-				"",
 				"application/controllers/user.php"
 			]
 		],

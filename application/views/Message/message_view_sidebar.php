@@ -6,7 +6,7 @@
             	if ($item->message_id == $message->message_id) {
             		continue;
             	}
-                echo "<li><i class='icon-map-marker'></i><a href='/message/view/$item->message_id' title='查看详情'>$item->content</a></li>";
+                echo "<li><i class='icon-map-marker' style='left:-4px;position:relative'></i><a href='/message/view/$item->message_id' title='查看详情'>$item->content</a></li>";
             }
          }?>
 

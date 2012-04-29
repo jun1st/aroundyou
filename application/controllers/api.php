@@ -35,7 +35,7 @@ class Api extends CI_Controller{
                 $new_region_id = $region->id;
             }
 
-			$message_id = $this->Message_model->add_message($topic, $content, $user_id, $new_region_id, $latitude, $longitude, $street);
+			$message_id = $this->Message_model->add_message($topic, $content, $user_id, $new_region_id, $latitude, $longitude);
 
 			$message_url = "http://iaroundyou.com/messages/" . $message_id;
 

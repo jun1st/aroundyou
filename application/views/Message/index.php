@@ -25,8 +25,11 @@
 								<p><?php echo $item->content; ?>
 									<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link"><i class="icon-share"></i></a>
 								</p>
-								<a href="/messages/inregion/<?php echo $item->region_name; ?>">
-									<i class="icon-map-marker"></i><?php echo $item->region_name . " " . $item->street; ?></a>						
+								<?php if (isset($item->region_name)): ?>
+									<a href="/messages/inregion/<?php echo $item->region_name; ?>">
+									<i class="icon-map-marker"></i><?php echo $item->region_name . " " . $item->street; ?></a>
+								<?php endif ?>
+														
 								<div class="user">
 									<a href="/users/<?php echo $item->user_id; ?>" title="查看<?php echo $item->user_name; ?>的信息" >
 									</a>
