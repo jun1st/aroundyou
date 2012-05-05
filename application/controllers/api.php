@@ -100,7 +100,19 @@ class Api extends CI_Controller{
 		else
 		{
 			$this->output->set_status_header('400');
-			$this->output->set_output(json_encode($this->form_validation->error_array()));
+			//$errors = "";
+			$error_array = $this->form_validation->error_array();
+
+			if (!array_key_exists("name", $error_array)) {
+				$error_array["name"] = "";
+			}
+			if (!array_key_exists("email", $error_array)) {
+				$error_array["email"] = "";
+			}
+			if (!array_key_exists("password", $error_array)) {
+				$error_array["password"] = "";
+			}
+			$this->output->set_output(json_encode($error_array));
 		}	
 
     }
