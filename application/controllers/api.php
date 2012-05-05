@@ -84,9 +84,9 @@ class Api extends CI_Controller{
     {
     	$this->load->library('form_validation');
     	$this->form_validation->set_rules('name', 'Name', 'required|is_unique[users.name]');
-		$this->form_validation->set_rules('password', 'Password', 'required|is_unique[users.email]');
-		$this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]');
-		
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
+
 		if($this->form_validation->run() == true)
 		{
 			$model = new User_model;
@@ -99,9 +99,10 @@ class Api extends CI_Controller{
 		}
 		else
 		{
-			$data['validation_fails'] = TRUE;
-			return;
+			$this->output->set_status_header('400');
+			$this->output->set_output(json_encode($this->form_validation->error_array()));
 		}	
+
     }
 
 	public function message($id)

@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"hot",
+				"hot_region"
+			],
+			[
+				"ho",
+				"hot_region"
+			],
+			[
+				"array_key",
+				"array_key_exists"
+			],
+			[
+				"str",
+				"structured_regions"
+			],
+			[
+				"st",
+				"structured_regions"
+			],
+			[
+				"s",
+				"structured_regions"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
 				"array_k",
 				"array_key_exists"
 			],
@@ -99,7 +127,7 @@
 			"file": "application/views/Message/index.php",
 			"settings":
 			{
-				"buffer_size": 1979,
+				"buffer_size": 2061,
 				"line_ending": "Unix"
 			}
 		},
@@ -140,6 +168,54 @@
 			"settings":
 			{
 				"buffer_size": 1329,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/region_model.php",
+			"settings":
+			{
+				"buffer_size": 2156,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/Region/hot.php",
+			"settings":
+			{
+				"buffer_size": 1112,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/message_model.php",
+			"settings":
+			{
+				"buffer_size": 7335,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/street_model.php",
+			"settings":
+			{
+				"buffer_size": 234,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/Message/message_view_sidebar.php",
+			"settings":
+			{
+				"buffer_size": 482,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/region.php",
+			"settings":
+			{
+				"buffer_size": 636,
 				"line_ending": "Unix"
 			}
 		}
@@ -216,17 +292,17 @@
 	},
 	"file_history":
 	[
+		"/Users/Jun1st/Sites/aroundyou/application/controllers/api.php",
+		"/Users/Jun1st/Sites/aroundyou/application/controllers/region.php",
 		"/Users/Jun1st/Sites/aroundyou/application/controllers/message.php",
 		"/Users/Jun1st/Sites/aroundyou/application/views/Message/view.php",
 		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/Jun1st/Sites/aroundyou/application/views/Message/message_view_sidebar.php",
 		"/Users/Jun1st/Sites/aroundyou/application/models/message_model.php",
-		"/Users/Jun1st/Sites/aroundyou/application/controllers/region.php",
 		"/Users/Jun1st/Sites/aroundyou/application/controllers/welcome.php",
 		"/Users/Jun1st/Sites/aroundyou/application/controllers/user.php",
 		"/Users/Jun1st/Downloads/jquery-validation-1.9.0/demo/custom-messages-metadata-demo.html",
 		"/Users/Jun1st/Sites/aroundyou/scripts/jquery.validate.min.js",
-		"/Users/Jun1st/Sites/aroundyou/application/controllers/api.php",
 		"/Users/Jun1st/Sites/aroundyou/css/site.css",
 		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/Alignment/Default (OSX).sublime-keymap",
 		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
@@ -277,6 +353,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"street",
 			"hover",
 			"messages",
 			"AllowOverride",
@@ -404,7 +481,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 130.0,
+						"translation.y": 2509.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -440,15 +517,15 @@
 					"file": "application/views/Message/index.php",
 					"settings":
 					{
-						"buffer_size": 1979,
+						"buffer_size": 2061,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								904,
-								904
+								1170,
+								1170
 							]
 						],
 						"settings":
@@ -456,8 +533,8 @@
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 151.0,
-						"translation.y": 56.0,
+						"translation.x": 184.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -563,7 +640,7 @@
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -592,6 +669,177 @@
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "application/models/region_model.php",
+					"settings":
+					{
+						"buffer_size": 2156,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1710,
+								1710
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 596.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "application/views/Region/hot.php",
+					"settings":
+					{
+						"buffer_size": 1112,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								908,
+								908
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 180.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "application/models/message_model.php",
+					"settings":
+					{
+						"buffer_size": 7335,
+						"regions":
+						{
+							"bookmark_e":
+							{
+								"flags": 144,
+								"regions":
+								[
+									[
+										4869,
+										4869
+									]
+								]
+							}
+						},
+						"selection":
+						[
+							[
+								3216,
+								3216
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1117.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "application/models/street_model.php",
+					"settings":
+					{
+						"buffer_size": 234,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								228,
+								228
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "application/views/Message/message_view_sidebar.php",
+					"settings":
+					{
+						"buffer_size": 482,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								326,
+								326
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "application/controllers/region.php",
+					"settings":
+					{
+						"buffer_size": 636,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								524,
+								542
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -643,6 +891,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"region",
+				"application/controllers/region.php"
+			],
 			[
 				"",
 				"css/site.css"
