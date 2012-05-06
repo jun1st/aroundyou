@@ -28,7 +28,7 @@
 			parent::__construct();
 		}
 		
-		function authenticate_user($email, $password)
+		public function authenticate_user($email, $password)
 		{
 			$query = $this->db->get_where('users', array('email'=>$email, 'password'=>$password));
 			
@@ -36,7 +36,7 @@
 		}
 		
 		
-		function get_user($id)
+		public function get_user($id)
 		{
 			$query = $this->db->get_where('users', array('id'=>$id));
 			
