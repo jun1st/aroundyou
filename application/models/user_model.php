@@ -42,6 +42,19 @@
 			
 			return $query->row();
 		}
+
+		public function add_user($name, $email, $password)
+		{
+			$model = new User_model;
+			$model->name = $name;
+			$model->email = $email;
+			$model->password = SHA1($password);
+			$model->register_time = date('Y-m-d H:i:s');
+
+			$this->db->insert('users', $model);
+
+			return $this->db->insert_id();
+		}
 		
 		function get_user_by_email($email)
 		{

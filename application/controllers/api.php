@@ -89,13 +89,14 @@ class Api extends CI_Controller{
 
 		if($this->form_validation->run() == true)
 		{
-			$model = new User_model;
-			$model->name = $this->input->post('name');
-			$model->email = $this->input->post('email');
-			$model->password = SHA1($this->input->post('password'));
-			$model->register_time = date('Y-m-d H:i:s');
+			$name = $this->input->post('name');
+			$email = $this->input->post('email');
+			$password = SHA1($this->input->post('password'));
 
-			$this->db->insert('users', $model);
+			$new_user_id = $this->User_model->add_user($name, $email, $password);
+
+			$this->output->set_status_header('201');
+			$this->output->set_output(json_encode(array('user_id'=>$new_user_id)));
 		}
 		else
 		{
