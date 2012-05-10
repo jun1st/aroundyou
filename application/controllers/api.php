@@ -6,12 +6,11 @@ class Api extends CI_Controller{
 
 	public function messages()
 	{
-
-		$this->load->Model('Message_model');
-		$this->load->Model('Region_model');
-
 		if ($this->input->post()) {
-			$topic = $this->input->post('topic');
+			$this->load->Model('Message_model');
+			$this->load->Model('Region_model');
+			$this->load->Model('Street_model');
+			
 			$content = $this->input->post('content');
 			$user_id = $this->input->post('user_id');
 			$region_name = $this->input->post('region_name');
@@ -34,8 +33,17 @@ class Api extends CI_Controller{
             {
                 $new_region_id = $region->id;
             }
+            $street = $this->Street_model->get_street_by_name($street);
+            $new_street_id;
+            if ($street == null) 
+            {
+            	 $new_street_id = $this->Street_model->add_street($street, $street);
+            }else
+            {
+            	$new_street_id = $street->id;
+            }
 
-			$message_id = $this->Message_model->add_message($topic, $content, $user_id, $new_region_id, $latitude, $longitude);
+			$message_id = $this->Message_model->add_message($topic, $content, $user_id, $new_region_id, $latitude, $longitude, $new_street_id);
 
 			$message_url = "http://iaroundyou.com/messages/" . $message_id;
 
