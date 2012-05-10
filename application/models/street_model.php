@@ -11,6 +11,11 @@
 		var $name_cn;
 		var $added_time;
 
+		function __construct()
+		{
+			parent::__construct();
+		}
+
 		function add_street($name, $name_cn)
 		{
 			$street = new Street_model;
