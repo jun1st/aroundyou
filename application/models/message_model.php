@@ -19,10 +19,9 @@
 			parent::__construct();
 		}
 		
-		function add_message($topic, $content, $user_id, $region_id, $latitude, $longitude, $street_id)
+		function add_message($content, $user_id, $region_id, $latitude, $longitude, $street_id)
 		{
 			$message = new Message_model;
-			$message->topic = $topic;
 			$message->content = $content;
 			$message->posted_time = date('Y-m-d H:i:s');
 			$message->user_id = $user_id;
