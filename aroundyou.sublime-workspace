@@ -86,7 +86,15 @@
 			"file": "application/controllers/api.php",
 			"settings":
 			{
-				"buffer_size": 5756,
+				"buffer_size": 6082,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/street_model.php",
+			"settings":
+			{
+				"buffer_size": 740,
 				"line_ending": "Unix"
 			}
 		}
@@ -250,6 +258,7 @@
 	"groups":
 	[
 		{
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -682,7 +691,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1159.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -692,15 +701,15 @@
 					"file": "application/controllers/api.php",
 					"settings":
 					{
-						"buffer_size": 5756,
+						"buffer_size": 6082,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3509,
-								3509
+								1473,
+								1483
 							]
 						],
 						"settings":
@@ -790,7 +799,116 @@
 							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1601.0,
+						"translation.y": 83.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "application/models/street_model.php",
+					"settings":
+					{
+						"buffer_size": 740,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								421,
+								421
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": false,
+								"box-model": false,
+								"box-sizing": false,
+								"compatible-vendor-prefixes": false,
+								"display-property-grouping": false,
+								"duplicate-background-images": false,
+								"duplicate-properties": false,
+								"empty-rules": false,
+								"errors": false,
+								"fallback-colors": false,
+								"floats": false,
+								"font-faces": false,
+								"font-sizes": false,
+								"gradients": false,
+								"ids": false,
+								"import": false,
+								"important": false,
+								"known-properties": false,
+								"outline-none": false,
+								"overqualified-elements": false,
+								"qualified-headings": false,
+								"regex-selectors": false,
+								"rules-count": false,
+								"shorthand": false,
+								"text-indent": false,
+								"unique-headings": false,
+								"universal-selector": false,
+								"vendor-prefix": false,
+								"zero-units": false
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 0.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

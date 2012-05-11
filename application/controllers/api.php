@@ -33,14 +33,14 @@ class Api extends CI_Controller{
             {
                 $new_region_id = $region->id;
             }
-            $street = $this->Street_model->get_street_by_name($street);
+            $street_obj = $this->Street_model->get_street_by_name($street);
             $new_street_id;
-            if ($street == null) 
+            if ($street_obj == null) 
             {
             	 $new_street_id = $this->Street_model->add_street($street, $street);
             }else
             {
-            	$new_street_id = $street->id;
+            	$new_street_id = $street_obj->id;
             }
 
 			$message_id = $this->Message_model->add_message($content, $user_id, $new_region_id, $latitude, $longitude, $new_street_id);
