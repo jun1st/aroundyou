@@ -25,7 +25,7 @@ $(function(){
         profile_tiny_image_path: "",
         region_name: ""
       };
-    }
+    },
 
   });
 
