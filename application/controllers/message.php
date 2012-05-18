@@ -67,7 +67,7 @@ class Message extends CI_Controller
 		}
 		
 		$count;
-		$data['messages'] = $this->Message_model->get_messages_by_region($region->id, PAGE_SIZE, $page-1, $count);
+		$data['messages'] = $this->Message_model->get_messages_by_region($region->id, PAGE_SIZE, null,$page-1, $count);
 		$data['regions'] = $this->Region_model->get_regions();
 		$data['page_url'] = "messages/inregion/" . urldecode($name) . "?page=";
 		$data['page_count'] = ceil($count / PAGE_SIZE );
@@ -86,7 +86,7 @@ class Message extends CI_Controller
         if(isset($data['message']->region_name))
         {
 		    $region = $this->Region_model->get_region_by_name($data['message']->region_name);
-            $data['region_messages'] = $this->Message_model->get_messages_by_region($region->id, null, null, $region->name);
+            $data['region_messages'] = $this->Message_model->get_messages_by_region($region->id, null, null, null, $region->name);
         }
         if ($data['message'] == null) {
 			echo 'not found';

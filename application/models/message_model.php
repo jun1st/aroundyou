@@ -124,7 +124,7 @@
             return $this->db->get()->result();
         }
 		
-		function get_messages_by_region($region_id, $page_size=NULL, $which_page=NULL, &$count)
+		function get_messages_by_region($region_id, $page_size=NULL, $last_message_id=NULL, $which_page=NULL, &$count)
 		{
 			$this->db->from("messages");
 			$this->db->where('messages.region_id', $region_id);
@@ -136,7 +136,9 @@
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
 			$this->db->where('messages.region_id', $region_id);
-			
+			if (isset($last_message_id) && !empty($last_message_id)) {
+				$this->db->where("messages.id > ", $last_message_id);
+			}
             if (!isset($which_page)) {
                 $which_page = 0;
             }

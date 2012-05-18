@@ -66,6 +66,24 @@ class Api extends CI_Controller{
 		}
 	}
 
+	public function messages_in_region($region)
+	{
+		if (is_null($region) || empty($region)) {
+			$this->output->set_status_header("400");
+			$this->output->set_output("region name cannot be null");
+		}		
+		$this->load->Model("Region_model");
+		$region_obj = $this->Region_model->get_region_by_name($region);
+		if ($region_obj == null) {
+			$this->output->set_status_header("404");
+			$this->output->set_output("region doesn't exists");
+		}
+
+		$data = $this->Message_model->get_messages_by_region($region_obj->id, 50);
+		$this->output->set_content_type('application/json');
+		$this->output->set_output(json_encode($data));
+	}
+
     function login()
     {
         if ($this->input->post()) {
