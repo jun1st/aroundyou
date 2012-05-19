@@ -66,6 +66,23 @@ class Api extends CI_Controller{
 		}
 	}
 
+	public function hot_messages()
+	{
+		$this->load->Model('Message_model');
+		$this->load->Model('Region_model');
+		
+		$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+		if ($page == 0) {
+			$page = 1;
+		}
+		
+		$count = null;
+        $messages = $this->Message_model->get_hot_messages(PAGE_SIZE, $page-1, $count);
+
+        $this->output->set_content_type('application/json');
+		$this->output->set_output(json_encode($messages));
+	}
+
 	public function messages_in_region($region)
 	{
 		if (is_null($region) || empty($region)) {
@@ -73,13 +90,13 @@ class Api extends CI_Controller{
 			$this->output->set_output("region name cannot be null");
 		}		
 		$this->load->Model("Region_model");
-		$region_obj = $this->Region_model->get_region_by_name($region);
+		$region_name = urldecode($region);
+		$region_obj = $this->Region_model->get_region_by_name($region_name);
 		if ($region_obj == null) {
 			$this->output->set_status_header("404");
 			$this->output->set_output("region doesn't exists");
 		}
-
-		$data = $this->Message_model->get_messages_by_region($region_obj->id, 50);
+		$data = $this->Message_model->get_messages_by_region($region_obj->id, 50, null, null, $count);
 		$this->output->set_content_type('application/json');
 		$this->output->set_output(json_encode($data));
 	}

@@ -103,7 +103,9 @@
         //get hot messages
         function get_hot_messages($page_size=NULL, $which_page=NULL, &$count)
         {
-			$count = $this->db->count_all('messages');
+        	if (!is_null($count)) {
+        		$count = $this->db->count_all('messages');
+        	}
 			
 			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time,
 				messages.comments_count, users.id as user_id, users.name as user_name, users.description as user_description, 
