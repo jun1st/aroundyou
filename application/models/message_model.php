@@ -132,11 +132,13 @@
 			$this->db->where('messages.region_id', $region_id);
 			$count = $this->db->count_all_results();
 			
-			$this->db->select("messages.id as message_id, messages.content as content, 
-				messages.posted_time, messages.comments_count, users.id as user_id, users.name as user_name, 
-				users.description as user_description, profile_tiny_image_path");
+			$this->db->select("messages.id as message_id, messages.content as content, messages.posted_time,
+				messages.comments_count, users.id as user_id, users.name as user_name, 
+				users.description as user_description, profile_tiny_image_path, streets.name_cn as street, regions.id as region_id, regions.name as region_name");
 			$this->db->from("messages");
 			$this->db->join("users", 'messages.user_id = users.id');
+			$this->db->join('streets', 'messages.street_id = streets.id');
+			$this->db->join('regions', 'messages.region_id = regions.id', 'left');
 			$this->db->where('messages.region_id', $region_id);
 			if (isset($last_message_id) && !empty($last_message_id)) {
 				$this->db->where("messages.id > ", $last_message_id);
