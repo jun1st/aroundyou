@@ -200,9 +200,12 @@
 		
 		function get_comments_of_message($id)
 		{
-			$query = $this->db->get_where('comments', array('message_id'=>$id));
+			$this->db->select("comments.id, comments.content, comments.posted_time, users.name");
+			$this->db->from("comments");
+			$this->db->join("users", "comments.user_id = users.id");
+			$this->db->where("comments.message_id", $id);
 			
-			return $query->result();
+			return $this->db->get()->result();
 		}
 		
         
