@@ -71,13 +71,8 @@ class Api extends CI_Controller{
 		$this->load->Model('Message_model');
 		$this->load->Model('Region_model');
 		
-		$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-		if ($page == 0) {
-			$page = 1;
-		}
-		
 		$count = null;
-        $messages = $this->Message_model->get_hot_messages(PAGE_SIZE, $page-1, $count);
+        $messages = $this->Message_model->get_hot_messages(PAGE_SIZE, null, $count);
 
         $this->output->set_content_type('application/json');
 		$this->output->set_output(json_encode($messages));

@@ -73,7 +73,7 @@ $route['users/(:num)'] = 'user/get/$1';
 /* API calls */
 $route['api/messages'] = "api/messages";
 $route['api/messagesInRegion/(:any)'] = "api/messages_in_region/$1";
-$route['api/hotMessages'] = "api/hot_messages";
+$route['api/hotMessages/(:num)'] = "api/hot_messages/$1";
 $route['api/message/(:num)'] = "api/message/$1";
 $route['api/comments'] = "api/comments";
 
