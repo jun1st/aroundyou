@@ -106,13 +106,14 @@ class Api extends CI_Controller{
                 $user = $this->User_model->authenticate_user($email, SHA1($password));
                 if($user != null)
                 {
+                	$this->output->set_status_header('200');
                     $this->output->set_content_type('application/json');
                     $this->output->set_output(json_encode($user));
                 }
                 else
                 {
-                	$this->output->set_content_type('application/json');
-                	$this->output->set_output(json_encode(array('error_message' => "Invalid email or password")));	
+                	$this->output->set_status_header('403');
+                	$this->output->set_content_type('application/json');	
                 }
             }
         }
