@@ -29,6 +29,7 @@
 			$message->longitude = $longitude;
 			$message->street_id = $street_id;
 			$message->region_id = $region_id;
+			$message->comments_count = 0;
 
 			$this->db->insert('messages', $message);
 			

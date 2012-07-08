@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"comments",
+				"comments_count"
+			],
+			[
 				"hot",
 				"hot_region"
 			],
@@ -84,18 +88,13 @@
 	"buffers":
 	[
 		{
-			"file": "application/views/Message/message_view_sidebar.php",
+			"contents": "",
+			"file": "/Users/jun1st/Downloads/【东北大炕】【全】作者：不详.rtf",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 482,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/jun1st/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 116,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		}
@@ -180,6 +179,15 @@
 	},
 	"file_history":
 	[
+		"/Users/jun1st/Downloads/【东北大炕】【全】作者：不详.txt",
+		"/Users/Jun1st/Sites/aroundyou/application/views/Message/index.php",
+		"/Users/Jun1st/Sites/aroundyou/application/config/routes.php",
+		"/Users/Jun1st/Sites/aroundyou/application/models/message_model.php",
+		"/Users/Jun1st/Sites/aroundyou/application/models/region_model.php",
+		"/Users/Jun1st/Sites/aroundyou/application/models/user_model.php",
+		"/Users/Jun1st/Sites/aroundyou/application/controllers/api.php",
+		"/Users/jun1st/Sites/aroundyou/application/views/Message/message_view_sidebar.php",
+		"/Users/jun1st/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/jun1st/Sites/aroundyou/application/controllers/region.php",
 		"/Users/jun1st/Sites/aroundyou/application/models/street_model.php",
 		"/Users/jun1st/Sites/aroundyou/application/models/message_model.php",
@@ -196,13 +204,11 @@
 		"/Users/jun1st/Sites/aroundyou/scripts/comment.js",
 		"/Users/jun1st/Sites/aroundyou/application/views/User/view.php",
 		"/Users/jun1st/Sites/aroundyou/application/views/header.php",
-		"/Users/Jun1st/Sites/aroundyou/application/controllers/api.php",
 		"/Users/Jun1st/Sites/aroundyou/application/controllers/region.php",
 		"/Users/Jun1st/Sites/aroundyou/application/controllers/message.php",
 		"/Users/Jun1st/Sites/aroundyou/application/views/Message/view.php",
 		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/Jun1st/Sites/aroundyou/application/views/Message/message_view_sidebar.php",
-		"/Users/Jun1st/Sites/aroundyou/application/models/message_model.php",
 		"/Users/Jun1st/Sites/aroundyou/application/controllers/welcome.php",
 		"/Users/Jun1st/Sites/aroundyou/application/controllers/user.php",
 		"/Users/Jun1st/Downloads/jquery-validation-1.9.0/demo/custom-messages-metadata-demo.html",
@@ -213,7 +219,6 @@
 		"/Users/Jun1st/Sites/aroundyou/css/bootstrap.css",
 		"/Users/Jun1st/Sites/aroundyou/application/views/sidebar.php",
 		"/Users/Jun1st/Sites/aroundyou/application/libraries/My_Session.php",
-		"/Users/Jun1st/Sites/aroundyou/application/models/region_model.php",
 		"/Users/Jun1st/Sites/aroundyou/application/views/topbar.php",
 		"/Users/Jun1st/Sites/aroundyou/application/views/footer.php",
 		"/Users/Jun1st/Sites/aroundyou/scripts/message.js",
@@ -225,7 +230,6 @@
 		"/Users/Jun1st/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/Users/Jun1st/Sites/mustache.js/jquery.mustache.js",
 		"/Users/Jun1st/Sites/aroundyou/application/config/constants.php",
-		"/Users/Jun1st/Sites/aroundyou/application/config/routes.php",
 		"/Users/Jun1st/Sites/aroundyou/application/views/header.php",
 		"/Users/Jun1st/Sites/aroundyou/application/views/User/view.php",
 		"/Users/Jun1st/Sites/mustache.js/wrappers/jquery/mustache.js.pre",
@@ -279,125 +283,15 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "application/views/Message/message_view_sidebar.php",
+					"file": "/Users/jun1st/Downloads/【东北大炕】【全】作者：不详.rtf",
 					"settings":
 					{
-						"buffer_size": 482,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								326,
-								326
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"text-indent": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 0.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"Python Django": "python"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Users/jun1st/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 116,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -465,6 +359,7 @@
 								"trailing": true,
 								"wsh": true
 							},
+							"pep8": true,
 							"pep8_ignore":
 							[
 								"E501"
@@ -492,7 +387,7 @@
 								"Python Django": "python"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

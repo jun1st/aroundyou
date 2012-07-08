@@ -21,7 +21,12 @@
 					<li>
 						<div class="entry">
 							<div class="message">
-								<a href="/message/view/<?php echo $item->message_id; ?>" style="float:right"><span><?php echo is_null($item->comments_count) ? 0 : $item->comments_count; ?></span>条评论</a>
+								<a href="/message/view/<?php echo $item->message_id; ?>" style="float:right">
+										<?php if (is_null($item->comments_count) || $item->comments_count == 0): ?>
+										暂无评论
+										<?php else: ?><span><?php echo $item->comments_count; ?></span>条评论
+										<?php endif ?>
+								</a>	
 								<p><?php echo $item->content; ?>
 									<a href="/message/view/<?php echo $item->message_id; ?>" class="view_link"><i class="icon-share"></i></a>
 								</p>
